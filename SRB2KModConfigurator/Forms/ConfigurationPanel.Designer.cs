@@ -44,15 +44,15 @@ namespace SRB2KModConfigurator
             this.CP_ButtonRefreshFolderLocation = new System.Windows.Forms.Button();
             this.CP_ButtonFileDialog = new System.Windows.Forms.Button();
             this.CP_TableTopBar = new System.Windows.Forms.TableLayoutPanel();
+            this.CP_TableTopBarTools = new System.Windows.Forms.TableLayoutPanel();
+            this.CP_ButtonClearConfiguration = new System.Windows.Forms.Button();
+            this.CP_ButtonOpenConfigFileDialog = new System.Windows.Forms.Button();
+            this.CP_ButtonReturnStarterPage = new System.Windows.Forms.Button();
             this.CP_NiceGroupTargetExecutable = new SRB2KModConfigurator.NiceGroupBox();
             this.CP_TableTargetExecutable = new System.Windows.Forms.TableLayoutPanel();
             this.CP_ButtonFileDialogTargetExecutable = new System.Windows.Forms.Button();
             this.CP_ButtonRefreshTargetExecutable = new System.Windows.Forms.Button();
             this.CP_TextBoxTargetExecutableLocation = new System.Windows.Forms.TextBox();
-            this.CP_TableTopBarTools = new System.Windows.Forms.TableLayoutPanel();
-            this.CP_ButtonClearConfiguration = new System.Windows.Forms.Button();
-            this.CP_ButtonOpenConfigFileDialog = new System.Windows.Forms.Button();
-            this.CP_ButtonReturnStarterPage = new System.Windows.Forms.Button();
             this.CP_MainPanel.SuspendLayout();
             this.CP_ModFolderTable.SuspendLayout();
             this.CP_FolderListPanel.SuspendLayout();
@@ -61,9 +61,9 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupModFolderSettings.SuspendLayout();
             this.CP_TableModFolderSettings.SuspendLayout();
             this.CP_TableTopBar.SuspendLayout();
+            this.CP_TableTopBarTools.SuspendLayout();
             this.CP_NiceGroupTargetExecutable.SuspendLayout();
             this.CP_TableTargetExecutable.SuspendLayout();
-            this.CP_TableTopBarTools.SuspendLayout();
             this.SuspendLayout();
             // 
             // CP_MainPanel
@@ -252,6 +252,7 @@ namespace SRB2KModConfigurator
             this.CP_ButtonRefreshFolderLocation.TabIndex = 1;
             this.CP_ButtonRefreshFolderLocation.Text = "R";
             this.CP_ButtonRefreshFolderLocation.UseVisualStyleBackColor = true;
+            this.CP_ButtonRefreshFolderLocation.Click += new System.EventHandler(this.CP_ButtonRefreshFolderLocation_Click);
             // 
             // CP_ButtonFileDialog
             // 
@@ -262,6 +263,7 @@ namespace SRB2KModConfigurator
             this.CP_ButtonFileDialog.TabIndex = 2;
             this.CP_ButtonFileDialog.Text = "F";
             this.CP_ButtonFileDialog.UseVisualStyleBackColor = true;
+            this.CP_ButtonFileDialog.Click += new System.EventHandler(this.CP_ButtonFileDialog_Click);
             // 
             // CP_TableTopBar
             // 
@@ -279,6 +281,53 @@ namespace SRB2KModConfigurator
             this.CP_TableTopBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.CP_TableTopBar.Size = new System.Drawing.Size(776, 57);
             this.CP_TableTopBar.TabIndex = 5;
+            // 
+            // CP_TableTopBarTools
+            // 
+            this.CP_TableTopBarTools.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CP_TableTopBarTools.ColumnCount = 3;
+            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonClearConfiguration, 0, 0);
+            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonOpenConfigFileDialog, 1, 0);
+            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonReturnStarterPage, 2, 0);
+            this.CP_TableTopBarTools.Location = new System.Drawing.Point(587, 6);
+            this.CP_TableTopBarTools.Name = "CP_TableTopBarTools";
+            this.CP_TableTopBarTools.RowCount = 1;
+            this.CP_TableTopBarTools.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.CP_TableTopBarTools.Size = new System.Drawing.Size(186, 44);
+            this.CP_TableTopBarTools.TabIndex = 1;
+            // 
+            // CP_ButtonClearConfiguration
+            // 
+            this.CP_ButtonClearConfiguration.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CP_ButtonClearConfiguration.Location = new System.Drawing.Point(3, 3);
+            this.CP_ButtonClearConfiguration.Name = "CP_ButtonClearConfiguration";
+            this.CP_ButtonClearConfiguration.Size = new System.Drawing.Size(56, 38);
+            this.CP_ButtonClearConfiguration.TabIndex = 0;
+            this.CP_ButtonClearConfiguration.Text = "E";
+            this.CP_ButtonClearConfiguration.UseVisualStyleBackColor = true;
+            // 
+            // CP_ButtonOpenConfigFileDialog
+            // 
+            this.CP_ButtonOpenConfigFileDialog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CP_ButtonOpenConfigFileDialog.Location = new System.Drawing.Point(65, 3);
+            this.CP_ButtonOpenConfigFileDialog.Name = "CP_ButtonOpenConfigFileDialog";
+            this.CP_ButtonOpenConfigFileDialog.Size = new System.Drawing.Size(56, 38);
+            this.CP_ButtonOpenConfigFileDialog.TabIndex = 1;
+            this.CP_ButtonOpenConfigFileDialog.Text = "O";
+            this.CP_ButtonOpenConfigFileDialog.UseVisualStyleBackColor = true;
+            // 
+            // CP_ButtonReturnStarterPage
+            // 
+            this.CP_ButtonReturnStarterPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CP_ButtonReturnStarterPage.Location = new System.Drawing.Point(127, 3);
+            this.CP_ButtonReturnStarterPage.Name = "CP_ButtonReturnStarterPage";
+            this.CP_ButtonReturnStarterPage.Size = new System.Drawing.Size(56, 38);
+            this.CP_ButtonReturnStarterPage.TabIndex = 2;
+            this.CP_ButtonReturnStarterPage.Text = "<";
+            this.CP_ButtonReturnStarterPage.UseVisualStyleBackColor = true;
             // 
             // CP_NiceGroupTargetExecutable
             // 
@@ -345,53 +394,6 @@ namespace SRB2KModConfigurator
             this.CP_TextBoxTargetExecutableLocation.Size = new System.Drawing.Size(468, 22);
             this.CP_TextBoxTargetExecutableLocation.TabIndex = 0;
             // 
-            // CP_TableTopBarTools
-            // 
-            this.CP_TableTopBarTools.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CP_TableTopBarTools.ColumnCount = 3;
-            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62F));
-            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonClearConfiguration, 0, 0);
-            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonOpenConfigFileDialog, 1, 0);
-            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonReturnStarterPage, 2, 0);
-            this.CP_TableTopBarTools.Location = new System.Drawing.Point(587, 6);
-            this.CP_TableTopBarTools.Name = "CP_TableTopBarTools";
-            this.CP_TableTopBarTools.RowCount = 1;
-            this.CP_TableTopBarTools.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.CP_TableTopBarTools.Size = new System.Drawing.Size(186, 44);
-            this.CP_TableTopBarTools.TabIndex = 1;
-            // 
-            // CP_ButtonClearConfiguration
-            // 
-            this.CP_ButtonClearConfiguration.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CP_ButtonClearConfiguration.Location = new System.Drawing.Point(3, 3);
-            this.CP_ButtonClearConfiguration.Name = "CP_ButtonClearConfiguration";
-            this.CP_ButtonClearConfiguration.Size = new System.Drawing.Size(56, 38);
-            this.CP_ButtonClearConfiguration.TabIndex = 0;
-            this.CP_ButtonClearConfiguration.Text = "E";
-            this.CP_ButtonClearConfiguration.UseVisualStyleBackColor = true;
-            // 
-            // CP_ButtonOpenConfigFileDialog
-            // 
-            this.CP_ButtonOpenConfigFileDialog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CP_ButtonOpenConfigFileDialog.Location = new System.Drawing.Point(65, 3);
-            this.CP_ButtonOpenConfigFileDialog.Name = "CP_ButtonOpenConfigFileDialog";
-            this.CP_ButtonOpenConfigFileDialog.Size = new System.Drawing.Size(56, 38);
-            this.CP_ButtonOpenConfigFileDialog.TabIndex = 1;
-            this.CP_ButtonOpenConfigFileDialog.Text = "O";
-            this.CP_ButtonOpenConfigFileDialog.UseVisualStyleBackColor = true;
-            // 
-            // CP_ButtonReturnStarterPage
-            // 
-            this.CP_ButtonReturnStarterPage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CP_ButtonReturnStarterPage.Location = new System.Drawing.Point(127, 3);
-            this.CP_ButtonReturnStarterPage.Name = "CP_ButtonReturnStarterPage";
-            this.CP_ButtonReturnStarterPage.Size = new System.Drawing.Size(56, 38);
-            this.CP_ButtonReturnStarterPage.TabIndex = 2;
-            this.CP_ButtonReturnStarterPage.Text = "<";
-            this.CP_ButtonReturnStarterPage.UseVisualStyleBackColor = true;
-            // 
             // ConfigurationPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -411,10 +413,10 @@ namespace SRB2KModConfigurator
             this.CP_TableModFolderSettings.ResumeLayout(false);
             this.CP_TableModFolderSettings.PerformLayout();
             this.CP_TableTopBar.ResumeLayout(false);
+            this.CP_TableTopBarTools.ResumeLayout(false);
             this.CP_NiceGroupTargetExecutable.ResumeLayout(false);
             this.CP_TableTargetExecutable.ResumeLayout(false);
             this.CP_TableTargetExecutable.PerformLayout();
-            this.CP_TableTopBarTools.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
