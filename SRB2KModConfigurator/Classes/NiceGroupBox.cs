@@ -45,7 +45,7 @@ namespace SRB2KModConfigurator
             Rectangle boxDimensions = new Rectangle(0, 0, this.Size.Width, this.Size.Height);
             int standardBorderHeightOffset = 2;
 
-            boxDimensions.Y         = (textSize.Height * 0.5f) + _borderHeightOffset - standardBorderHeightOffset;
+            boxDimensions.Y         = (textSize.Height / 2) + _borderHeightOffset - standardBorderHeightOffset;
             boxDimensions.Height    = (boxDimensions.Height - (textSize.Height / 2) - (2 * _borderHeightOffset));
 
             boxDimensions.X         = _borderWidthOffset;
