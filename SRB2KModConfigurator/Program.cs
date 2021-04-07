@@ -17,7 +17,8 @@ namespace SRB2KModConfigurator
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ConfiguratorPanel());
+            //Application.Run(new StarterPage());
+            Application.Run(new ConfigurationPanel());
         }
     }
 }
