@@ -31,6 +31,9 @@ namespace SRB2KModConfigurator
 
             // Tree View
             CP_ModFolderTreeView.CheckBoxes = true;
+            SetModFolderValidationStatus(false);
+
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 
         }
 
@@ -41,6 +44,7 @@ namespace SRB2KModConfigurator
             currentModFolderInfo = null;
             currentSelectedModItems.Clear();
             CP_ModFolderTreeView.Nodes.Clear();
+            SetModFolderValidationStatus(false);
         }
 
         private bool LoadModFolder(string modFolderPathLocation)
@@ -49,12 +53,14 @@ namespace SRB2KModConfigurator
             if (!newModFolderInfo.Exists)
             {
                 // Error Message.
+                SetModFolderValidationStatus(false);
                 return false;
             }
 
             if (currentModFolderInfo != null && currentModFolderInfo == newModFolderInfo)
             {
                 // Ignore.
+                SetModFolderValidationStatus(false);
                 return false;
             }
 
@@ -62,6 +68,7 @@ namespace SRB2KModConfigurator
 
             // Visual
             CP_TextBoxModFolderLocation.Text = modFolderPathLocation;
+            SetModFolderValidationStatus(true);
 
             // Order TreeView to load in data.
             FeedModFolderTreeViewer();
@@ -132,6 +139,15 @@ namespace SRB2KModConfigurator
             {
                 InternalRecursiveFunc(nodeParent);
             }
+        }
+
+        private void SetModFolderValidationStatus(bool isValid)
+        {
+            if (isValid)
+                CP_PictureBoxModFolderValidation.Image = Properties.Resources.spr_checkmark;
+            else
+                CP_PictureBoxModFolderValidation.Image = Properties.Resources.spr_crosss;
+
         }
 
         #endregion // End of region ~ Implementation.

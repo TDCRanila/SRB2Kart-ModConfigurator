@@ -40,9 +40,10 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupLauncherSettings = new SRB2KModConfigurator.NiceGroupBox();
             this.CP_NiceGroupModFolderSettings = new SRB2KModConfigurator.NiceGroupBox();
             this.CP_TableModFolderSettings = new System.Windows.Forms.TableLayoutPanel();
+            this.CP_PictureBoxModFolderValidation = new System.Windows.Forms.PictureBox();
             this.CP_TextBoxModFolderLocation = new System.Windows.Forms.TextBox();
-            this.CP_ButtonRefreshModFolderLocation = new System.Windows.Forms.Button();
             this.CP_ButtonModFolderFileDialog = new System.Windows.Forms.Button();
+            this.CP_ButtonRefreshModFolderLocation = new System.Windows.Forms.Button();
             this.CP_TableTopBar = new System.Windows.Forms.TableLayoutPanel();
             this.CP_TableTopBarTools = new System.Windows.Forms.TableLayoutPanel();
             this.CP_ButtonClearConfiguration = new System.Windows.Forms.Button();
@@ -60,6 +61,7 @@ namespace SRB2KModConfigurator
             this.CP_TableSettings.SuspendLayout();
             this.CP_NiceGroupModFolderSettings.SuspendLayout();
             this.CP_TableModFolderSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CP_PictureBoxModFolderValidation)).BeginInit();
             this.CP_TableTopBar.SuspendLayout();
             this.CP_TableTopBarTools.SuspendLayout();
             this.CP_NiceGroupTargetExecutable.SuspendLayout();
@@ -224,13 +226,15 @@ namespace SRB2KModConfigurator
             // 
             this.CP_TableModFolderSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.CP_TableModFolderSettings.BackColor = System.Drawing.Color.Transparent;
-            this.CP_TableModFolderSettings.ColumnCount = 3;
-            this.CP_TableModFolderSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 357F));
+            this.CP_TableModFolderSettings.ColumnCount = 4;
+            this.CP_TableModFolderSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 328F));
             this.CP_TableModFolderSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.CP_TableModFolderSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.CP_TableModFolderSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.CP_TableModFolderSettings.Controls.Add(this.CP_PictureBoxModFolderValidation, 1, 0);
             this.CP_TableModFolderSettings.Controls.Add(this.CP_TextBoxModFolderLocation, 0, 0);
-            this.CP_TableModFolderSettings.Controls.Add(this.CP_ButtonRefreshModFolderLocation, 1, 0);
-            this.CP_TableModFolderSettings.Controls.Add(this.CP_ButtonModFolderFileDialog, 2, 0);
+            this.CP_TableModFolderSettings.Controls.Add(this.CP_ButtonModFolderFileDialog, 3, 0);
+            this.CP_TableModFolderSettings.Controls.Add(this.CP_ButtonRefreshModFolderLocation, 2, 0);
             this.CP_TableModFolderSettings.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_TableModFolderSettings.ForeColor = System.Drawing.Color.Transparent;
             this.CP_TableModFolderSettings.Location = new System.Drawing.Point(6, 7);
@@ -241,25 +245,26 @@ namespace SRB2KModConfigurator
             this.CP_TableModFolderSettings.Size = new System.Drawing.Size(451, 42);
             this.CP_TableModFolderSettings.TabIndex = 0;
             // 
+            // CP_PictureBoxModFolderValidation
+            // 
+            this.CP_PictureBoxModFolderValidation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CP_PictureBoxModFolderValidation.BackColor = System.Drawing.Color.Transparent;
+            this.CP_PictureBoxModFolderValidation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.CP_PictureBoxModFolderValidation.Image = global::SRB2KModConfigurator.Properties.Resources.spr_checkmark;
+            this.CP_PictureBoxModFolderValidation.Location = new System.Drawing.Point(331, 9);
+            this.CP_PictureBoxModFolderValidation.Name = "CP_PictureBoxModFolderValidation";
+            this.CP_PictureBoxModFolderValidation.Size = new System.Drawing.Size(23, 24);
+            this.CP_PictureBoxModFolderValidation.TabIndex = 1;
+            this.CP_PictureBoxModFolderValidation.TabStop = false;
+            // 
             // CP_TextBoxModFolderLocation
             // 
             this.CP_TextBoxModFolderLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.CP_TextBoxModFolderLocation.Location = new System.Drawing.Point(3, 10);
             this.CP_TextBoxModFolderLocation.Name = "CP_TextBoxModFolderLocation";
-            this.CP_TextBoxModFolderLocation.Size = new System.Drawing.Size(351, 22);
+            this.CP_TextBoxModFolderLocation.Size = new System.Drawing.Size(322, 22);
             this.CP_TextBoxModFolderLocation.TabIndex = 0;
             this.CP_TextBoxModFolderLocation.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CP_TextBoxModFolderLocation_KeyDown);
-            // 
-            // CP_ButtonRefreshModFolderLocation
-            // 
-            this.CP_ButtonRefreshModFolderLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CP_ButtonRefreshModFolderLocation.Location = new System.Drawing.Point(360, 9);
-            this.CP_ButtonRefreshModFolderLocation.Name = "CP_ButtonRefreshModFolderLocation";
-            this.CP_ButtonRefreshModFolderLocation.Size = new System.Drawing.Size(41, 24);
-            this.CP_ButtonRefreshModFolderLocation.TabIndex = 1;
-            this.CP_ButtonRefreshModFolderLocation.Text = "R";
-            this.CP_ButtonRefreshModFolderLocation.UseVisualStyleBackColor = true;
-            this.CP_ButtonRefreshModFolderLocation.Click += new System.EventHandler(this.CP_ButtonRefreshFolderLocation_Click);
             // 
             // CP_ButtonModFolderFileDialog
             // 
@@ -271,6 +276,17 @@ namespace SRB2KModConfigurator
             this.CP_ButtonModFolderFileDialog.Text = "F";
             this.CP_ButtonModFolderFileDialog.UseVisualStyleBackColor = true;
             this.CP_ButtonModFolderFileDialog.Click += new System.EventHandler(this.CP_ButtonModFolderFileDialog_Click);
+            // 
+            // CP_ButtonRefreshModFolderLocation
+            // 
+            this.CP_ButtonRefreshModFolderLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CP_ButtonRefreshModFolderLocation.Location = new System.Drawing.Point(360, 9);
+            this.CP_ButtonRefreshModFolderLocation.Name = "CP_ButtonRefreshModFolderLocation";
+            this.CP_ButtonRefreshModFolderLocation.Size = new System.Drawing.Size(41, 24);
+            this.CP_ButtonRefreshModFolderLocation.TabIndex = 1;
+            this.CP_ButtonRefreshModFolderLocation.Text = "R";
+            this.CP_ButtonRefreshModFolderLocation.UseVisualStyleBackColor = true;
+            this.CP_ButtonRefreshModFolderLocation.Click += new System.EventHandler(this.CP_ButtonRefreshFolderLocation_Click);
             // 
             // CP_TableTopBar
             // 
@@ -422,6 +438,7 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupModFolderSettings.ResumeLayout(false);
             this.CP_TableModFolderSettings.ResumeLayout(false);
             this.CP_TableModFolderSettings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CP_PictureBoxModFolderValidation)).EndInit();
             this.CP_TableTopBar.ResumeLayout(false);
             this.CP_TableTopBarTools.ResumeLayout(false);
             this.CP_NiceGroupTargetExecutable.ResumeLayout(false);
@@ -457,5 +474,6 @@ namespace SRB2KModConfigurator
         private System.Windows.Forms.Button CP_ButtonClearConfiguration;
         private System.Windows.Forms.Button CP_ButtonOpenConfigFileDialog;
         private System.Windows.Forms.Button CP_ButtonReturnStarterPage;
+        private System.Windows.Forms.PictureBox CP_PictureBoxModFolderValidation;
     }
 }
