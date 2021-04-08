@@ -41,8 +41,8 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupModFolderSettings = new SRB2KModConfigurator.NiceGroupBox();
             this.CP_TableModFolderSettings = new System.Windows.Forms.TableLayoutPanel();
             this.CP_TextBoxModFolderLocation = new System.Windows.Forms.TextBox();
-            this.CP_ButtonRefreshFolderLocation = new System.Windows.Forms.Button();
-            this.CP_ButtonFileDialog = new System.Windows.Forms.Button();
+            this.CP_ButtonRefreshModFolderLocation = new System.Windows.Forms.Button();
+            this.CP_ButtonModFolderFileDialog = new System.Windows.Forms.Button();
             this.CP_TableTopBar = new System.Windows.Forms.TableLayoutPanel();
             this.CP_TableTopBarTools = new System.Windows.Forms.TableLayoutPanel();
             this.CP_ButtonClearConfiguration = new System.Windows.Forms.Button();
@@ -110,12 +110,18 @@ namespace SRB2KModConfigurator
             // 
             // CP_ModFolderTreeView
             // 
-            this.CP_ModFolderTreeView.BackColor = System.Drawing.Color.DimGray;
+            this.CP_ModFolderTreeView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.CP_ModFolderTreeView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CP_ModFolderTreeView.CheckBoxes = true;
             this.CP_ModFolderTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CP_ModFolderTreeView.Font = new System.Drawing.Font("envypn7x15", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CP_ModFolderTreeView.ForeColor = System.Drawing.Color.White;
+            this.CP_ModFolderTreeView.LineColor = System.Drawing.Color.White;
             this.CP_ModFolderTreeView.Location = new System.Drawing.Point(4, 4);
             this.CP_ModFolderTreeView.Name = "CP_ModFolderTreeView";
             this.CP_ModFolderTreeView.Size = new System.Drawing.Size(455, 591);
             this.CP_ModFolderTreeView.TabIndex = 0;
+            this.CP_ModFolderTreeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.CP_ModFolderTreeView_AfterCheck);
             // 
             // CP_SettingsView
             // 
@@ -223,8 +229,8 @@ namespace SRB2KModConfigurator
             this.CP_TableModFolderSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.CP_TableModFolderSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.CP_TableModFolderSettings.Controls.Add(this.CP_TextBoxModFolderLocation, 0, 0);
-            this.CP_TableModFolderSettings.Controls.Add(this.CP_ButtonRefreshFolderLocation, 1, 0);
-            this.CP_TableModFolderSettings.Controls.Add(this.CP_ButtonFileDialog, 2, 0);
+            this.CP_TableModFolderSettings.Controls.Add(this.CP_ButtonRefreshModFolderLocation, 1, 0);
+            this.CP_TableModFolderSettings.Controls.Add(this.CP_ButtonModFolderFileDialog, 2, 0);
             this.CP_TableModFolderSettings.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_TableModFolderSettings.ForeColor = System.Drawing.Color.Transparent;
             this.CP_TableModFolderSettings.Location = new System.Drawing.Point(6, 7);
@@ -242,28 +248,29 @@ namespace SRB2KModConfigurator
             this.CP_TextBoxModFolderLocation.Name = "CP_TextBoxModFolderLocation";
             this.CP_TextBoxModFolderLocation.Size = new System.Drawing.Size(351, 22);
             this.CP_TextBoxModFolderLocation.TabIndex = 0;
+            this.CP_TextBoxModFolderLocation.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CP_TextBoxModFolderLocation_KeyDown);
             // 
-            // CP_ButtonRefreshFolderLocation
+            // CP_ButtonRefreshModFolderLocation
             // 
-            this.CP_ButtonRefreshFolderLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CP_ButtonRefreshFolderLocation.Location = new System.Drawing.Point(360, 9);
-            this.CP_ButtonRefreshFolderLocation.Name = "CP_ButtonRefreshFolderLocation";
-            this.CP_ButtonRefreshFolderLocation.Size = new System.Drawing.Size(41, 24);
-            this.CP_ButtonRefreshFolderLocation.TabIndex = 1;
-            this.CP_ButtonRefreshFolderLocation.Text = "R";
-            this.CP_ButtonRefreshFolderLocation.UseVisualStyleBackColor = true;
-            this.CP_ButtonRefreshFolderLocation.Click += new System.EventHandler(this.CP_ButtonRefreshFolderLocation_Click);
+            this.CP_ButtonRefreshModFolderLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CP_ButtonRefreshModFolderLocation.Location = new System.Drawing.Point(360, 9);
+            this.CP_ButtonRefreshModFolderLocation.Name = "CP_ButtonRefreshModFolderLocation";
+            this.CP_ButtonRefreshModFolderLocation.Size = new System.Drawing.Size(41, 24);
+            this.CP_ButtonRefreshModFolderLocation.TabIndex = 1;
+            this.CP_ButtonRefreshModFolderLocation.Text = "R";
+            this.CP_ButtonRefreshModFolderLocation.UseVisualStyleBackColor = true;
+            this.CP_ButtonRefreshModFolderLocation.Click += new System.EventHandler(this.CP_ButtonRefreshFolderLocation_Click);
             // 
-            // CP_ButtonFileDialog
+            // CP_ButtonModFolderFileDialog
             // 
-            this.CP_ButtonFileDialog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CP_ButtonFileDialog.Location = new System.Drawing.Point(407, 9);
-            this.CP_ButtonFileDialog.Name = "CP_ButtonFileDialog";
-            this.CP_ButtonFileDialog.Size = new System.Drawing.Size(41, 24);
-            this.CP_ButtonFileDialog.TabIndex = 2;
-            this.CP_ButtonFileDialog.Text = "F";
-            this.CP_ButtonFileDialog.UseVisualStyleBackColor = true;
-            this.CP_ButtonFileDialog.Click += new System.EventHandler(this.CP_ButtonFileDialog_Click);
+            this.CP_ButtonModFolderFileDialog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CP_ButtonModFolderFileDialog.Location = new System.Drawing.Point(407, 9);
+            this.CP_ButtonModFolderFileDialog.Name = "CP_ButtonModFolderFileDialog";
+            this.CP_ButtonModFolderFileDialog.Size = new System.Drawing.Size(41, 24);
+            this.CP_ButtonModFolderFileDialog.TabIndex = 2;
+            this.CP_ButtonModFolderFileDialog.Text = "F";
+            this.CP_ButtonModFolderFileDialog.UseVisualStyleBackColor = true;
+            this.CP_ButtonModFolderFileDialog.Click += new System.EventHandler(this.CP_ButtonModFolderFileDialog_Click);
             // 
             // CP_TableTopBar
             // 
@@ -401,10 +408,12 @@ namespace SRB2KModConfigurator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.CP_MainPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "ConfigurationPanel";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "ConfigurationPanel";
+            this.Load += new System.EventHandler(this.ConfigurationPanel_Load);
             this.CP_MainPanel.ResumeLayout(false);
             this.CP_ModFolderTable.ResumeLayout(false);
             this.CP_FolderListPanel.ResumeLayout(false);
@@ -436,8 +445,8 @@ namespace SRB2KModConfigurator
         private NiceGroupBox CP_NiceGroupServerSettings;
         private System.Windows.Forms.TableLayoutPanel CP_TableModFolderSettings;
         private System.Windows.Forms.TextBox CP_TextBoxModFolderLocation;
-        private System.Windows.Forms.Button CP_ButtonRefreshFolderLocation;
-        private System.Windows.Forms.Button CP_ButtonFileDialog;
+        private System.Windows.Forms.Button CP_ButtonRefreshModFolderLocation;
+        private System.Windows.Forms.Button CP_ButtonModFolderFileDialog;
         private System.Windows.Forms.TextBox CP_TextBoxTargetExecutableLocation;
         private System.Windows.Forms.TableLayoutPanel CP_TableTopBar;
         private NiceGroupBox CP_NiceGroupTargetExecutable;
