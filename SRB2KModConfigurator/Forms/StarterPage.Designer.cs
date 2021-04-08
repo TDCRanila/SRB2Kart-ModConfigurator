@@ -31,18 +31,18 @@ namespace SRB2KModConfigurator
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StarterPage));
             this.SP_MainPanel = new System.Windows.Forms.Panel();
+            this.SP_TableLaunchOptions = new System.Windows.Forms.TableLayoutPanel();
+            this.SP_ButtonLaunchFileDialog = new System.Windows.Forms.Button();
+            this.SP_ButtonLaunchConfig = new System.Windows.Forms.Button();
             this.SP_LabelTitle = new System.Windows.Forms.Label();
             this.SP_TableMainOptions = new System.Windows.Forms.TableLayoutPanel();
             this.SP_ButtonCredits = new System.Windows.Forms.Button();
             this.SP_ButtonEditConfig = new System.Windows.Forms.Button();
             this.SP_ButtonNewConfig = new System.Windows.Forms.Button();
-            this.SP_TableLaunchOptions = new System.Windows.Forms.TableLayoutPanel();
-            this.SP_ButtonLaunchConfig = new System.Windows.Forms.Button();
-            this.SP_SwitchPanel = new System.Windows.Forms.Panel();
-            this.SP_ButtonLaunchFileDialog = new System.Windows.Forms.Button();
+            this.SP_ChildPanel = new System.Windows.Forms.Panel();
             this.SP_MainPanel.SuspendLayout();
-            this.SP_TableMainOptions.SuspendLayout();
             this.SP_TableLaunchOptions.SuspendLayout();
+            this.SP_TableMainOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // SP_MainPanel
@@ -51,12 +51,52 @@ namespace SRB2KModConfigurator
             this.SP_MainPanel.Controls.Add(this.SP_TableLaunchOptions);
             this.SP_MainPanel.Controls.Add(this.SP_LabelTitle);
             this.SP_MainPanel.Controls.Add(this.SP_TableMainOptions);
-            this.SP_MainPanel.Controls.Add(this.SP_SwitchPanel);
+            this.SP_MainPanel.Controls.Add(this.SP_ChildPanel);
             this.SP_MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SP_MainPanel.Location = new System.Drawing.Point(0, 0);
             this.SP_MainPanel.Name = "SP_MainPanel";
             this.SP_MainPanel.Size = new System.Drawing.Size(1264, 681);
             this.SP_MainPanel.TabIndex = 0;
+            // 
+            // SP_TableLaunchOptions
+            // 
+            this.SP_TableLaunchOptions.ColumnCount = 4;
+            this.SP_TableLaunchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.35394F));
+            this.SP_TableLaunchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 545F));
+            this.SP_TableLaunchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.SP_TableLaunchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 303F));
+            this.SP_TableLaunchOptions.Controls.Add(this.SP_ButtonLaunchFileDialog, 2, 0);
+            this.SP_TableLaunchOptions.Controls.Add(this.SP_ButtonLaunchConfig, 1, 0);
+            this.SP_TableLaunchOptions.Location = new System.Drawing.Point(12, 409);
+            this.SP_TableLaunchOptions.Name = "SP_TableLaunchOptions";
+            this.SP_TableLaunchOptions.RowCount = 1;
+            this.SP_TableLaunchOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SP_TableLaunchOptions.Size = new System.Drawing.Size(1240, 50);
+            this.SP_TableLaunchOptions.TabIndex = 2;
+            // 
+            // SP_ButtonLaunchFileDialog
+            // 
+            this.SP_ButtonLaunchFileDialog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SP_ButtonLaunchFileDialog.Font = new System.Drawing.Font("envypn7x15", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SP_ButtonLaunchFileDialog.Location = new System.Drawing.Point(888, 3);
+            this.SP_ButtonLaunchFileDialog.Name = "SP_ButtonLaunchFileDialog";
+            this.SP_ButtonLaunchFileDialog.Size = new System.Drawing.Size(46, 44);
+            this.SP_ButtonLaunchFileDialog.TabIndex = 4;
+            this.SP_ButtonLaunchFileDialog.Text = "V";
+            this.SP_ButtonLaunchFileDialog.UseVisualStyleBackColor = true;
+            // 
+            // SP_ButtonLaunchConfig
+            // 
+            this.SP_ButtonLaunchConfig.BackColor = System.Drawing.Color.Transparent;
+            this.SP_ButtonLaunchConfig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SP_ButtonLaunchConfig.FlatAppearance.BorderSize = 10;
+            this.SP_ButtonLaunchConfig.Font = new System.Drawing.Font("envypn7x15", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SP_ButtonLaunchConfig.Location = new System.Drawing.Point(343, 3);
+            this.SP_ButtonLaunchConfig.Name = "SP_ButtonLaunchConfig";
+            this.SP_ButtonLaunchConfig.Size = new System.Drawing.Size(539, 44);
+            this.SP_ButtonLaunchConfig.TabIndex = 2;
+            this.SP_ButtonLaunchConfig.Text = "Launch Configuration";
+            this.SP_ButtonLaunchConfig.UseVisualStyleBackColor = false;
             // 
             // SP_LabelTitle
             // 
@@ -121,56 +161,17 @@ namespace SRB2KModConfigurator
             this.SP_ButtonNewConfig.TabIndex = 1;
             this.SP_ButtonNewConfig.Text = "New Configuration";
             this.SP_ButtonNewConfig.UseVisualStyleBackColor = true;
+            this.SP_ButtonNewConfig.Click += new System.EventHandler(this.SP_ButtonNewConfig_Click);
             // 
-            // SP_TableLaunchOptions
+            // SP_ChildPanel
             // 
-            this.SP_TableLaunchOptions.ColumnCount = 4;
-            this.SP_TableLaunchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.35394F));
-            this.SP_TableLaunchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 545F));
-            this.SP_TableLaunchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.SP_TableLaunchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 303F));
-            this.SP_TableLaunchOptions.Controls.Add(this.SP_ButtonLaunchFileDialog, 2, 0);
-            this.SP_TableLaunchOptions.Controls.Add(this.SP_ButtonLaunchConfig, 1, 0);
-            this.SP_TableLaunchOptions.Location = new System.Drawing.Point(12, 409);
-            this.SP_TableLaunchOptions.Name = "SP_TableLaunchOptions";
-            this.SP_TableLaunchOptions.RowCount = 1;
-            this.SP_TableLaunchOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SP_TableLaunchOptions.Size = new System.Drawing.Size(1240, 50);
-            this.SP_TableLaunchOptions.TabIndex = 2;
-            // 
-            // SP_ButtonLaunchConfig
-            // 
-            this.SP_ButtonLaunchConfig.BackColor = System.Drawing.Color.Transparent;
-            this.SP_ButtonLaunchConfig.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SP_ButtonLaunchConfig.FlatAppearance.BorderSize = 10;
-            this.SP_ButtonLaunchConfig.Font = new System.Drawing.Font("envypn7x15", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SP_ButtonLaunchConfig.Location = new System.Drawing.Point(343, 3);
-            this.SP_ButtonLaunchConfig.Name = "SP_ButtonLaunchConfig";
-            this.SP_ButtonLaunchConfig.Size = new System.Drawing.Size(539, 44);
-            this.SP_ButtonLaunchConfig.TabIndex = 2;
-            this.SP_ButtonLaunchConfig.Text = "Launch Configuration";
-            this.SP_ButtonLaunchConfig.UseVisualStyleBackColor = false;
-            // 
-            // SP_SwitchPanel
-            // 
-            this.SP_SwitchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SP_SwitchPanel.Location = new System.Drawing.Point(0, 0);
-            this.SP_SwitchPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.SP_SwitchPanel.Name = "SP_SwitchPanel";
-            this.SP_SwitchPanel.Size = new System.Drawing.Size(1264, 681);
-            this.SP_SwitchPanel.TabIndex = 3;
-            this.SP_SwitchPanel.Visible = false;
-            // 
-            // SP_ButtonLaunchFileDialog
-            // 
-            this.SP_ButtonLaunchFileDialog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SP_ButtonLaunchFileDialog.Font = new System.Drawing.Font("envypn7x15", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SP_ButtonLaunchFileDialog.Location = new System.Drawing.Point(888, 3);
-            this.SP_ButtonLaunchFileDialog.Name = "SP_ButtonLaunchFileDialog";
-            this.SP_ButtonLaunchFileDialog.Size = new System.Drawing.Size(46, 44);
-            this.SP_ButtonLaunchFileDialog.TabIndex = 4;
-            this.SP_ButtonLaunchFileDialog.Text = "V";
-            this.SP_ButtonLaunchFileDialog.UseVisualStyleBackColor = true;
+            this.SP_ChildPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SP_ChildPanel.Location = new System.Drawing.Point(0, 0);
+            this.SP_ChildPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.SP_ChildPanel.Name = "SP_ChildPanel";
+            this.SP_ChildPanel.Size = new System.Drawing.Size(1264, 681);
+            this.SP_ChildPanel.TabIndex = 3;
+            this.SP_ChildPanel.Visible = false;
             // 
             // StarterPage
             // 
@@ -179,12 +180,13 @@ namespace SRB2KModConfigurator
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.SP_MainPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "StarterPage";
             this.Text = "StarterPage";
             this.SP_MainPanel.ResumeLayout(false);
             this.SP_MainPanel.PerformLayout();
-            this.SP_TableMainOptions.ResumeLayout(false);
             this.SP_TableLaunchOptions.ResumeLayout(false);
+            this.SP_TableMainOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -199,7 +201,7 @@ namespace SRB2KModConfigurator
         private System.Windows.Forms.Button SP_ButtonCredits;
         private System.Windows.Forms.TableLayoutPanel SP_TableLaunchOptions;
         private System.Windows.Forms.Button SP_ButtonLaunchConfig;
-        private System.Windows.Forms.Panel SP_SwitchPanel;
+        private System.Windows.Forms.Panel SP_ChildPanel;
         private System.Windows.Forms.Button SP_ButtonLaunchFileDialog;
     }
 }

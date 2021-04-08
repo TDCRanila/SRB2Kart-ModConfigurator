@@ -328,6 +328,7 @@ namespace SRB2KModConfigurator
             this.CP_ButtonReturnStarterPage.TabIndex = 2;
             this.CP_ButtonReturnStarterPage.Text = "<";
             this.CP_ButtonReturnStarterPage.UseVisualStyleBackColor = true;
+            this.CP_ButtonReturnStarterPage.Click += new System.EventHandler(this.CP_ButtonReturnStarterPage_Click);
             // 
             // CP_NiceGroupTargetExecutable
             // 

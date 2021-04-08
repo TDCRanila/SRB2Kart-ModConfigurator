@@ -17,6 +17,23 @@ namespace SRB2KModConfigurator
             InitializeComponent();
         }
 
+        private StarterPage parentPageRef;
+        private void ConfigurationPanel_Load(object sender, EventArgs e)
+        {
+            parentPageRef           = (StarterPage)this.ParentForm;
+        }
+        #region Callbacks
+        private void CP_ButtonReturnStarterPage_Click(object sender, EventArgs e)
+        {
+            if (parentPageRef != null)
+            {
+                StarterPage starterPageRef = (StarterPage)this.ParentForm;
+                starterPageRef.ShowStarterPageElements();
+            }
+
+            this.Close();
+        }
+
         private void CP_ModFolderTopTable_Paint(object sender, PaintEventArgs e)
         {
 
@@ -44,5 +61,7 @@ namespace SRB2KModConfigurator
             // get all the directories in selected dirctory
             var dirs = openFolder.FileNames.ToArray();
         }
+#endregion
+
     }
 }
