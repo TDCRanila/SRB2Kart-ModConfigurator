@@ -22,13 +22,19 @@ namespace SRB2KModConfigurator
 
         private DirectoryInfo currentModFolderInfo;
         private Dictionary<TreeNode, string> currentSelectedModItems;
-        
+        private FileInfo currentTargetExecutableInfo;
+        private string currentTargetExecutable;
+
         private void ConfigurationPanel_Load(object sender, EventArgs e)
         {
-            parentPageRef           = (StarterPage)this.ParentForm;
-            currentModFolderInfo    = null;
-            currentSelectedModItems = new Dictionary<TreeNode, string>();
+            parentPageRef               = (StarterPage)this.ParentForm;
+            currentModFolderInfo        = null;
+            currentSelectedModItems     = new Dictionary<TreeNode, string>();
+            currentTargetExecutableInfo = null;
+            currentTargetExecutable     = "";
 
+        SetTargetExecutableValidationStatus(false);
+            
             // Tree View
             CP_ModFolderTreeView.CheckBoxes = true;
             SetModFolderValidationStatus(false);
@@ -37,7 +43,14 @@ namespace SRB2KModConfigurator
 
         }
 
-        #region Implementation
+        #region Implementation - User Interface
+
+        private void ClearTargetExecutableInfo()
+        {
+            currentTargetExecutableInfo = null;
+            currentTargetExecutable     = "";
+            SetTargetExecutableValidationStatus(false);
+    }
 
         private void ClearModFolder()
         {
@@ -45,6 +58,42 @@ namespace SRB2KModConfigurator
             currentSelectedModItems.Clear();
             CP_ModFolderTreeView.Nodes.Clear();
             SetModFolderValidationStatus(false);
+        }
+
+        private bool LoadTargetExecutableInfo(string targetExecutablePathLocation)
+        {
+            FileInfo newFileInfo = new FileInfo(targetExecutablePathLocation);
+            if (!newFileInfo.Exists)
+            {
+                // Error Message.
+                SetTargetExecutableValidationStatus(false);
+                return false;
+            }
+
+            if (currentTargetExecutableInfo != null && currentTargetExecutableInfo == newFileInfo)
+            {
+                // Ignore.
+                SetTargetExecutableValidationStatus(false);
+                return false;
+            }
+
+            string textPath = targetExecutablePathLocation;
+            bool isValidEntry   = textPath.Any() && textPath.Contains(".exe", StringComparison.InvariantCultureIgnoreCase);
+            if (!isValidEntry)
+            {
+                // Error Message
+                SetTargetExecutableValidationStatus(false);
+                return false;
+            }
+
+            currentTargetExecutableInfo = newFileInfo;
+            currentTargetExecutable     = targetExecutablePathLocation;
+
+            // Visual
+            CP_TextBoxTargetExecutableLocation.Text = targetExecutablePathLocation;
+            SetTargetExecutableValidationStatus(true);
+            
+            return true;
         }
 
         private bool LoadModFolder(string modFolderPathLocation)
@@ -141,17 +190,37 @@ namespace SRB2KModConfigurator
             }
         }
 
+        private void SetTargetExecutableValidationStatus(bool isValid)
+        {
+            if (isValid)
+                CP_PictureBoxTargetExecutableValidation.Image = Properties.Resources.spr_checkmark;
+            else
+                CP_PictureBoxTargetExecutableValidation.Image = Properties.Resources.spr_crosss;
+        }
+
         private void SetModFolderValidationStatus(bool isValid)
         {
             if (isValid)
                 CP_PictureBoxModFolderValidation.Image = Properties.Resources.spr_checkmark;
             else
                 CP_PictureBoxModFolderValidation.Image = Properties.Resources.spr_crosss;
+        }
+
+        #endregion // End of region ~ Implementation. - 
+
+        #region Implementation - Exporting & Saving
+
+        private void SaveConfiguration()
+        {
 
         }
 
-        #endregion // End of region ~ Implementation.
+        private void ExportConfiguration()
+        {
 
+        }
+
+        #endregion
 
         #region Callbacks
         private void CP_ButtonReturnStarterPage_Click(object sender, EventArgs e)
@@ -165,12 +234,61 @@ namespace SRB2KModConfigurator
             this.Close();
         }
 
-        private void CP_TextBoxModFolderLocation_KeyDown(object sender, KeyEventArgs e)
+        private void CP_TextBoxTargetExecutableLocation_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                LoadModFolder(CP_TextBoxModFolderLocation.Text);
+                var textBox         = CP_TextBoxTargetExecutableLocation;
+                bool isValidEntry   = textBox.Text.Any() && textBox.Text.Contains(".exe", StringComparison.InvariantCultureIgnoreCase);
+                SetTargetExecutableValidationStatus(isValidEntry);
             }
+        }
+
+        private void CP_ButtonRefreshTargetExecutable_Click(object sender, EventArgs e)
+        {
+            var textBox = CP_TextBoxTargetExecutableLocation;
+            bool isValidEntry = textBox.Text.Any() && textBox.Text.Contains(".exe", StringComparison.InvariantCultureIgnoreCase);
+            SetTargetExecutableValidationStatus(isValidEntry);
+        }
+
+        private void CP_ButtonFileDialogTargetExecutable_Click(object sender, EventArgs e)
+        {
+            var targetExecutableFileDialog = new CommonOpenFileDialog();
+
+            var exeFilter = new CommonFileDialogFilter("EXE Files", "*.exe");
+            var allFilter = new CommonFileDialogFilter("All Files", "*.*");
+            targetExecutableFileDialog.Filters.Add(exeFilter);
+            targetExecutableFileDialog.Filters.Add(allFilter);
+            
+            targetExecutableFileDialog.Title = "Select your SRB2Kart EXE.";
+            targetExecutableFileDialog.IsFolderPicker = false;
+            targetExecutableFileDialog.AllowNonFileSystemItems = false;
+            targetExecutableFileDialog.Multiselect = false;
+            targetExecutableFileDialog.AllowPropertyEditing = true;
+            targetExecutableFileDialog.EnsurePathExists = true;
+
+            if (targetExecutableFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
+            {
+                return;
+            }
+            else
+            {
+                string[] files = targetExecutableFileDialog.FileNames.ToArray();
+
+                LoadTargetExecutableInfo(files[0]);
+            }
+        }
+        
+        private void CP_TextBoxModFolderLocation_KeyDown(object sender, KeyEventArgs e)
+        {
+           if (e.KeyCode == Keys.Enter)
+           { 
+                if (CP_TextBoxModFolderLocation.Text.Any())
+                {
+                    ClearModFolder();
+                    LoadModFolder(CP_TextBoxModFolderLocation.Text);
+                }
+           }
         }
 
         private void CP_ButtonRefreshFolderLocation_Click(object sender, EventArgs e)
@@ -186,6 +304,7 @@ namespace SRB2KModConfigurator
             modFolderFileDialog.IsFolderPicker          = true;
             modFolderFileDialog.AllowNonFileSystemItems = false;
             modFolderFileDialog.Multiselect             = false;
+            modFolderFileDialog.AllowPropertyEditing    = true;
             modFolderFileDialog.EnsurePathExists        = true;
 
             if (modFolderFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
@@ -193,10 +312,10 @@ namespace SRB2KModConfigurator
                 return;
             }
             else 
-            { 
+            {
                 string[] directory = modFolderFileDialog.FileNames.ToArray();
 
-                LoadModFolder(directory[0]);            
+                LoadModFolder(directory[0]);
             }
         }
 
@@ -226,7 +345,6 @@ namespace SRB2KModConfigurator
         }
 
         #endregion // End of region ~ Callbacks.
-
     }
 
 }
