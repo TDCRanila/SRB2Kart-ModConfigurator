@@ -46,8 +46,8 @@ namespace SRB2KModConfigurator
             this.CP_ButtonRefreshModFolderLocation = new System.Windows.Forms.Button();
             this.CP_TableTopBar = new System.Windows.Forms.TableLayoutPanel();
             this.CP_TableTopBarTools = new System.Windows.Forms.TableLayoutPanel();
-            this.CP_ButtonClearConfiguration = new System.Windows.Forms.Button();
-            this.CP_ButtonOpenConfigFileDialog = new System.Windows.Forms.Button();
+            this.CP_ButtonSaveConfiguration = new System.Windows.Forms.Button();
+            this.CP_ButtonExportConfigFileDialog = new System.Windows.Forms.Button();
             this.CP_ButtonReturnStarterPage = new System.Windows.Forms.Button();
             this.CP_NiceGroupTargetExecutable = new SRB2KModConfigurator.NiceGroupBox();
             this.CP_TableTargetExecutable = new System.Windows.Forms.TableLayoutPanel();
@@ -314,8 +314,8 @@ namespace SRB2KModConfigurator
             this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62F));
-            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonClearConfiguration, 0, 0);
-            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonOpenConfigFileDialog, 1, 0);
+            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonSaveConfiguration, 0, 0);
+            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonExportConfigFileDialog, 1, 0);
             this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonReturnStarterPage, 2, 0);
             this.CP_TableTopBarTools.Location = new System.Drawing.Point(587, 6);
             this.CP_TableTopBarTools.Name = "CP_TableTopBarTools";
@@ -353,7 +353,7 @@ namespace SRB2KModConfigurator
             this.CP_ButtonReturnStarterPage.Name = "CP_ButtonReturnStarterPage";
             this.CP_ButtonReturnStarterPage.Size = new System.Drawing.Size(56, 38);
             this.CP_ButtonReturnStarterPage.TabIndex = 2;
-            this.CP_ButtonReturnStarterPage.Text = "<";
+            this.CP_ButtonReturnStarterPage.Text = "Return";
             this.CP_ButtonReturnStarterPage.UseVisualStyleBackColor = true;
             this.CP_ButtonReturnStarterPage.Click += new System.EventHandler(this.CP_ButtonReturnStarterPage_Click);
             // 
@@ -368,6 +368,7 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupTargetExecutable.ForeColor = System.Drawing.Color.White;
             this.CP_NiceGroupTargetExecutable.Location = new System.Drawing.Point(9, 3);
             this.CP_NiceGroupTargetExecutable.Name = "CP_NiceGroupTargetExecutable";
+            this.CP_NiceGroupTargetExecutable.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.CP_NiceGroupTargetExecutable.Size = new System.Drawing.Size(572, 51);
             this.CP_NiceGroupTargetExecutable.TabIndex = 0;
             this.CP_NiceGroupTargetExecutable.TabStop = false;
@@ -387,7 +388,7 @@ namespace SRB2KModConfigurator
             this.CP_TableTargetExecutable.Controls.Add(this.CP_ButtonRefreshTargetExecutable, 2, 0);
             this.CP_TableTargetExecutable.Location = new System.Drawing.Point(3, 7);
             this.CP_TableTargetExecutable.Name = "CP_TableTargetExecutable";
-            this.CP_TableTargetExecutable.Padding = new System.Windows.Forms.Padding(2);
+            this.CP_TableTargetExecutable.Padding = new System.Windows.Forms.Padding(2, 0, 2, 1);
             this.CP_TableTargetExecutable.RowCount = 1;
             this.CP_TableTargetExecutable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.CP_TableTargetExecutable.Size = new System.Drawing.Size(565, 44);
@@ -399,7 +400,7 @@ namespace SRB2KModConfigurator
             this.CP_PictureBoxTargetExecutableValidation.BackColor = System.Drawing.Color.Transparent;
             this.CP_PictureBoxTargetExecutableValidation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CP_PictureBoxTargetExecutableValidation.Image = global::SRB2KModConfigurator.Properties.Resources.spr_checkmark;
-            this.CP_PictureBoxTargetExecutableValidation.Location = new System.Drawing.Point(439, 10);
+            this.CP_PictureBoxTargetExecutableValidation.Location = new System.Drawing.Point(439, 9);
             this.CP_PictureBoxTargetExecutableValidation.Name = "CP_PictureBoxTargetExecutableValidation";
             this.CP_PictureBoxTargetExecutableValidation.Size = new System.Drawing.Size(24, 24);
             this.CP_PictureBoxTargetExecutableValidation.TabIndex = 4;
@@ -408,7 +409,7 @@ namespace SRB2KModConfigurator
             // CP_TextBoxTargetExecutableLocation
             // 
             this.CP_TextBoxTargetExecutableLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CP_TextBoxTargetExecutableLocation.Location = new System.Drawing.Point(6, 11);
+            this.CP_TextBoxTargetExecutableLocation.Location = new System.Drawing.Point(6, 10);
             this.CP_TextBoxTargetExecutableLocation.Margin = new System.Windows.Forms.Padding(4);
             this.CP_TextBoxTargetExecutableLocation.Name = "CP_TextBoxTargetExecutableLocation";
             this.CP_TextBoxTargetExecutableLocation.Size = new System.Drawing.Size(426, 22);
@@ -418,10 +419,10 @@ namespace SRB2KModConfigurator
             // CP_ButtonFileDialogTargetExecutable
             // 
             this.CP_ButtonFileDialogTargetExecutable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CP_ButtonFileDialogTargetExecutable.Location = new System.Drawing.Point(516, 11);
+            this.CP_ButtonFileDialogTargetExecutable.Location = new System.Drawing.Point(516, 9);
             this.CP_ButtonFileDialogTargetExecutable.MinimumSize = new System.Drawing.Size(39, 22);
             this.CP_ButtonFileDialogTargetExecutable.Name = "CP_ButtonFileDialogTargetExecutable";
-            this.CP_ButtonFileDialogTargetExecutable.Size = new System.Drawing.Size(44, 22);
+            this.CP_ButtonFileDialogTargetExecutable.Size = new System.Drawing.Size(44, 24);
             this.CP_ButtonFileDialogTargetExecutable.TabIndex = 3;
             this.CP_ButtonFileDialogTargetExecutable.Text = "F";
             this.CP_ButtonFileDialogTargetExecutable.UseVisualStyleBackColor = true;
@@ -430,11 +431,11 @@ namespace SRB2KModConfigurator
             // CP_ButtonRefreshTargetExecutable
             // 
             this.CP_ButtonRefreshTargetExecutable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CP_ButtonRefreshTargetExecutable.Location = new System.Drawing.Point(468, 11);
+            this.CP_ButtonRefreshTargetExecutable.Location = new System.Drawing.Point(468, 9);
             this.CP_ButtonRefreshTargetExecutable.Margin = new System.Windows.Forms.Padding(1);
             this.CP_ButtonRefreshTargetExecutable.MinimumSize = new System.Drawing.Size(39, 22);
             this.CP_ButtonRefreshTargetExecutable.Name = "CP_ButtonRefreshTargetExecutable";
-            this.CP_ButtonRefreshTargetExecutable.Size = new System.Drawing.Size(44, 22);
+            this.CP_ButtonRefreshTargetExecutable.Size = new System.Drawing.Size(44, 24);
             this.CP_ButtonRefreshTargetExecutable.TabIndex = 2;
             this.CP_ButtonRefreshTargetExecutable.Text = "R";
             this.CP_ButtonRefreshTargetExecutable.UseVisualStyleBackColor = true;
@@ -494,8 +495,8 @@ namespace SRB2KModConfigurator
         private System.Windows.Forms.Button CP_ButtonFileDialogTargetExecutable;
         private System.Windows.Forms.Button CP_ButtonRefreshTargetExecutable;
         private System.Windows.Forms.TableLayoutPanel CP_TableTopBarTools;
-        private System.Windows.Forms.Button CP_ButtonClearConfiguration;
-        private System.Windows.Forms.Button CP_ButtonOpenConfigFileDialog;
+        private System.Windows.Forms.Button CP_ButtonSaveConfiguration;
+        private System.Windows.Forms.Button CP_ButtonExportConfigFileDialog;
         private System.Windows.Forms.Button CP_ButtonReturnStarterPage;
         private System.Windows.Forms.PictureBox CP_PictureBoxModFolderValidation;
         private System.Windows.Forms.PictureBox CP_PictureBoxTargetExecutableValidation;

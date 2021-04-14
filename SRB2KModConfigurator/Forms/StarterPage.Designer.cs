@@ -150,6 +150,7 @@ namespace SRB2KModConfigurator
             this.SP_ButtonEditConfig.TabIndex = 0;
             this.SP_ButtonEditConfig.Text = "Edit Configuration";
             this.SP_ButtonEditConfig.UseVisualStyleBackColor = false;
+            this.SP_ButtonEditConfig.Click += new System.EventHandler(this.SP_ButtonEditConfig_Click);
             // 
             // SP_ButtonNewConfig
             // 

@@ -5,9 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.WindowsAPICodePack.Dialogs;
 using System.Linq;
 using System.IO;
+
+using Microsoft.WindowsAPICodePack.Dialogs;
+
+using SRB2KModConfigurator.Config;
 
 namespace SRB2KModConfigurator
 {
@@ -16,31 +19,48 @@ namespace SRB2KModConfigurator
         public ConfigurationPanel()
         {
             InitializeComponent();
+
+            InitiliazeConfigurator();
+        }
+
+        public ConfigurationPanel(SRB2ConfigFile loadedConfigFile)
+        {
+            InitializeComponent();
+
+            InitiliazeConfigurator();
+
+            LoadModFolder(loadedConfigFile.mainModFolderPath);
+            UpdateModFolderTreeViewer(loadedConfigFile.modFiles);
+            LoadTargetExecutableInfo(loadedConfigFile.targetFilePath);
         }
 
         private StarterPage parentPageRef;
 
         private DirectoryInfo currentModFolderInfo;
-        private Dictionary<TreeNode, string> currentSelectedModItems;
         private FileInfo currentTargetExecutableInfo;
+        private Dictionary<TreeNode, string> currentSelectedModItems;
         private string currentTargetExecutable;
 
-        private void ConfigurationPanel_Load(object sender, EventArgs e)
+        private bool enableTreeViewAfterCheck ;
+
+        private void InitiliazeConfigurator()
         {
-            parentPageRef               = (StarterPage)this.ParentForm;
             currentModFolderInfo        = null;
             currentSelectedModItems     = new Dictionary<TreeNode, string>();
             currentTargetExecutableInfo = null;
             currentTargetExecutable     = "";
 
-        SetTargetExecutableValidationStatus(false);
-            
-            // Tree View
-            CP_ModFolderTreeView.CheckBoxes = true;
+            enableTreeViewAfterCheck    = true;
+
+            SetTargetExecutableValidationStatus(false);
             SetModFolderValidationStatus(false);
+            CP_ModFolderTreeView.CheckBoxes = true;
+        }
 
+        private void ConfigurationPanel_Load(object sender, EventArgs e)
+        {
+            parentPageRef               = (StarterPage)this.ParentForm;
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-
         }
 
         #region Implementation - User Interface
@@ -122,7 +142,86 @@ namespace SRB2KModConfigurator
             // Order TreeView to load in data.
             FeedModFolderTreeViewer();
 
+            // Only expand the childeren of the top-most node.
+            foreach (TreeNode childNode in CP_ModFolderTreeView.Nodes)
+            {
+                childNode.Expand();
+            }
+
             return true;
+        }
+
+        private void UpdateModFolderTreeViewer(List<string> modList)
+        {
+            if (modList.Count == 0)
+            {
+                return;
+            }
+
+            TreeNodeCollection treeViewNodeCollection =  CP_ModFolderTreeView.Nodes;
+            // Find mods that were present in the modlist/configuration.
+            foreach (string modPath in modList)
+            {
+                TreeNode[] foundNodes = treeViewNodeCollection.Find(modPath, true);
+                if (foundNodes.Length <= 0)
+                {
+                    // Warning, tried to find item that was present in configuration, but can
+                    //          no longer be found in the mod folder.
+                    // Action , continue but just warn user.
+                    continue;
+                }
+
+                if (foundNodes.Length >= 2)
+                {
+                    // Warning, multiple items found with same name.
+                    // Action , continue and select both, but warn user.
+                }
+
+                foreach (TreeNode node in foundNodes)
+                {
+                    node.Checked = true;
+                }
+            }
+
+            // Update folder nodes whether all childeren nodes are selected.
+            bool InternalRecursiveFunc(TreeNode nodeParent)
+            {
+                if (nodeParent.GetNodeCount(true) == 0)
+                {
+                    return nodeParent.Checked;
+                }
+
+                bool areAllChilderenChecked     = true;
+                bool hasSomeChilderenChecked    = false;
+                foreach (TreeNode childNode in nodeParent.Nodes)
+                {
+                    bool result = InternalRecursiveFunc(childNode);
+                    areAllChilderenChecked  = result;
+                    
+                    if (result) 
+                        hasSomeChilderenChecked = result;
+                }
+
+                if (!nodeParent.Checked)
+                    nodeParent.Checked = areAllChilderenChecked;
+
+                if (hasSomeChilderenChecked)
+                    nodeParent.Expand();
+
+                return areAllChilderenChecked;
+            }
+
+            // Go through all the tree nodes and update their checked state.
+            // If all childeren are selected, the parent of those childeren should
+            // also be selected.
+            // Disable the aftercheck callback on the treenodes as it will cause
+            // issues with the function below.
+            enableTreeViewAfterCheck    = false;
+            
+            TreeNode treeParentNode     = CP_ModFolderTreeView.Nodes[0];
+            InternalRecursiveFunc(treeParentNode);
+            
+            enableTreeViewAfterCheck    = true;
         }
 
         private bool FeedModFolderTreeViewer()
@@ -212,17 +311,83 @@ namespace SRB2KModConfigurator
 
         private void SaveConfiguration()
         {
+            // Prepare File for Save Dialog.
+            SRB2ConfigFile newConfigFile = new SRB2ConfigFile();
+            newConfigFile.targetFilePath = currentTargetExecutable;
+            newConfigFile.mainModFolderPath = currentModFolderInfo.ToString();
+            foreach (string modItem in currentSelectedModItems.Values)
+                newConfigFile.modFiles.Add(modItem);
 
+            // Save File
+            CommonSaveFileDialog configSaveFileDialog = new CommonSaveFileDialog();
+
+            var configFileFilter = new CommonFileDialogFilter("SRB2Kart Config", ".srb2k-config");
+            var allFilter        = new CommonFileDialogFilter("All Files", "*.*");
+            configSaveFileDialog.Filters.Add(configFileFilter);
+            configSaveFileDialog.Filters.Add(allFilter);
+
+            configSaveFileDialog.AlwaysAppendDefaultExtension   = true;
+            configSaveFileDialog.DefaultExtension               = ".srb2k-config";
+
+            if (configSaveFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
+            {
+                return;
+            }
+            else
+            {
+                string fileName             = configSaveFileDialog.FileName;
+                FileStream fileStream       = File.Create(fileName);
+                using (StreamWriter writer  = new StreamWriter(fileStream))
+                {
+                    writer.Write(newConfigFile.CreateJSONString());
+                }
+                return;
+            }
         }
 
         private void ExportConfiguration()
         {
+            // Prepare Config
+            SRB2ConfigFile newConfigFile    = new SRB2ConfigFile();
+            newConfigFile.targetFilePath    = currentTargetExecutable;
+            newConfigFile.mainModFolderPath = currentModFolderInfo.ToString();
+            foreach (string modItem in currentSelectedModItems.Values)
+                newConfigFile.modFiles.Add(modItem);
 
+            // Save File & Dialog
+            CommonSaveFileDialog configSaveFileDialog = new CommonSaveFileDialog();
+
+            configSaveFileDialog.AlwaysAppendDefaultExtension = true;
+            configSaveFileDialog.DefaultExtension = "bat";
+
+            if (configSaveFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
+            {
+                return;
+            }
+            else
+            {
+                string fileName             = configSaveFileDialog.FileName;
+                FileStream fileStream       = File.Create(fileName);
+                using (StreamWriter writer  = new StreamWriter(fileStream))
+                {
+                    writer.Write(newConfigFile.CreateLauncherString());
+                }
+            }
         }
 
         #endregion
 
         #region Callbacks
+        private void CP_ButtonSaveConfiguration_Click(object sender, EventArgs e)
+        {
+            SaveConfiguration();
+        }
+
+        private void CP_ButtonExportConfigFileDialog_Click(object sender, EventArgs e)
+        {
+            ExportConfiguration();
+        }
+
         private void CP_ButtonReturnStarterPage_Click(object sender, EventArgs e)
         {
             if (parentPageRef != null)
@@ -238,7 +403,7 @@ namespace SRB2KModConfigurator
         {
             if (e.KeyCode == Keys.Enter)
             {
-                var textBox         = CP_TextBoxTargetExecutableLocation;
+                TextBox textBox     = CP_TextBoxTargetExecutableLocation;
                 bool isValidEntry   = textBox.Text.Any() && textBox.Text.Contains(".exe", StringComparison.InvariantCultureIgnoreCase);
                 SetTargetExecutableValidationStatus(isValidEntry);
             }
@@ -246,14 +411,14 @@ namespace SRB2KModConfigurator
 
         private void CP_ButtonRefreshTargetExecutable_Click(object sender, EventArgs e)
         {
-            var textBox = CP_TextBoxTargetExecutableLocation;
-            bool isValidEntry = textBox.Text.Any() && textBox.Text.Contains(".exe", StringComparison.InvariantCultureIgnoreCase);
+            TextBox textBox     = CP_TextBoxTargetExecutableLocation;
+            bool isValidEntry   = textBox.Text.Any() && textBox.Text.Contains(".exe", StringComparison.InvariantCultureIgnoreCase);
             SetTargetExecutableValidationStatus(isValidEntry);
         }
 
         private void CP_ButtonFileDialogTargetExecutable_Click(object sender, EventArgs e)
         {
-            var targetExecutableFileDialog = new CommonOpenFileDialog();
+            CommonOpenFileDialog targetExecutableFileDialog = new CommonOpenFileDialog();
 
             var exeFilter = new CommonFileDialogFilter("EXE Files", "*.exe");
             var allFilter = new CommonFileDialogFilter("All Files", "*.*");
@@ -275,7 +440,9 @@ namespace SRB2KModConfigurator
             {
                 string[] files = targetExecutableFileDialog.FileNames.ToArray();
 
+                ClearTargetExecutableInfo();
                 LoadTargetExecutableInfo(files[0]);
+                return;
             }
         }
         
@@ -299,7 +466,7 @@ namespace SRB2KModConfigurator
 
         private void CP_ButtonModFolderFileDialog_Click(object sender, EventArgs e)
         {
-            var modFolderFileDialog                     = new CommonOpenFileDialog();
+            CommonOpenFileDialog modFolderFileDialog    = new CommonOpenFileDialog();
             modFolderFileDialog.Title                   = "Select your SRB2Kart Mod Folder.";
             modFolderFileDialog.IsFolderPicker          = true;
             modFolderFileDialog.AllowNonFileSystemItems = false;
@@ -316,11 +483,15 @@ namespace SRB2KModConfigurator
                 string[] directory = modFolderFileDialog.FileNames.ToArray();
 
                 LoadModFolder(directory[0]);
+                return;
             }
         }
 
         private void CP_ModFolderTreeView_AfterCheck(System.Object sender, System.Windows.Forms.TreeViewEventArgs e)
         {
+            if (!enableTreeViewAfterCheck)
+                return;
+
             // Checkmark/UnCheckmark all child nodes.
             void InternalRecursiveFunc(TreeNode nodeParent, bool isCheckmarked)
             {
