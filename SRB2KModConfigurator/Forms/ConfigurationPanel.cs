@@ -11,6 +11,8 @@ using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
 using SRB2KModConfigurator.Config;
+using SRB2KModConfigurator.Forms;
+using SRB2KModConfigurator.Data;
 
 namespace SRB2KModConfigurator
 {
@@ -34,12 +36,18 @@ namespace SRB2KModConfigurator
             LoadTargetExecutableInfo(loadedConfigFile.targetFilePath);
         }
 
-        private StarterPage parentPageRef;
+        private StarterPage parentFormRef;
+
+        private GeneralSettingsPanel generalSettingsPanelRef;
+        private VideoSettingsPanel videoSettingsPanelRef;
+        private AudioSettingsPanel audioSettingsPanelRef;
+        private ServerSettingsPanel serverSettingsPanelRef;
 
         private DirectoryInfo currentModFolderInfo;
         private FileInfo currentTargetExecutableInfo;
         private Dictionary<TreeNode, string> currentSelectedModItems;
         private string currentTargetExecutable;
+        private ConfigurationSettingsDataStruct configSettings;
 
         private bool enableTreeViewAfterCheck ;
 
@@ -55,13 +63,94 @@ namespace SRB2KModConfigurator
             SetTargetExecutableValidationStatus(false);
             SetModFolderValidationStatus(false);
             CP_ModFolderTreeView.CheckBoxes = true;
+
+            LoadGeneralSettingsPanel();
+            LoadVideoSettingsPanel();
+            LoadAudioSettingsPanel();
+            LoadServerSettingsPanel();
         }
 
         private void ConfigurationPanel_Load(object sender, EventArgs e)
         {
-            parentPageRef               = (StarterPage)this.ParentForm;
+            parentFormRef               = (StarterPage)this.ParentForm;
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
         }
+
+        #region Implementation - Child Panels
+
+        private void LoadGeneralSettingsPanel()
+        {
+            generalSettingsPanelRef = new GeneralSettingsPanel();
+
+            // Set new child form and the proper form settings.
+            generalSettingsPanelRef.TopLevel = false;
+            generalSettingsPanelRef.FormBorderStyle = FormBorderStyle.None;
+            generalSettingsPanelRef.Dock = DockStyle.Fill;
+
+            CP_PanelGeneralSettings.Controls.Clear();
+            CP_PanelGeneralSettings.Controls.Add(generalSettingsPanelRef);
+            CP_PanelGeneralSettings.Tag = generalSettingsPanelRef;
+            CP_PanelGeneralSettings.Visible = true;
+
+            generalSettingsPanelRef.BringToFront();
+            generalSettingsPanelRef.Show();
+        }
+
+        private void LoadVideoSettingsPanel()
+        {
+            videoSettingsPanelRef = new VideoSettingsPanel();
+
+            // Set new child form and the proper form settings.
+            videoSettingsPanelRef.TopLevel = false;
+            videoSettingsPanelRef.FormBorderStyle = FormBorderStyle.None;
+            videoSettingsPanelRef.Dock = DockStyle.Fill;
+
+            CP_PanelVideoSettings.Controls.Clear();
+            CP_PanelVideoSettings.Controls.Add(videoSettingsPanelRef);
+            CP_PanelVideoSettings.Tag = videoSettingsPanelRef;
+            CP_PanelVideoSettings.Visible = true;
+
+            videoSettingsPanelRef.BringToFront();
+            videoSettingsPanelRef.Show();
+        }
+
+        private void LoadAudioSettingsPanel()
+        {
+            audioSettingsPanelRef = new AudioSettingsPanel();
+
+            // Set new child form and the proper form settings.
+            audioSettingsPanelRef.TopLevel = false;
+            audioSettingsPanelRef.FormBorderStyle = FormBorderStyle.None;
+            audioSettingsPanelRef.Dock = DockStyle.Fill;
+
+            CP_PanelAudioSettings.Controls.Clear();
+            CP_PanelAudioSettings.Controls.Add(audioSettingsPanelRef);
+            CP_PanelAudioSettings.Tag = audioSettingsPanelRef;
+            CP_PanelAudioSettings.Visible = true;
+
+            audioSettingsPanelRef.BringToFront();
+            audioSettingsPanelRef.Show();
+        }
+
+        private void LoadServerSettingsPanel()
+        {
+            serverSettingsPanelRef = new ServerSettingsPanel();
+
+            // Set new child form and the proper form settings.
+            serverSettingsPanelRef.TopLevel = false;
+            serverSettingsPanelRef.FormBorderStyle = FormBorderStyle.None;
+            serverSettingsPanelRef.Dock = DockStyle.Fill;
+
+            CP_PanelServerSettings.Controls.Clear();
+            CP_PanelServerSettings.Controls.Add(serverSettingsPanelRef);
+            CP_PanelServerSettings.Tag = serverSettingsPanelRef;
+            CP_PanelServerSettings.Visible = true;
+
+            serverSettingsPanelRef.BringToFront();
+            serverSettingsPanelRef.Show();
+        }
+
+        #endregion
 
         #region Implementation - User Interface
 
@@ -309,14 +398,26 @@ namespace SRB2KModConfigurator
 
         #region Implementation - Exporting & Saving
 
+        private void PrepareConfigurationData()
+        {
+            configSettings.generalSettings  = generalSettingsPanelRef.ReturnData();
+            configSettings.videoSettings    = videoSettingsPanelRef.ReturnData();
+            configSettings.audioSettings    = audioSettingsPanelRef.ReturnData();
+            configSettings.serverSettings   = serverSettingsPanelRef.ReturnData();
+        }
+
         private void SaveConfiguration()
         {
+            // Collect Settings Data.
+            PrepareConfigurationData();
+
             // Prepare File for Save Dialog.
             SRB2ConfigFile newConfigFile = new SRB2ConfigFile();
             newConfigFile.targetFilePath = currentTargetExecutable;
             newConfigFile.mainModFolderPath = currentModFolderInfo.ToString();
             foreach (string modItem in currentSelectedModItems.Values)
                 newConfigFile.modFiles.Add(modItem);
+            newConfigFile.configSettingsData = configSettings;
 
             // Save File
             CommonSaveFileDialog configSaveFileDialog = new CommonSaveFileDialog();
@@ -347,12 +448,16 @@ namespace SRB2KModConfigurator
 
         private void ExportConfiguration()
         {
+            // Collect Settings Data.
+            PrepareConfigurationData();
+
             // Prepare Config
             SRB2ConfigFile newConfigFile    = new SRB2ConfigFile();
             newConfigFile.targetFilePath    = currentTargetExecutable;
             newConfigFile.mainModFolderPath = currentModFolderInfo.ToString();
             foreach (string modItem in currentSelectedModItems.Values)
                 newConfigFile.modFiles.Add(modItem);
+            newConfigFile.configSettingsData = configSettings;
 
             // Save File & Dialog
             CommonSaveFileDialog configSaveFileDialog = new CommonSaveFileDialog();
@@ -390,7 +495,7 @@ namespace SRB2KModConfigurator
 
         private void CP_ButtonReturnStarterPage_Click(object sender, EventArgs e)
         {
-            if (parentPageRef != null)
+            if (parentFormRef != null)
             {
                 StarterPage starterPageRef = (StarterPage)this.ParentForm;
                 starterPageRef.ShowStarterPageElements();

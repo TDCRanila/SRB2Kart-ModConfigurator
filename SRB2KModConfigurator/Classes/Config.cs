@@ -7,20 +7,25 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
+using SRB2KModConfigurator.Data;
+
 namespace SRB2KModConfigurator.Config
 {
     public class SRB2ConfigFile
     {
         public SRB2ConfigFile()
         {
-            targetFilePath      = "";
-            mainModFolderPath   = "";
-            modFiles            = new List<string>();
+            targetFilePath = "";
+            mainModFolderPath = "";
+            modFiles = new List<string>();
+            configSettingsData = new ConfigurationSettingsDataStruct();
         }
 
         public string targetFilePath { get; set; }
         public string mainModFolderPath { get; set; }
         public List<string> modFiles { get; set; }
+
+        public ConfigurationSettingsDataStruct configSettingsData {get; set; }
 
         public string CreateJSONString()
         {
@@ -41,6 +46,7 @@ namespace SRB2KModConfigurator.Config
             this.targetFilePath     = loadedConfigFile.targetFilePath;
             this.mainModFolderPath  = loadedConfigFile.mainModFolderPath;
             this.modFiles           = loadedConfigFile.modFiles;
+            this.configSettingsData = loadedConfigFile.configSettingsData;
         }
 
 
