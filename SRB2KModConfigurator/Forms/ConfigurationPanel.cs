@@ -64,90 +64,38 @@ namespace SRB2KModConfigurator
             SetModFolderValidationStatus(false);
             CP_ModFolderTreeView.CheckBoxes = true;
 
-            LoadGeneralSettingsPanel();
-            LoadVideoSettingsPanel();
-            LoadAudioSettingsPanel();
-            LoadServerSettingsPanel();
+            generalSettingsPanelRef = new GeneralSettingsPanel();
+            videoSettingsPanelRef   = new VideoSettingsPanel();
+            audioSettingsPanelRef   = new AudioSettingsPanel();
+            serverSettingsPanelRef  = new ServerSettingsPanel();
+            DockSettingsPanel(generalSettingsPanelRef, CP_PanelGeneralSettings);
+            DockSettingsPanel(videoSettingsPanelRef, CP_PanelVideoSettings);
+            DockSettingsPanel(audioSettingsPanelRef, CP_PanelAudioSettings);
+            DockSettingsPanel(serverSettingsPanelRef, CP_PanelServerSettings);
         }
 
         private void ConfigurationPanel_Load(object sender, EventArgs e)
         {
-            parentFormRef               = (StarterPage)this.ParentForm;
+            parentFormRef = (StarterPage)this.ParentForm;
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
         }
 
         #region Implementation - Child Panels
 
-        private void LoadGeneralSettingsPanel()
+        private void DockSettingsPanel(Form childFormToDock, Panel dock)
         {
-            generalSettingsPanelRef = new GeneralSettingsPanel();
-
             // Set new child form and the proper form settings.
-            generalSettingsPanelRef.TopLevel = false;
-            generalSettingsPanelRef.FormBorderStyle = FormBorderStyle.None;
-            generalSettingsPanelRef.Dock = DockStyle.Fill;
+            childFormToDock.TopLevel        = false;
+            childFormToDock.FormBorderStyle = FormBorderStyle.None;
+            childFormToDock.Dock            = DockStyle.Fill;
 
-            CP_PanelGeneralSettings.Controls.Clear();
-            CP_PanelGeneralSettings.Controls.Add(generalSettingsPanelRef);
-            CP_PanelGeneralSettings.Tag = generalSettingsPanelRef;
-            CP_PanelGeneralSettings.Visible = true;
+            dock.Controls.Clear();
+            dock.Controls.Add(childFormToDock);
+            dock.Tag        = childFormToDock;
+            dock.Visible    = true;
 
-            generalSettingsPanelRef.BringToFront();
-            generalSettingsPanelRef.Show();
-        }
-
-        private void LoadVideoSettingsPanel()
-        {
-            videoSettingsPanelRef = new VideoSettingsPanel();
-
-            // Set new child form and the proper form settings.
-            videoSettingsPanelRef.TopLevel = false;
-            videoSettingsPanelRef.FormBorderStyle = FormBorderStyle.None;
-            videoSettingsPanelRef.Dock = DockStyle.Fill;
-
-            CP_PanelVideoSettings.Controls.Clear();
-            CP_PanelVideoSettings.Controls.Add(videoSettingsPanelRef);
-            CP_PanelVideoSettings.Tag = videoSettingsPanelRef;
-            CP_PanelVideoSettings.Visible = true;
-
-            videoSettingsPanelRef.BringToFront();
-            videoSettingsPanelRef.Show();
-        }
-
-        private void LoadAudioSettingsPanel()
-        {
-            audioSettingsPanelRef = new AudioSettingsPanel();
-
-            // Set new child form and the proper form settings.
-            audioSettingsPanelRef.TopLevel = false;
-            audioSettingsPanelRef.FormBorderStyle = FormBorderStyle.None;
-            audioSettingsPanelRef.Dock = DockStyle.Fill;
-
-            CP_PanelAudioSettings.Controls.Clear();
-            CP_PanelAudioSettings.Controls.Add(audioSettingsPanelRef);
-            CP_PanelAudioSettings.Tag = audioSettingsPanelRef;
-            CP_PanelAudioSettings.Visible = true;
-
-            audioSettingsPanelRef.BringToFront();
-            audioSettingsPanelRef.Show();
-        }
-
-        private void LoadServerSettingsPanel()
-        {
-            serverSettingsPanelRef = new ServerSettingsPanel();
-
-            // Set new child form and the proper form settings.
-            serverSettingsPanelRef.TopLevel = false;
-            serverSettingsPanelRef.FormBorderStyle = FormBorderStyle.None;
-            serverSettingsPanelRef.Dock = DockStyle.Fill;
-
-            CP_PanelServerSettings.Controls.Clear();
-            CP_PanelServerSettings.Controls.Add(serverSettingsPanelRef);
-            CP_PanelServerSettings.Tag = serverSettingsPanelRef;
-            CP_PanelServerSettings.Visible = true;
-
-            serverSettingsPanelRef.BringToFront();
-            serverSettingsPanelRef.Show();
+            childFormToDock.BringToFront();
+            childFormToDock.Show();
         }
 
         #endregion
