@@ -160,11 +160,11 @@ namespace SRB2KModConfigurator
             this.CP_TableSettings.Name = "CP_TableSettings";
             this.CP_TableSettings.Padding = new System.Windows.Forms.Padding(4);
             this.CP_TableSettings.RowCount = 4;
-            this.CP_TableSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 256F));
-            this.CP_TableSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 318F));
-            this.CP_TableSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 158F));
-            this.CP_TableSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 324F));
-            this.CP_TableSettings.Size = new System.Drawing.Size(752, 1075);
+            this.CP_TableSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 261F));
+            this.CP_TableSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 153F));
+            this.CP_TableSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 83F));
+            this.CP_TableSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 559F));
+            this.CP_TableSettings.Size = new System.Drawing.Size(752, 877);
             this.CP_TableSettings.TabIndex = 0;
             // 
             // CP_NiceGroupServerParameters
@@ -174,13 +174,12 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupServerParameters.BorderRectangleHeightOffset = 0;
             this.CP_NiceGroupServerParameters.BorderRectangleWidthOffset = 4;
             this.CP_NiceGroupServerParameters.Controls.Add(this.CP_PanelServerSettings);
-            this.CP_NiceGroupServerParameters.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CP_NiceGroupServerParameters.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_NiceGroupServerParameters.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CP_NiceGroupServerParameters.Location = new System.Drawing.Point(7, 739);
-            this.CP_NiceGroupServerParameters.MinimumSize = new System.Drawing.Size(100, 100);
+            this.CP_NiceGroupServerParameters.Location = new System.Drawing.Point(7, 504);
+            this.CP_NiceGroupServerParameters.MinimumSize = new System.Drawing.Size(100, 50);
             this.CP_NiceGroupServerParameters.Name = "CP_NiceGroupServerParameters";
-            this.CP_NiceGroupServerParameters.Size = new System.Drawing.Size(738, 329);
+            this.CP_NiceGroupServerParameters.Size = new System.Drawing.Size(738, 365);
             this.CP_NiceGroupServerParameters.TabIndex = 3;
             this.CP_NiceGroupServerParameters.TabStop = false;
             this.CP_NiceGroupServerParameters.Text = "Server Settings";
@@ -192,7 +191,7 @@ namespace SRB2KModConfigurator
             this.CP_PanelServerSettings.Location = new System.Drawing.Point(9, 20);
             this.CP_PanelServerSettings.Margin = new System.Windows.Forms.Padding(0);
             this.CP_PanelServerSettings.Name = "CP_PanelServerSettings";
-            this.CP_PanelServerSettings.Size = new System.Drawing.Size(720, 302);
+            this.CP_PanelServerSettings.Size = new System.Drawing.Size(720, 338);
             this.CP_PanelServerSettings.TabIndex = 3;
             // 
             // CP_NiceGroupAudioParameters
@@ -205,10 +204,10 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupAudioParameters.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CP_NiceGroupAudioParameters.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_NiceGroupAudioParameters.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CP_NiceGroupAudioParameters.Location = new System.Drawing.Point(7, 581);
-            this.CP_NiceGroupAudioParameters.MinimumSize = new System.Drawing.Size(100, 100);
+            this.CP_NiceGroupAudioParameters.Location = new System.Drawing.Point(7, 421);
+            this.CP_NiceGroupAudioParameters.MinimumSize = new System.Drawing.Size(100, 50);
             this.CP_NiceGroupAudioParameters.Name = "CP_NiceGroupAudioParameters";
-            this.CP_NiceGroupAudioParameters.Size = new System.Drawing.Size(738, 152);
+            this.CP_NiceGroupAudioParameters.Size = new System.Drawing.Size(738, 77);
             this.CP_NiceGroupAudioParameters.TabIndex = 2;
             this.CP_NiceGroupAudioParameters.TabStop = false;
             this.CP_NiceGroupAudioParameters.Text = "Audio Settings";
@@ -220,7 +219,7 @@ namespace SRB2KModConfigurator
             this.CP_PanelAudioSettings.Location = new System.Drawing.Point(9, 18);
             this.CP_PanelAudioSettings.Margin = new System.Windows.Forms.Padding(0);
             this.CP_PanelAudioSettings.Name = "CP_PanelAudioSettings";
-            this.CP_PanelAudioSettings.Size = new System.Drawing.Size(720, 126);
+            this.CP_PanelAudioSettings.Size = new System.Drawing.Size(720, 50);
             this.CP_PanelAudioSettings.TabIndex = 2;
             // 
             // CP_NiceGroupVideoSettings
@@ -233,10 +232,10 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupVideoSettings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CP_NiceGroupVideoSettings.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_NiceGroupVideoSettings.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CP_NiceGroupVideoSettings.Location = new System.Drawing.Point(7, 263);
-            this.CP_NiceGroupVideoSettings.MinimumSize = new System.Drawing.Size(100, 100);
+            this.CP_NiceGroupVideoSettings.Location = new System.Drawing.Point(7, 268);
+            this.CP_NiceGroupVideoSettings.MinimumSize = new System.Drawing.Size(100, 50);
             this.CP_NiceGroupVideoSettings.Name = "CP_NiceGroupVideoSettings";
-            this.CP_NiceGroupVideoSettings.Size = new System.Drawing.Size(738, 312);
+            this.CP_NiceGroupVideoSettings.Size = new System.Drawing.Size(738, 147);
             this.CP_NiceGroupVideoSettings.TabIndex = 1;
             this.CP_NiceGroupVideoSettings.TabStop = false;
             this.CP_NiceGroupVideoSettings.Text = "Video Settings";
@@ -248,7 +247,7 @@ namespace SRB2KModConfigurator
             this.CP_PanelVideoSettings.Location = new System.Drawing.Point(8, 18);
             this.CP_PanelVideoSettings.Margin = new System.Windows.Forms.Padding(0);
             this.CP_PanelVideoSettings.Name = "CP_PanelVideoSettings";
-            this.CP_PanelVideoSettings.Size = new System.Drawing.Size(720, 287);
+            this.CP_PanelVideoSettings.Size = new System.Drawing.Size(720, 122);
             this.CP_PanelVideoSettings.TabIndex = 1;
             // 
             // CP_NiceGroupGeneralSettings
@@ -264,7 +263,7 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupGeneralSettings.Location = new System.Drawing.Point(7, 7);
             this.CP_NiceGroupGeneralSettings.MinimumSize = new System.Drawing.Size(100, 100);
             this.CP_NiceGroupGeneralSettings.Name = "CP_NiceGroupGeneralSettings";
-            this.CP_NiceGroupGeneralSettings.Size = new System.Drawing.Size(738, 250);
+            this.CP_NiceGroupGeneralSettings.Size = new System.Drawing.Size(738, 255);
             this.CP_NiceGroupGeneralSettings.TabIndex = 0;
             this.CP_NiceGroupGeneralSettings.TabStop = false;
             this.CP_NiceGroupGeneralSettings.Text = "General Settings";
@@ -276,7 +275,7 @@ namespace SRB2KModConfigurator
             this.CP_PanelGeneralSettings.Location = new System.Drawing.Point(8, 18);
             this.CP_PanelGeneralSettings.Margin = new System.Windows.Forms.Padding(0);
             this.CP_PanelGeneralSettings.Name = "CP_PanelGeneralSettings";
-            this.CP_PanelGeneralSettings.Size = new System.Drawing.Size(720, 225);
+            this.CP_PanelGeneralSettings.Size = new System.Drawing.Size(720, 228);
             this.CP_PanelGeneralSettings.TabIndex = 0;
             // 
             // CP_NiceGroupModFolderSettings
@@ -366,7 +365,7 @@ namespace SRB2KModConfigurator
             this.CP_TableTopBar.ColumnCount = 3;
             this.CP_TableTopBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.059603F));
             this.CP_TableTopBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98.9404F));
-            this.CP_TableTopBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 191F));
+            this.CP_TableTopBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
             this.CP_TableTopBar.Controls.Add(this.CP_TableTopBarTools, 2, 0);
             this.CP_TableTopBar.Controls.Add(this.CP_NiceGroupTargetExecutable, 1, 0);
             this.CP_TableTopBar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -384,15 +383,15 @@ namespace SRB2KModConfigurator
             this.CP_TableTopBarTools.ColumnCount = 3;
             this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonSaveConfiguration, 0, 0);
             this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonExportConfigFileDialog, 1, 0);
             this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonReturnStarterPage, 2, 0);
-            this.CP_TableTopBarTools.Location = new System.Drawing.Point(587, 6);
+            this.CP_TableTopBarTools.Location = new System.Drawing.Point(586, 6);
             this.CP_TableTopBarTools.Name = "CP_TableTopBarTools";
             this.CP_TableTopBarTools.RowCount = 1;
             this.CP_TableTopBarTools.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.CP_TableTopBarTools.Size = new System.Drawing.Size(186, 44);
+            this.CP_TableTopBarTools.Size = new System.Drawing.Size(187, 44);
             this.CP_TableTopBarTools.TabIndex = 1;
             // 
             // CP_ButtonSaveConfiguration
@@ -422,7 +421,7 @@ namespace SRB2KModConfigurator
             this.CP_ButtonReturnStarterPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CP_ButtonReturnStarterPage.Location = new System.Drawing.Point(127, 3);
             this.CP_ButtonReturnStarterPage.Name = "CP_ButtonReturnStarterPage";
-            this.CP_ButtonReturnStarterPage.Size = new System.Drawing.Size(56, 38);
+            this.CP_ButtonReturnStarterPage.Size = new System.Drawing.Size(57, 38);
             this.CP_ButtonReturnStarterPage.TabIndex = 2;
             this.CP_ButtonReturnStarterPage.Text = "Return";
             this.CP_ButtonReturnStarterPage.UseVisualStyleBackColor = true;
@@ -440,7 +439,7 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupTargetExecutable.Location = new System.Drawing.Point(9, 3);
             this.CP_NiceGroupTargetExecutable.Name = "CP_NiceGroupTargetExecutable";
             this.CP_NiceGroupTargetExecutable.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.CP_NiceGroupTargetExecutable.Size = new System.Drawing.Size(572, 51);
+            this.CP_NiceGroupTargetExecutable.Size = new System.Drawing.Size(571, 51);
             this.CP_NiceGroupTargetExecutable.TabIndex = 0;
             this.CP_NiceGroupTargetExecutable.TabStop = false;
             this.CP_NiceGroupTargetExecutable.Text = "Target Executable";

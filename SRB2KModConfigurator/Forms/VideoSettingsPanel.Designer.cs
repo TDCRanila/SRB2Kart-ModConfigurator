@@ -30,117 +30,125 @@ namespace SRB2KModConfigurator.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.GSP_MainPanel = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.VSP_MainPanel = new System.Windows.Forms.Panel();
+            this.VSP_TableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.VSP_LabelWindowMode = new System.Windows.Forms.Label();
+            this.VSP_LabelRenderResolution = new System.Windows.Forms.Label();
+            this.VSP_ComboBoxWindowMode = new System.Windows.Forms.ComboBox();
+            this.VSP_TableLayoutRenderResolutionOptions = new System.Windows.Forms.TableLayoutPanel();
+            this.VSP_ComboBoxRenderResolution = new System.Windows.Forms.ComboBox();
+            this.VSP_TableLayoutCustomResolution = new System.Windows.Forms.TableLayoutPanel();
+            this.VSP_TextBoxHeight = new System.Windows.Forms.TextBox();
+            this.VSP_LabelWidthHeightDivider = new System.Windows.Forms.Label();
+            this.VSP_TextBoxWidth = new System.Windows.Forms.TextBox();
+            this.VSP_LabelCustomWidthHeight = new System.Windows.Forms.Label();
+            this.VSP_ComboBoxRenderType = new System.Windows.Forms.ComboBox();
+            this.VSP_LabelRenderType = new System.Windows.Forms.Label();
             this.GSP_MasterToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.GSP_MainPanel.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.VSP_MainPanel.SuspendLayout();
+            this.VSP_TableLayout.SuspendLayout();
+            this.VSP_TableLayoutRenderResolutionOptions.SuspendLayout();
+            this.VSP_TableLayoutCustomResolution.SuspendLayout();
             this.SuspendLayout();
             // 
-            // GSP_MainPanel
+            // VSP_MainPanel
             // 
-            this.GSP_MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.GSP_MainPanel.Controls.Add(this.tableLayoutPanel1);
-            this.GSP_MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GSP_MainPanel.Location = new System.Drawing.Point(0, 0);
-            this.GSP_MainPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.GSP_MainPanel.Name = "GSP_MainPanel";
-            this.GSP_MainPanel.Size = new System.Drawing.Size(720, 225);
-            this.GSP_MainPanel.TabIndex = 0;
+            this.VSP_MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.VSP_MainPanel.Controls.Add(this.VSP_TableLayout);
+            this.VSP_MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VSP_MainPanel.Location = new System.Drawing.Point(0, 0);
+            this.VSP_MainPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.VSP_MainPanel.Name = "VSP_MainPanel";
+            this.VSP_MainPanel.Size = new System.Drawing.Size(720, 135);
+            this.VSP_MainPanel.TabIndex = 0;
             // 
-            // tableLayoutPanel1
+            // VSP_TableLayout
             // 
-            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.42857F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.57143F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox3, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.60656F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(720, 225);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.VSP_TableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.VSP_TableLayout.ColumnCount = 2;
+            this.VSP_TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.42857F));
+            this.VSP_TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.57143F));
+            this.VSP_TableLayout.Controls.Add(this.VSP_LabelWindowMode, 0, 0);
+            this.VSP_TableLayout.Controls.Add(this.VSP_LabelRenderResolution, 0, 1);
+            this.VSP_TableLayout.Controls.Add(this.VSP_ComboBoxWindowMode, 1, 0);
+            this.VSP_TableLayout.Controls.Add(this.VSP_TableLayoutRenderResolutionOptions, 1, 1);
+            this.VSP_TableLayout.Controls.Add(this.VSP_ComboBoxRenderType, 1, 2);
+            this.VSP_TableLayout.Controls.Add(this.VSP_LabelRenderType, 0, 2);
+            this.VSP_TableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VSP_TableLayout.Location = new System.Drawing.Point(0, 0);
+            this.VSP_TableLayout.Name = "VSP_TableLayout";
+            this.VSP_TableLayout.RowCount = 3;
+            this.VSP_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.VSP_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.VSP_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.VSP_TableLayout.Size = new System.Drawing.Size(720, 135);
+            this.VSP_TableLayout.TabIndex = 0;
             // 
-            // label1
+            // VSP_LabelWindowMode
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(4, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 14);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Window Mode";
+            this.VSP_LabelWindowMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.VSP_LabelWindowMode.AutoSize = true;
+            this.VSP_LabelWindowMode.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.VSP_LabelWindowMode.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.VSP_LabelWindowMode.Location = new System.Drawing.Point(4, 11);
+            this.VSP_LabelWindowMode.Name = "VSP_LabelWindowMode";
+            this.VSP_LabelWindowMode.Size = new System.Drawing.Size(176, 14);
+            this.VSP_LabelWindowMode.TabIndex = 0;
+            this.VSP_LabelWindowMode.Text = "Window Mode";
             // 
-            // label2
+            // VSP_LabelRenderResolution
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(4, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 14);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Resolution";
-            this.GSP_MasterToolTip.SetToolTip(this.label2, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.VSP_LabelRenderResolution.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.VSP_LabelRenderResolution.AutoSize = true;
+            this.VSP_LabelRenderResolution.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.VSP_LabelRenderResolution.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.VSP_LabelRenderResolution.Location = new System.Drawing.Point(4, 61);
+            this.VSP_LabelRenderResolution.Name = "VSP_LabelRenderResolution";
+            this.VSP_LabelRenderResolution.Size = new System.Drawing.Size(176, 14);
+            this.VSP_LabelRenderResolution.TabIndex = 2;
+            this.VSP_LabelRenderResolution.Text = "Resolution";
+            this.GSP_MasterToolTip.SetToolTip(this.VSP_LabelRenderResolution, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
             // 
-            // label6
+            // VSP_ComboBoxWindowMode
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(4, 167);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(176, 14);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Renderer";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.VSP_ComboBoxWindowMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.VSP_ComboBoxWindowMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.VSP_ComboBoxWindowMode.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.VSP_ComboBoxWindowMode.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.VSP_ComboBoxWindowMode.FormattingEnabled = true;
+            this.VSP_ComboBoxWindowMode.Items.AddRange(new object[] {
             "Windowed",
             "Fullscreen"});
-            this.comboBox1.Location = new System.Drawing.Point(187, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(529, 23);
-            this.comboBox1.TabIndex = 12;
+            this.VSP_ComboBoxWindowMode.Location = new System.Drawing.Point(187, 7);
+            this.VSP_ComboBoxWindowMode.Name = "VSP_ComboBoxWindowMode";
+            this.VSP_ComboBoxWindowMode.Size = new System.Drawing.Size(529, 21);
+            this.VSP_ComboBoxWindowMode.TabIndex = 12;
             // 
-            // comboBox2
+            // VSP_TableLayoutRenderResolutionOptions
             // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.VSP_TableLayoutRenderResolutionOptions.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.VSP_TableLayoutRenderResolutionOptions.ColumnCount = 1;
+            this.VSP_TableLayoutRenderResolutionOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.54442F));
+            this.VSP_TableLayoutRenderResolutionOptions.Controls.Add(this.VSP_ComboBoxRenderResolution, 0, 0);
+            this.VSP_TableLayoutRenderResolutionOptions.Controls.Add(this.VSP_TableLayoutCustomResolution, 0, 1);
+            this.VSP_TableLayoutRenderResolutionOptions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VSP_TableLayoutRenderResolutionOptions.Location = new System.Drawing.Point(186, 38);
+            this.VSP_TableLayoutRenderResolutionOptions.Margin = new System.Windows.Forms.Padding(2);
+            this.VSP_TableLayoutRenderResolutionOptions.Name = "VSP_TableLayoutRenderResolutionOptions";
+            this.VSP_TableLayoutRenderResolutionOptions.RowCount = 2;
+            this.VSP_TableLayoutRenderResolutionOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.96825F));
+            this.VSP_TableLayoutRenderResolutionOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.03175F));
+            this.VSP_TableLayoutRenderResolutionOptions.Size = new System.Drawing.Size(531, 60);
+            this.VSP_TableLayoutRenderResolutionOptions.TabIndex = 17;
+            // 
+            // VSP_ComboBoxRenderResolution
+            // 
+            this.VSP_ComboBoxRenderResolution.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.VSP_ComboBoxRenderResolution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.VSP_ComboBoxRenderResolution.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.VSP_ComboBoxRenderResolution.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.VSP_ComboBoxRenderResolution.FormattingEnabled = true;
+            this.VSP_ComboBoxRenderResolution.Items.AddRange(new object[] {
             "Custom",
             "1920 X 1200 (Recommended)",
             "1920 X 1080",
@@ -159,117 +167,141 @@ namespace SRB2KModConfigurator.Forms
             "640   X   400 (Recommended)",
             "320   X   240",
             "320   X   200 (Recommended)"});
-            this.comboBox2.Location = new System.Drawing.Point(187, 67);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(529, 23);
-            this.comboBox2.TabIndex = 13;
+            this.VSP_ComboBoxRenderResolution.Location = new System.Drawing.Point(4, 5);
+            this.VSP_ComboBoxRenderResolution.Name = "VSP_ComboBoxRenderResolution";
+            this.VSP_ComboBoxRenderResolution.Size = new System.Drawing.Size(523, 21);
+            this.VSP_ComboBoxRenderResolution.TabIndex = 13;
+            this.VSP_ComboBoxRenderResolution.SelectedIndexChanged += new System.EventHandler(this.VSP_ComboBoxRenderResolution_SelectedIndexChanged);
             // 
-            // comboBox3
+            // VSP_TableLayoutCustomResolution
             // 
-            this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.VSP_TableLayoutCustomResolution.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.VSP_TableLayoutCustomResolution.ColumnCount = 5;
+            this.VSP_TableLayoutCustomResolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.25087F));
+            this.VSP_TableLayoutCustomResolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134F));
+            this.VSP_TableLayoutCustomResolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.VSP_TableLayoutCustomResolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134F));
+            this.VSP_TableLayoutCustomResolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 113F));
+            this.VSP_TableLayoutCustomResolution.Controls.Add(this.VSP_TextBoxHeight, 3, 0);
+            this.VSP_TableLayoutCustomResolution.Controls.Add(this.VSP_LabelWidthHeightDivider, 2, 0);
+            this.VSP_TableLayoutCustomResolution.Controls.Add(this.VSP_TextBoxWidth, 1, 0);
+            this.VSP_TableLayoutCustomResolution.Controls.Add(this.VSP_LabelCustomWidthHeight, 0, 0);
+            this.VSP_TableLayoutCustomResolution.Location = new System.Drawing.Point(1, 32);
+            this.VSP_TableLayoutCustomResolution.Margin = new System.Windows.Forms.Padding(0);
+            this.VSP_TableLayoutCustomResolution.Name = "VSP_TableLayoutCustomResolution";
+            this.VSP_TableLayoutCustomResolution.RowCount = 1;
+            this.VSP_TableLayoutCustomResolution.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.VSP_TableLayoutCustomResolution.Size = new System.Drawing.Size(529, 26);
+            this.VSP_TableLayoutCustomResolution.TabIndex = 15;
+            // 
+            // VSP_TextBoxHeight
+            // 
+            this.VSP_TextBoxHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.VSP_TextBoxHeight.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.VSP_TextBoxHeight.Location = new System.Drawing.Point(285, 3);
+            this.VSP_TextBoxHeight.Name = "VSP_TextBoxHeight";
+            this.VSP_TextBoxHeight.Size = new System.Drawing.Size(128, 22);
+            this.VSP_TextBoxHeight.TabIndex = 6;
+            this.VSP_TextBoxHeight.TextChanged += new System.EventHandler(this.VSP_TextBoxHeight_TextChanged);
+            // 
+            // VSP_LabelWidthHeightDivider
+            // 
+            this.VSP_LabelWidthHeightDivider.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.VSP_LabelWidthHeightDivider.AutoSize = true;
+            this.VSP_LabelWidthHeightDivider.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.VSP_LabelWidthHeightDivider.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.VSP_LabelWidthHeightDivider.Location = new System.Drawing.Point(266, 6);
+            this.VSP_LabelWidthHeightDivider.Name = "VSP_LabelWidthHeightDivider";
+            this.VSP_LabelWidthHeightDivider.Size = new System.Drawing.Size(13, 14);
+            this.VSP_LabelWidthHeightDivider.TabIndex = 5;
+            this.VSP_LabelWidthHeightDivider.Text = "x";
+            this.GSP_MasterToolTip.SetToolTip(this.VSP_LabelWidthHeightDivider, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            // 
+            // VSP_TextBoxWidth
+            // 
+            this.VSP_TextBoxWidth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.VSP_TextBoxWidth.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.VSP_TextBoxWidth.Location = new System.Drawing.Point(132, 3);
+            this.VSP_TextBoxWidth.Name = "VSP_TextBoxWidth";
+            this.VSP_TextBoxWidth.Size = new System.Drawing.Size(128, 22);
+            this.VSP_TextBoxWidth.TabIndex = 4;
+            this.VSP_TextBoxWidth.TextChanged += new System.EventHandler(this.VSP_TextBoxWidth_TextChanged);
+            // 
+            // VSP_LabelCustomWidthHeight
+            // 
+            this.VSP_LabelCustomWidthHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.VSP_LabelCustomWidthHeight.AutoSize = true;
+            this.VSP_LabelCustomWidthHeight.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.VSP_LabelCustomWidthHeight.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.VSP_LabelCustomWidthHeight.Location = new System.Drawing.Point(3, 6);
+            this.VSP_LabelCustomWidthHeight.Name = "VSP_LabelCustomWidthHeight";
+            this.VSP_LabelCustomWidthHeight.Size = new System.Drawing.Size(123, 14);
+            this.VSP_LabelCustomWidthHeight.TabIndex = 16;
+            this.VSP_LabelCustomWidthHeight.Text = "Width x Height";
+            this.GSP_MasterToolTip.SetToolTip(this.VSP_LabelCustomWidthHeight, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            // 
+            // VSP_ComboBoxRenderType
+            // 
+            this.VSP_ComboBoxRenderType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.VSP_ComboBoxRenderType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.VSP_ComboBoxRenderType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.VSP_ComboBoxRenderType.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.VSP_ComboBoxRenderType.FormattingEnabled = true;
+            this.VSP_ComboBoxRenderType.Items.AddRange(new object[] {
             "OpenGL",
             "Software"});
-            this.comboBox3.Location = new System.Drawing.Point(187, 162);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(529, 23);
-            this.comboBox3.TabIndex = 14;
+            this.VSP_ComboBoxRenderType.Location = new System.Drawing.Point(187, 107);
+            this.VSP_ComboBoxRenderType.Name = "VSP_ComboBoxRenderType";
+            this.VSP_ComboBoxRenderType.Size = new System.Drawing.Size(529, 21);
+            this.VSP_ComboBoxRenderType.TabIndex = 14;
             // 
-            // tableLayoutPanel2
+            // VSP_LabelRenderType
             // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.25087F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 226F));
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox2, 2, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(184, 125);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(535, 32);
-            this.tableLayoutPanel2.TabIndex = 15;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(167, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(139, 23);
-            this.textBox2.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(149, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(12, 14);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "x";
-            this.GSP_MasterToolTip.SetToolTip(this.label4, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 23);
-            this.textBox1.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(4, 134);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(176, 14);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Width x Height";
-            this.GSP_MasterToolTip.SetToolTip(this.label5, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.VSP_LabelRenderType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.VSP_LabelRenderType.AutoSize = true;
+            this.VSP_LabelRenderType.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.VSP_LabelRenderType.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.VSP_LabelRenderType.Location = new System.Drawing.Point(4, 110);
+            this.VSP_LabelRenderType.Name = "VSP_LabelRenderType";
+            this.VSP_LabelRenderType.Size = new System.Drawing.Size(176, 14);
+            this.VSP_LabelRenderType.TabIndex = 6;
+            this.VSP_LabelRenderType.Text = "Renderer";
             // 
             // VideoSettingsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 225);
-            this.Controls.Add(this.GSP_MainPanel);
+            this.ClientSize = new System.Drawing.Size(720, 135);
+            this.Controls.Add(this.VSP_MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VideoSettingsPanel";
             this.Text = "GeneralSettingsPanel";
-            this.GSP_MainPanel.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.VSP_MainPanel.ResumeLayout(false);
+            this.VSP_TableLayout.ResumeLayout(false);
+            this.VSP_TableLayout.PerformLayout();
+            this.VSP_TableLayoutRenderResolutionOptions.ResumeLayout(false);
+            this.VSP_TableLayoutCustomResolution.ResumeLayout(false);
+            this.VSP_TableLayoutCustomResolution.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel GSP_MainPanel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel VSP_MainPanel;
+        private System.Windows.Forms.TableLayoutPanel VSP_TableLayout;
+        private System.Windows.Forms.Label VSP_LabelRenderResolution;
+        private System.Windows.Forms.Label VSP_LabelRenderType;
         private System.Windows.Forms.ToolTip GSP_MasterToolTip;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label VSP_LabelWindowMode;
+        private System.Windows.Forms.ComboBox VSP_ComboBoxWindowMode;
+        private System.Windows.Forms.ComboBox VSP_ComboBoxRenderResolution;
+        private System.Windows.Forms.ComboBox VSP_ComboBoxRenderType;
+        private System.Windows.Forms.TableLayoutPanel VSP_TableLayoutCustomResolution;
+        private System.Windows.Forms.TextBox VSP_TextBoxHeight;
+        private System.Windows.Forms.Label VSP_LabelWidthHeightDivider;
+        private System.Windows.Forms.TextBox VSP_TextBoxWidth;
+        private System.Windows.Forms.Label VSP_LabelCustomWidthHeight;
+        private System.Windows.Forms.TableLayoutPanel VSP_TableLayoutRenderResolutionOptions;
     }
 }

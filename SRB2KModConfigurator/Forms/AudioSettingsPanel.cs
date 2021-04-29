@@ -17,9 +17,18 @@ namespace SRB2KModConfigurator.Forms
             InitializeComponent();
         }
 
+        public void LoadData(AudioSettingsDataStruct data)
+        {
+            ASP_CheckBoxMusic.Checked   = data.disableMusic;
+            ASP_CheckBoxSFXs.Checked    = data.disableSFXs;
+        }
+
         public AudioSettingsDataStruct ReturnData()
         {
             AudioSettingsDataStruct data = new AudioSettingsDataStruct();
+
+            data.disableMusic   = ASP_CheckBoxMusic.Checked;
+            data.disableSFXs    = ASP_CheckBoxSFXs.Checked;
 
             return data;
         }

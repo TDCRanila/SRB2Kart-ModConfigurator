@@ -12,6 +12,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Forms\AudioSettingsPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ServerSettingsPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\VideoSettingsPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

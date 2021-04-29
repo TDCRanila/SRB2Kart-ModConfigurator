@@ -34,6 +34,11 @@ namespace SRB2KModConfigurator
             LoadModFolder(loadedConfigFile.mainModFolderPath);
             UpdateModFolderTreeViewer(loadedConfigFile.modFiles);
             LoadTargetExecutableInfo(loadedConfigFile.targetFilePath);
+
+            generalSettingsPanelRef.LoadData(loadedConfigFile.configSettingsData.generalSettings);
+            videoSettingsPanelRef.LoadData(loadedConfigFile.configSettingsData.videoSettings);
+            audioSettingsPanelRef.LoadData(loadedConfigFile.configSettingsData.audioSettings);
+            serverSettingsPanelRef.LoadData(loadedConfigFile.configSettingsData.serverSettings);
         }
 
         private StarterPage parentFormRef;
@@ -388,6 +393,13 @@ namespace SRB2KModConfigurator
                 FileStream fileStream       = File.Create(fileName);
                 using (StreamWriter writer  = new StreamWriter(fileStream))
                 {
+                    FileInfo fileInfo = new FileInfo(fileName);
+
+                    // Not that pretty way to update the underlying struct data.
+                    generalSettingsPanelRef.GSP_TextBoxConfigName.Text = fileInfo.Name;
+                    configSettings.generalSettings = generalSettingsPanelRef.ReturnData();
+                    newConfigFile.configSettingsData = configSettings;
+
                     writer.Write(newConfigFile.CreateJSONString());
                 }
                 return;

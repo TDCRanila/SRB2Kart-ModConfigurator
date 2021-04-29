@@ -182,6 +182,7 @@ namespace SRB2KModConfigurator
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.SP_MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "StarterPage";
             this.Text = "StarterPage";
             this.SP_MainPanel.ResumeLayout(false);
