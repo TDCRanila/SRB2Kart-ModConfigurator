@@ -160,6 +160,11 @@ namespace SRB2KModConfigurator
 
         private bool LoadModFolder(string modFolderPathLocation)
         {
+            if (modFolderPathLocation.Length == 0)
+            {
+                return false;
+            }    
+
             DirectoryInfo newModFolderInfo = new DirectoryInfo(modFolderPathLocation);
             if (!newModFolderInfo.Exists)
             {
