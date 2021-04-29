@@ -95,8 +95,8 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.GSP_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.GSP_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.GSP_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.GSP_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.GSP_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.GSP_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.GSP_TableLayout.Size = new System.Drawing.Size(720, 242);
             this.GSP_TableLayout.TabIndex = 0;
             // 
@@ -128,7 +128,7 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_LabelAdditionalParameters.AutoSize = true;
             this.GSP_LabelAdditionalParameters.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.GSP_LabelAdditionalParameters.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.GSP_LabelAdditionalParameters.Location = new System.Drawing.Point(4, 216);
+            this.GSP_LabelAdditionalParameters.Location = new System.Drawing.Point(4, 217);
             this.GSP_LabelAdditionalParameters.Name = "GSP_LabelAdditionalParameters";
             this.GSP_LabelAdditionalParameters.Size = new System.Drawing.Size(176, 14);
             this.GSP_LabelAdditionalParameters.TabIndex = 4;
@@ -139,7 +139,7 @@ namespace SRB2KModConfigurator.Forms
             // 
             this.GSP_TextBoxAdditionalParameters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.GSP_TextBoxAdditionalParameters.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GSP_TextBoxAdditionalParameters.Location = new System.Drawing.Point(187, 212);
+            this.GSP_TextBoxAdditionalParameters.Location = new System.Drawing.Point(187, 213);
             this.GSP_TextBoxAdditionalParameters.Name = "GSP_TextBoxAdditionalParameters";
             this.GSP_TextBoxAdditionalParameters.Size = new System.Drawing.Size(529, 22);
             this.GSP_TextBoxAdditionalParameters.TabIndex = 10;
@@ -150,7 +150,7 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_LabelCustomConfigFile.AutoSize = true;
             this.GSP_LabelCustomConfigFile.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.GSP_LabelCustomConfigFile.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.GSP_LabelCustomConfigFile.Location = new System.Drawing.Point(4, 180);
+            this.GSP_LabelCustomConfigFile.Location = new System.Drawing.Point(4, 181);
             this.GSP_LabelCustomConfigFile.Name = "GSP_LabelCustomConfigFile";
             this.GSP_LabelCustomConfigFile.Size = new System.Drawing.Size(176, 14);
             this.GSP_LabelCustomConfigFile.TabIndex = 13;
@@ -182,6 +182,7 @@ namespace SRB2KModConfigurator.Forms
             // GSP_ComboBoxDataActions
             // 
             this.GSP_ComboBoxDataActions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.GSP_ComboBoxDataActions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GSP_ComboBoxDataActions.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.GSP_ComboBoxDataActions.FormattingEnabled = true;
             this.GSP_ComboBoxDataActions.Items.AddRange(new object[] {
@@ -254,8 +255,8 @@ namespace SRB2KModConfigurator.Forms
             // GSP_TableLayoutCustomConfigFile
             // 
             this.GSP_TableLayoutCustomConfigFile.ColumnCount = 2;
-            this.GSP_TableLayoutCustomConfigFile.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
-            this.GSP_TableLayoutCustomConfigFile.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 474F));
+            this.GSP_TableLayoutCustomConfigFile.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.GSP_TableLayoutCustomConfigFile.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 483F));
             this.GSP_TableLayoutCustomConfigFile.Controls.Add(this.GSP_ButtonCustomConfigFile, 0, 0);
             this.GSP_TableLayoutCustomConfigFile.Controls.Add(this.GSP_TextBoxCustomConfigFile, 1, 0);
             this.GSP_TableLayoutCustomConfigFile.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -264,21 +265,24 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_TableLayoutCustomConfigFile.Name = "GSP_TableLayoutCustomConfigFile";
             this.GSP_TableLayoutCustomConfigFile.RowCount = 1;
             this.GSP_TableLayoutCustomConfigFile.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.GSP_TableLayoutCustomConfigFile.Size = new System.Drawing.Size(533, 33);
+            this.GSP_TableLayoutCustomConfigFile.Size = new System.Drawing.Size(533, 35);
             this.GSP_TableLayoutCustomConfigFile.TabIndex = 14;
             // 
             // GSP_ButtonCustomConfigFile
             // 
             this.GSP_ButtonCustomConfigFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.GSP_ButtonCustomConfigFile.BackColor = System.Drawing.Color.White;
+            this.GSP_ButtonCustomConfigFile.BackgroundImage = global::SRB2KModConfigurator.Properties.Resources.spr_folder;
+            this.GSP_ButtonCustomConfigFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.GSP_ButtonCustomConfigFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GSP_ButtonCustomConfigFile.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.GSP_ButtonCustomConfigFile.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.GSP_ButtonCustomConfigFile.Location = new System.Drawing.Point(3, 4);
+            this.GSP_ButtonCustomConfigFile.Location = new System.Drawing.Point(1, 3);
+            this.GSP_ButtonCustomConfigFile.Margin = new System.Windows.Forms.Padding(1);
+            this.GSP_ButtonCustomConfigFile.MinimumSize = new System.Drawing.Size(0, 28);
             this.GSP_ButtonCustomConfigFile.Name = "GSP_ButtonCustomConfigFile";
-            this.GSP_ButtonCustomConfigFile.Size = new System.Drawing.Size(53, 24);
+            this.GSP_ButtonCustomConfigFile.Size = new System.Drawing.Size(48, 28);
             this.GSP_ButtonCustomConfigFile.TabIndex = 12;
-            this.GSP_ButtonCustomConfigFile.Text = "File";
             this.GSP_ButtonCustomConfigFile.UseVisualStyleBackColor = false;
             this.GSP_ButtonCustomConfigFile.Click += new System.EventHandler(this.GSP_ButtonCustomConfigFile_Click);
             // 
@@ -286,10 +290,10 @@ namespace SRB2KModConfigurator.Forms
             // 
             this.GSP_TextBoxCustomConfigFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.GSP_TextBoxCustomConfigFile.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GSP_TextBoxCustomConfigFile.Location = new System.Drawing.Point(62, 5);
+            this.GSP_TextBoxCustomConfigFile.Location = new System.Drawing.Point(53, 6);
+            this.GSP_TextBoxCustomConfigFile.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.GSP_TextBoxCustomConfigFile.Name = "GSP_TextBoxCustomConfigFile";
-            this.GSP_TextBoxCustomConfigFile.ReadOnly = true;
-            this.GSP_TextBoxCustomConfigFile.Size = new System.Drawing.Size(468, 22);
+            this.GSP_TextBoxCustomConfigFile.Size = new System.Drawing.Size(477, 22);
             this.GSP_TextBoxCustomConfigFile.TabIndex = 11;
             // 
             // GeneralSettingsPanel

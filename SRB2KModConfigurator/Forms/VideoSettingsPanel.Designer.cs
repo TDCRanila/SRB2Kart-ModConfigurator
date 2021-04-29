@@ -250,7 +250,7 @@ namespace SRB2KModConfigurator.Forms
             this.VSP_ComboBoxRenderType.Items.AddRange(new object[] {
             "OpenGL",
             "Software"});
-            this.VSP_ComboBoxRenderType.Location = new System.Drawing.Point(187, 107);
+            this.VSP_ComboBoxRenderType.Location = new System.Drawing.Point(187, 106);
             this.VSP_ComboBoxRenderType.Name = "VSP_ComboBoxRenderType";
             this.VSP_ComboBoxRenderType.Size = new System.Drawing.Size(529, 21);
             this.VSP_ComboBoxRenderType.TabIndex = 14;

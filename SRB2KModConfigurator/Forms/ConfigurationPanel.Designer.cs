@@ -341,23 +341,33 @@ namespace SRB2KModConfigurator
             // CP_ButtonModFolderFileDialog
             // 
             this.CP_ButtonModFolderFileDialog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CP_ButtonModFolderFileDialog.BackColor = System.Drawing.Color.White;
+            this.CP_ButtonModFolderFileDialog.BackgroundImage = global::SRB2KModConfigurator.Properties.Resources.spr_folder;
+            this.CP_ButtonModFolderFileDialog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CP_ButtonModFolderFileDialog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_ButtonModFolderFileDialog.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CP_ButtonModFolderFileDialog.ForeColor = System.Drawing.SystemColors.ControlText;
             this.CP_ButtonModFolderFileDialog.Location = new System.Drawing.Point(407, 9);
             this.CP_ButtonModFolderFileDialog.Name = "CP_ButtonModFolderFileDialog";
             this.CP_ButtonModFolderFileDialog.Size = new System.Drawing.Size(41, 24);
             this.CP_ButtonModFolderFileDialog.TabIndex = 2;
-            this.CP_ButtonModFolderFileDialog.Text = "F";
-            this.CP_ButtonModFolderFileDialog.UseVisualStyleBackColor = true;
+            this.CP_ButtonModFolderFileDialog.UseVisualStyleBackColor = false;
             this.CP_ButtonModFolderFileDialog.Click += new System.EventHandler(this.CP_ButtonModFolderFileDialog_Click);
             // 
             // CP_ButtonRefreshModFolderLocation
             // 
             this.CP_ButtonRefreshModFolderLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CP_ButtonRefreshModFolderLocation.BackColor = System.Drawing.Color.White;
+            this.CP_ButtonRefreshModFolderLocation.BackgroundImage = global::SRB2KModConfigurator.Properties.Resources.spr_refresh;
+            this.CP_ButtonRefreshModFolderLocation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CP_ButtonRefreshModFolderLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_ButtonRefreshModFolderLocation.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CP_ButtonRefreshModFolderLocation.ForeColor = System.Drawing.SystemColors.ControlText;
             this.CP_ButtonRefreshModFolderLocation.Location = new System.Drawing.Point(360, 9);
             this.CP_ButtonRefreshModFolderLocation.Name = "CP_ButtonRefreshModFolderLocation";
             this.CP_ButtonRefreshModFolderLocation.Size = new System.Drawing.Size(41, 24);
             this.CP_ButtonRefreshModFolderLocation.TabIndex = 1;
-            this.CP_ButtonRefreshModFolderLocation.Text = "R";
-            this.CP_ButtonRefreshModFolderLocation.UseVisualStyleBackColor = true;
+            this.CP_ButtonRefreshModFolderLocation.UseVisualStyleBackColor = false;
             this.CP_ButtonRefreshModFolderLocation.Click += new System.EventHandler(this.CP_ButtonRefreshFolderLocation_Click);
             // 
             // CP_TableTopBar
@@ -396,35 +406,50 @@ namespace SRB2KModConfigurator
             // 
             // CP_ButtonSaveConfiguration
             // 
+            this.CP_ButtonSaveConfiguration.BackColor = System.Drawing.Color.White;
             this.CP_ButtonSaveConfiguration.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CP_ButtonSaveConfiguration.Location = new System.Drawing.Point(3, 3);
+            this.CP_ButtonSaveConfiguration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_ButtonSaveConfiguration.Font = new System.Drawing.Font("envypn7x15", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CP_ButtonSaveConfiguration.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.CP_ButtonSaveConfiguration.Location = new System.Drawing.Point(1, 1);
+            this.CP_ButtonSaveConfiguration.Margin = new System.Windows.Forms.Padding(1);
             this.CP_ButtonSaveConfiguration.Name = "CP_ButtonSaveConfiguration";
-            this.CP_ButtonSaveConfiguration.Size = new System.Drawing.Size(56, 38);
+            this.CP_ButtonSaveConfiguration.Size = new System.Drawing.Size(60, 42);
             this.CP_ButtonSaveConfiguration.TabIndex = 0;
             this.CP_ButtonSaveConfiguration.Text = "Save";
-            this.CP_ButtonSaveConfiguration.UseVisualStyleBackColor = true;
+            this.CP_ButtonSaveConfiguration.UseVisualStyleBackColor = false;
             this.CP_ButtonSaveConfiguration.Click += new System.EventHandler(this.CP_ButtonSaveConfiguration_Click);
             // 
             // CP_ButtonExportConfigFileDialog
             // 
+            this.CP_ButtonExportConfigFileDialog.BackColor = System.Drawing.Color.White;
             this.CP_ButtonExportConfigFileDialog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CP_ButtonExportConfigFileDialog.Location = new System.Drawing.Point(65, 3);
+            this.CP_ButtonExportConfigFileDialog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_ButtonExportConfigFileDialog.Font = new System.Drawing.Font("envypn7x15", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CP_ButtonExportConfigFileDialog.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.CP_ButtonExportConfigFileDialog.Location = new System.Drawing.Point(63, 1);
+            this.CP_ButtonExportConfigFileDialog.Margin = new System.Windows.Forms.Padding(1);
             this.CP_ButtonExportConfigFileDialog.Name = "CP_ButtonExportConfigFileDialog";
-            this.CP_ButtonExportConfigFileDialog.Size = new System.Drawing.Size(56, 38);
+            this.CP_ButtonExportConfigFileDialog.Size = new System.Drawing.Size(60, 42);
             this.CP_ButtonExportConfigFileDialog.TabIndex = 1;
             this.CP_ButtonExportConfigFileDialog.Text = "Export";
-            this.CP_ButtonExportConfigFileDialog.UseVisualStyleBackColor = true;
+            this.CP_ButtonExportConfigFileDialog.UseVisualStyleBackColor = false;
             this.CP_ButtonExportConfigFileDialog.Click += new System.EventHandler(this.CP_ButtonExportConfigFileDialog_Click);
             // 
             // CP_ButtonReturnStarterPage
             // 
+            this.CP_ButtonReturnStarterPage.BackColor = System.Drawing.Color.White;
             this.CP_ButtonReturnStarterPage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CP_ButtonReturnStarterPage.Location = new System.Drawing.Point(127, 3);
+            this.CP_ButtonReturnStarterPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_ButtonReturnStarterPage.Font = new System.Drawing.Font("envypn7x15", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CP_ButtonReturnStarterPage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.CP_ButtonReturnStarterPage.Location = new System.Drawing.Point(125, 1);
+            this.CP_ButtonReturnStarterPage.Margin = new System.Windows.Forms.Padding(1);
             this.CP_ButtonReturnStarterPage.Name = "CP_ButtonReturnStarterPage";
-            this.CP_ButtonReturnStarterPage.Size = new System.Drawing.Size(57, 38);
+            this.CP_ButtonReturnStarterPage.Size = new System.Drawing.Size(61, 42);
             this.CP_ButtonReturnStarterPage.TabIndex = 2;
             this.CP_ButtonReturnStarterPage.Text = "Return";
-            this.CP_ButtonReturnStarterPage.UseVisualStyleBackColor = true;
+            this.CP_ButtonReturnStarterPage.UseVisualStyleBackColor = false;
             this.CP_ButtonReturnStarterPage.Click += new System.EventHandler(this.CP_ButtonReturnStarterPage_Click);
             // 
             // CP_NiceGroupTargetExecutable
@@ -489,26 +514,36 @@ namespace SRB2KModConfigurator
             // CP_ButtonFileDialogTargetExecutable
             // 
             this.CP_ButtonFileDialogTargetExecutable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CP_ButtonFileDialogTargetExecutable.BackColor = System.Drawing.Color.White;
+            this.CP_ButtonFileDialogTargetExecutable.BackgroundImage = global::SRB2KModConfigurator.Properties.Resources.spr_folder;
+            this.CP_ButtonFileDialogTargetExecutable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CP_ButtonFileDialogTargetExecutable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_ButtonFileDialogTargetExecutable.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CP_ButtonFileDialogTargetExecutable.ForeColor = System.Drawing.SystemColors.ControlText;
             this.CP_ButtonFileDialogTargetExecutable.Location = new System.Drawing.Point(516, 9);
             this.CP_ButtonFileDialogTargetExecutable.MinimumSize = new System.Drawing.Size(39, 22);
             this.CP_ButtonFileDialogTargetExecutable.Name = "CP_ButtonFileDialogTargetExecutable";
             this.CP_ButtonFileDialogTargetExecutable.Size = new System.Drawing.Size(44, 24);
             this.CP_ButtonFileDialogTargetExecutable.TabIndex = 3;
-            this.CP_ButtonFileDialogTargetExecutable.Text = "F";
-            this.CP_ButtonFileDialogTargetExecutable.UseVisualStyleBackColor = true;
+            this.CP_ButtonFileDialogTargetExecutable.UseVisualStyleBackColor = false;
             this.CP_ButtonFileDialogTargetExecutable.Click += new System.EventHandler(this.CP_ButtonFileDialogTargetExecutable_Click);
             // 
             // CP_ButtonRefreshTargetExecutable
             // 
             this.CP_ButtonRefreshTargetExecutable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CP_ButtonRefreshTargetExecutable.BackColor = System.Drawing.Color.White;
+            this.CP_ButtonRefreshTargetExecutable.BackgroundImage = global::SRB2KModConfigurator.Properties.Resources.spr_refresh;
+            this.CP_ButtonRefreshTargetExecutable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CP_ButtonRefreshTargetExecutable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_ButtonRefreshTargetExecutable.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CP_ButtonRefreshTargetExecutable.ForeColor = System.Drawing.SystemColors.ControlText;
             this.CP_ButtonRefreshTargetExecutable.Location = new System.Drawing.Point(468, 9);
             this.CP_ButtonRefreshTargetExecutable.Margin = new System.Windows.Forms.Padding(1);
             this.CP_ButtonRefreshTargetExecutable.MinimumSize = new System.Drawing.Size(39, 22);
             this.CP_ButtonRefreshTargetExecutable.Name = "CP_ButtonRefreshTargetExecutable";
             this.CP_ButtonRefreshTargetExecutable.Size = new System.Drawing.Size(44, 24);
             this.CP_ButtonRefreshTargetExecutable.TabIndex = 2;
-            this.CP_ButtonRefreshTargetExecutable.Text = "R";
-            this.CP_ButtonRefreshTargetExecutable.UseVisualStyleBackColor = true;
+            this.CP_ButtonRefreshTargetExecutable.UseVisualStyleBackColor = false;
             this.CP_ButtonRefreshTargetExecutable.Click += new System.EventHandler(this.CP_ButtonRefreshTargetExecutable_Click);
             // 
             // ConfigurationPanel
