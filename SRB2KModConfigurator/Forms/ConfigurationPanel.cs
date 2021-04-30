@@ -54,6 +54,10 @@ namespace SRB2KModConfigurator
         private string currentTargetExecutable;
         private ConfigurationSettingsDataStruct configSettings;
 
+        private bool isModFolderLocationValid;
+        private bool isTargetExecutableLocationValid;
+        private bool isConfigurationValid;
+
         private bool enableTreeViewAfterCheck ;
 
         private void InitiliazeConfigurator()
@@ -338,6 +342,10 @@ namespace SRB2KModConfigurator
 
         private void SetTargetExecutableValidationStatus(bool isValid)
         {
+            isTargetExecutableLocationValid = isValid;
+
+            CheckConfigurationValiditity();
+
             if (isValid)
                 CP_PictureBoxTargetExecutableValidation.Image = Properties.Resources.spr_checkmark;
             else
@@ -346,10 +354,22 @@ namespace SRB2KModConfigurator
 
         private void SetModFolderValidationStatus(bool isValid)
         {
+            isModFolderLocationValid = isValid;
+
+            CheckConfigurationValiditity();
+
             if (isValid)
                 CP_PictureBoxModFolderValidation.Image = Properties.Resources.spr_checkmark;
             else
                 CP_PictureBoxModFolderValidation.Image = Properties.Resources.spr_crosss;
+        }
+
+        private void CheckConfigurationValiditity()
+        {
+            isConfigurationValid = isTargetExecutableLocationValid && isModFolderLocationValid;
+
+            CP_ButtonSaveConfiguration.Enabled      = isConfigurationValid;
+            CP_ButtonExportConfigFileDialog.Enabled = isConfigurationValid;
         }
 
         #endregion // End of region ~ Implementation. - 
