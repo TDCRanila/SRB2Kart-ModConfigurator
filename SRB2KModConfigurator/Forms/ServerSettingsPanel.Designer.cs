@@ -78,8 +78,8 @@ namespace SRB2KModConfigurator.Forms
             // 
             this.SSP_TableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.SSP_TableLayout.ColumnCount = 2;
-            this.SSP_TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SSP_TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 546F));
+            this.SSP_TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.43F));
+            this.SSP_TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.57F));
             this.SSP_TableLayout.Controls.Add(this.SSP_LabelHostServerType, 0, 7);
             this.SSP_TableLayout.Controls.Add(this.SSP_ComboboxHostServerType, 1, 7);
             this.SSP_TableLayout.Controls.Add(this.SSP_TextboxHostServerName, 0, 6);
@@ -127,7 +127,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelHostServerType.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.SSP_LabelHostServerType.Location = new System.Drawing.Point(4, 209);
             this.SSP_LabelHostServerType.Name = "SSP_LabelHostServerType";
-            this.SSP_LabelHostServerType.Size = new System.Drawing.Size(165, 14);
+            this.SSP_LabelHostServerType.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelHostServerType.TabIndex = 30;
             this.SSP_LabelHostServerType.Text = "Server Type";
             this.GSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerType, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
@@ -141,26 +141,26 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_ComboboxHostServerType.Items.AddRange(new object[] {
             "ClientServer",
             "DedicatedServer"});
-            this.SSP_ComboboxHostServerType.Location = new System.Drawing.Point(176, 205);
+            this.SSP_ComboboxHostServerType.Location = new System.Drawing.Point(187, 205);
             this.SSP_ComboboxHostServerType.Name = "SSP_ComboboxHostServerType";
-            this.SSP_ComboboxHostServerType.Size = new System.Drawing.Size(540, 23);
+            this.SSP_ComboboxHostServerType.Size = new System.Drawing.Size(529, 23);
             this.SSP_ComboboxHostServerType.TabIndex = 29;
             // 
             // SSP_TextboxHostServerName
             // 
             this.SSP_TextboxHostServerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SSP_TextboxHostServerName.Location = new System.Drawing.Point(176, 169);
+            this.SSP_TextboxHostServerName.Location = new System.Drawing.Point(187, 169);
             this.SSP_TextboxHostServerName.Name = "SSP_TextboxHostServerName";
-            this.SSP_TextboxHostServerName.Size = new System.Drawing.Size(540, 23);
+            this.SSP_TextboxHostServerName.Size = new System.Drawing.Size(529, 23);
             this.SSP_TextboxHostServerName.TabIndex = 28;
             // 
             // SSP_CheckboxJoinServerPreventAddonDownload
             // 
             this.SSP_CheckboxJoinServerPreventAddonDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SSP_CheckboxJoinServerPreventAddonDownload.AutoSize = true;
-            this.SSP_CheckboxJoinServerPreventAddonDownload.Location = new System.Drawing.Point(176, 126);
+            this.SSP_CheckboxJoinServerPreventAddonDownload.Location = new System.Drawing.Point(187, 126);
             this.SSP_CheckboxJoinServerPreventAddonDownload.Name = "SSP_CheckboxJoinServerPreventAddonDownload";
-            this.SSP_CheckboxJoinServerPreventAddonDownload.Size = new System.Drawing.Size(540, 14);
+            this.SSP_CheckboxJoinServerPreventAddonDownload.Size = new System.Drawing.Size(529, 14);
             this.SSP_CheckboxJoinServerPreventAddonDownload.TabIndex = 27;
             this.SSP_CheckboxJoinServerPreventAddonDownload.UseVisualStyleBackColor = true;
             // 
@@ -172,7 +172,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelJoinServerPreventAddonDownload.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.SSP_LabelJoinServerPreventAddonDownload.Location = new System.Drawing.Point(4, 119);
             this.SSP_LabelJoinServerPreventAddonDownload.Name = "SSP_LabelJoinServerPreventAddonDownload";
-            this.SSP_LabelJoinServerPreventAddonDownload.Size = new System.Drawing.Size(165, 28);
+            this.SSP_LabelJoinServerPreventAddonDownload.Size = new System.Drawing.Size(176, 28);
             this.SSP_LabelJoinServerPreventAddonDownload.TabIndex = 26;
             this.SSP_LabelJoinServerPreventAddonDownload.Text = "Prevent Addon Download";
             this.GSP_MasterToolTip.SetToolTip(this.SSP_LabelJoinServerPreventAddonDownload, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
@@ -185,7 +185,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelOnlineMode.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.SSP_LabelOnlineMode.Location = new System.Drawing.Point(4, 10);
             this.SSP_LabelOnlineMode.Name = "SSP_LabelOnlineMode";
-            this.SSP_LabelOnlineMode.Size = new System.Drawing.Size(165, 16);
+            this.SSP_LabelOnlineMode.Size = new System.Drawing.Size(176, 16);
             this.SSP_LabelOnlineMode.TabIndex = 21;
             this.SSP_LabelOnlineMode.Text = "Online Mode";
             this.GSP_MasterToolTip.SetToolTip(this.SSP_LabelOnlineMode, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
@@ -200,9 +200,9 @@ namespace SRB2KModConfigurator.Forms
             "Offline",
             "JoinServer",
             "HostServer"});
-            this.SSP_ComboboxOnlineMode.Location = new System.Drawing.Point(176, 6);
+            this.SSP_ComboboxOnlineMode.Location = new System.Drawing.Point(187, 6);
             this.SSP_ComboboxOnlineMode.Name = "SSP_ComboboxOnlineMode";
-            this.SSP_ComboboxOnlineMode.Size = new System.Drawing.Size(540, 23);
+            this.SSP_ComboboxOnlineMode.Size = new System.Drawing.Size(529, 23);
             this.SSP_ComboboxOnlineMode.TabIndex = 20;
             this.SSP_ComboboxOnlineMode.SelectedIndexChanged += new System.EventHandler(this.SSP_ComboboxOnlineMode_SelectedIndexChanged);
             // 
@@ -214,7 +214,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelJoinServerIP.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.SSP_LabelJoinServerIP.Location = new System.Drawing.Point(4, 57);
             this.SSP_LabelJoinServerIP.Name = "SSP_LabelJoinServerIP";
-            this.SSP_LabelJoinServerIP.Size = new System.Drawing.Size(165, 14);
+            this.SSP_LabelJoinServerIP.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelJoinServerIP.TabIndex = 22;
             this.SSP_LabelJoinServerIP.Text = "Server IP";
             this.GSP_MasterToolTip.SetToolTip(this.SSP_LabelJoinServerIP, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
@@ -222,17 +222,17 @@ namespace SRB2KModConfigurator.Forms
             // SSP_TextboxJoinServerPort
             // 
             this.SSP_TextboxJoinServerPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SSP_TextboxJoinServerPort.Location = new System.Drawing.Point(176, 87);
+            this.SSP_TextboxJoinServerPort.Location = new System.Drawing.Point(187, 87);
             this.SSP_TextboxJoinServerPort.Name = "SSP_TextboxJoinServerPort";
-            this.SSP_TextboxJoinServerPort.Size = new System.Drawing.Size(540, 23);
+            this.SSP_TextboxJoinServerPort.Size = new System.Drawing.Size(529, 23);
             this.SSP_TextboxJoinServerPort.TabIndex = 24;
             // 
             // SSP_TextboxJoinServerIP
             // 
             this.SSP_TextboxJoinServerIP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SSP_TextboxJoinServerIP.Location = new System.Drawing.Point(176, 53);
+            this.SSP_TextboxJoinServerIP.Location = new System.Drawing.Point(187, 53);
             this.SSP_TextboxJoinServerIP.Name = "SSP_TextboxJoinServerIP";
-            this.SSP_TextboxJoinServerIP.Size = new System.Drawing.Size(540, 23);
+            this.SSP_TextboxJoinServerIP.Size = new System.Drawing.Size(529, 23);
             this.SSP_TextboxJoinServerIP.TabIndex = 23;
             // 
             // SSP_LabelJoinServerPort
@@ -243,7 +243,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelJoinServerPort.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.SSP_LabelJoinServerPort.Location = new System.Drawing.Point(4, 92);
             this.SSP_LabelJoinServerPort.Name = "SSP_LabelJoinServerPort";
-            this.SSP_LabelJoinServerPort.Size = new System.Drawing.Size(165, 14);
+            this.SSP_LabelJoinServerPort.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelJoinServerPort.TabIndex = 25;
             this.SSP_LabelJoinServerPort.Text = "Server Port";
             this.GSP_MasterToolTip.SetToolTip(this.SSP_LabelJoinServerPort, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
@@ -256,7 +256,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelHostServerName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.SSP_LabelHostServerName.Location = new System.Drawing.Point(4, 173);
             this.SSP_LabelHostServerName.Name = "SSP_LabelHostServerName";
-            this.SSP_LabelHostServerName.Size = new System.Drawing.Size(165, 14);
+            this.SSP_LabelHostServerName.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelHostServerName.TabIndex = 18;
             this.SSP_LabelHostServerName.Text = "Server Name";
             this.GSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerName, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
@@ -267,9 +267,9 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelHostPreventAddonUpload.AutoSize = true;
             this.SSP_LabelHostPreventAddonUpload.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.SSP_LabelHostPreventAddonUpload.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.SSP_LabelHostPreventAddonUpload.Location = new System.Drawing.Point(4, 339);
+            this.SSP_LabelHostPreventAddonUpload.Location = new System.Drawing.Point(4, 346);
             this.SSP_LabelHostPreventAddonUpload.Name = "SSP_LabelHostPreventAddonUpload";
-            this.SSP_LabelHostPreventAddonUpload.Size = new System.Drawing.Size(165, 28);
+            this.SSP_LabelHostPreventAddonUpload.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelHostPreventAddonUpload.TabIndex = 14;
             this.SSP_LabelHostPreventAddonUpload.Text = "Prevent Addon Upload";
             // 
@@ -277,9 +277,9 @@ namespace SRB2KModConfigurator.Forms
             // 
             this.SSP_CheckboxHostServerPreventAddonUpload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SSP_CheckboxHostServerPreventAddonUpload.AutoSize = true;
-            this.SSP_CheckboxHostServerPreventAddonUpload.Location = new System.Drawing.Point(176, 346);
+            this.SSP_CheckboxHostServerPreventAddonUpload.Location = new System.Drawing.Point(187, 346);
             this.SSP_CheckboxHostServerPreventAddonUpload.Name = "SSP_CheckboxHostServerPreventAddonUpload";
-            this.SSP_CheckboxHostServerPreventAddonUpload.Size = new System.Drawing.Size(540, 14);
+            this.SSP_CheckboxHostServerPreventAddonUpload.Size = new System.Drawing.Size(529, 14);
             this.SSP_CheckboxHostServerPreventAddonUpload.TabIndex = 15;
             this.SSP_CheckboxHostServerPreventAddonUpload.UseVisualStyleBackColor = true;
             // 
@@ -291,16 +291,16 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelHostServerGameType.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.SSP_LabelHostServerGameType.Location = new System.Drawing.Point(4, 311);
             this.SSP_LabelHostServerGameType.Name = "SSP_LabelHostServerGameType";
-            this.SSP_LabelHostServerGameType.Size = new System.Drawing.Size(165, 14);
+            this.SSP_LabelHostServerGameType.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelHostServerGameType.TabIndex = 4;
             this.SSP_LabelHostServerGameType.Text = "Server Game Type";
             // 
             // SSP_TextBoxHostServerGameType
             // 
             this.SSP_TextBoxHostServerGameType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SSP_TextBoxHostServerGameType.Location = new System.Drawing.Point(176, 307);
+            this.SSP_TextBoxHostServerGameType.Location = new System.Drawing.Point(187, 307);
             this.SSP_TextBoxHostServerGameType.Name = "SSP_TextBoxHostServerGameType";
-            this.SSP_TextBoxHostServerGameType.Size = new System.Drawing.Size(540, 23);
+            this.SSP_TextBoxHostServerGameType.Size = new System.Drawing.Size(529, 23);
             this.SSP_TextBoxHostServerGameType.TabIndex = 10;
             // 
             // SSP_LabelHostServerBroadcasting
@@ -311,7 +311,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelHostServerBroadcasting.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.SSP_LabelHostServerBroadcasting.Location = new System.Drawing.Point(4, 270);
             this.SSP_LabelHostServerBroadcasting.Name = "SSP_LabelHostServerBroadcasting";
-            this.SSP_LabelHostServerBroadcasting.Size = new System.Drawing.Size(165, 28);
+            this.SSP_LabelHostServerBroadcasting.Size = new System.Drawing.Size(176, 28);
             this.SSP_LabelHostServerBroadcasting.TabIndex = 6;
             this.SSP_LabelHostServerBroadcasting.Text = "Server Public Broadcasting";
             // 
@@ -320,15 +320,15 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_TableMasterServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SSP_TableMasterServer.ColumnCount = 2;
             this.SSP_TableMasterServer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SSP_TableMasterServer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 525F));
+            this.SSP_TableMasterServer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 529F));
             this.SSP_TableMasterServer.Controls.Add(this.SSP_ComboboxHostServerPublicBroadcast, 1, 0);
             this.SSP_TableMasterServer.Controls.Add(this.SSP_CheckboxHostServerPublicBroadCast, 0, 0);
-            this.SSP_TableMasterServer.Location = new System.Drawing.Point(173, 268);
+            this.SSP_TableMasterServer.Location = new System.Drawing.Point(184, 268);
             this.SSP_TableMasterServer.Margin = new System.Windows.Forms.Padding(0);
             this.SSP_TableMasterServer.Name = "SSP_TableMasterServer";
             this.SSP_TableMasterServer.RowCount = 1;
             this.SSP_TableMasterServer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SSP_TableMasterServer.Size = new System.Drawing.Size(546, 32);
+            this.SSP_TableMasterServer.Size = new System.Drawing.Size(535, 32);
             this.SSP_TableMasterServer.TabIndex = 13;
             // 
             // SSP_ComboboxHostServerPublicBroadcast
@@ -343,7 +343,7 @@ namespace SRB2KModConfigurator.Forms
             "Standard"});
             this.SSP_ComboboxHostServerPublicBroadcast.Location = new System.Drawing.Point(23, 4);
             this.SSP_ComboboxHostServerPublicBroadcast.Name = "SSP_ComboboxHostServerPublicBroadcast";
-            this.SSP_ComboboxHostServerPublicBroadcast.Size = new System.Drawing.Size(520, 23);
+            this.SSP_ComboboxHostServerPublicBroadcast.Size = new System.Drawing.Size(523, 23);
             this.SSP_ComboboxHostServerPublicBroadcast.TabIndex = 1;
             // 
             // SSP_CheckboxHostServerPublicBroadCast
@@ -364,15 +364,15 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_TableHostServerPasswordSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SSP_TableHostServerPasswordSettings.ColumnCount = 2;
             this.SSP_TableHostServerPasswordSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SSP_TableHostServerPasswordSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 525F));
+            this.SSP_TableHostServerPasswordSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 529F));
             this.SSP_TableHostServerPasswordSettings.Controls.Add(this.SSP_CheckboxHostServerEnablePassword, 0, 0);
             this.SSP_TableHostServerPasswordSettings.Controls.Add(this.SSP_TextboxHostServerPassword, 1, 0);
-            this.SSP_TableHostServerPasswordSettings.Location = new System.Drawing.Point(173, 235);
+            this.SSP_TableHostServerPasswordSettings.Location = new System.Drawing.Point(184, 235);
             this.SSP_TableHostServerPasswordSettings.Margin = new System.Windows.Forms.Padding(0);
             this.SSP_TableHostServerPasswordSettings.Name = "SSP_TableHostServerPasswordSettings";
             this.SSP_TableHostServerPasswordSettings.RowCount = 1;
             this.SSP_TableHostServerPasswordSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SSP_TableHostServerPasswordSettings.Size = new System.Drawing.Size(546, 32);
+            this.SSP_TableHostServerPasswordSettings.Size = new System.Drawing.Size(535, 32);
             this.SSP_TableHostServerPasswordSettings.TabIndex = 12;
             // 
             // SSP_CheckboxHostServerEnablePassword
@@ -391,7 +391,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_TextboxHostServerPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SSP_TextboxHostServerPassword.Location = new System.Drawing.Point(23, 4);
             this.SSP_TextboxHostServerPassword.Name = "SSP_TextboxHostServerPassword";
-            this.SSP_TextboxHostServerPassword.Size = new System.Drawing.Size(520, 23);
+            this.SSP_TextboxHostServerPassword.Size = new System.Drawing.Size(523, 23);
             this.SSP_TextboxHostServerPassword.TabIndex = 1;
             // 
             // SSP_LabelHostServerPassword
@@ -402,7 +402,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelHostServerPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.SSP_LabelHostServerPassword.Location = new System.Drawing.Point(4, 244);
             this.SSP_LabelHostServerPassword.Name = "SSP_LabelHostServerPassword";
-            this.SSP_LabelHostServerPassword.Size = new System.Drawing.Size(165, 14);
+            this.SSP_LabelHostServerPassword.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelHostServerPassword.TabIndex = 11;
             this.SSP_LabelHostServerPassword.Text = "Password";
             this.GSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerPassword, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");

@@ -15,11 +15,16 @@ namespace SRB2KModConfigurator.Config
     {
         public SRB2ConfigFile()
         {
-            targetFilePath = "";
-            mainModFolderPath = "";
-            modFiles = new List<string>();
-            configSettingsData = new ConfigurationSettingsDataStruct();
+            configurationDisplayName    = "";
+            enableOverrideSettings      = false;
+            targetFilePath              = "";
+            mainModFolderPath           = "";
+            modFiles                    = new List<string>();
+            configSettingsData          = new ConfigurationSettingsDataStruct();
         }
+
+        public string configurationDisplayName {get; set;}
+        public bool enableOverrideSettings { get; set; }
 
         public string targetFilePath { get; set; }
         public string mainModFolderPath { get; set; }
@@ -38,15 +43,17 @@ namespace SRB2KModConfigurator.Config
 
         public void LoadFromJSONString(string loadedJSONString)
         {
-            JsonSerializerOptions options = new JsonSerializerOptions();
-            options.WriteIndented = true;
+            JsonSerializerOptions options   = new JsonSerializerOptions();
+            options.WriteIndented           = true;
 
             SRB2ConfigFile loadedConfigFile = JsonSerializer.Deserialize<SRB2ConfigFile>(loadedJSONString);
 
-            this.targetFilePath     = loadedConfigFile.targetFilePath;
-            this.mainModFolderPath  = loadedConfigFile.mainModFolderPath;
-            this.modFiles           = loadedConfigFile.modFiles;
-            this.configSettingsData = loadedConfigFile.configSettingsData;
+            this.configurationDisplayName   = loadedConfigFile.configurationDisplayName;
+            this.enableOverrideSettings     = loadedConfigFile.enableOverrideSettings;
+            this.targetFilePath             = loadedConfigFile.targetFilePath;
+            this.mainModFolderPath          = loadedConfigFile.mainModFolderPath;
+            this.modFiles                   = loadedConfigFile.modFiles;
+            this.configSettingsData         = loadedConfigFile.configSettingsData;
         }
 
 

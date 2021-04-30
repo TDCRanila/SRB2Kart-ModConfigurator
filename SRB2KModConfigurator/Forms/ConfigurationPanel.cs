@@ -23,6 +23,8 @@ namespace SRB2KModConfigurator
             InitializeComponent();
 
             InitiliazeConfigurator();
+
+            SetSettingsControlStatus(CP_CheckboxEnableOverrideSettings.Checked);
         }
 
         public ConfigurationPanel(SRB2ConfigFile loadedConfigFile)
@@ -31,9 +33,7 @@ namespace SRB2KModConfigurator
 
             InitiliazeConfigurator();
 
-            LoadModFolder(loadedConfigFile.mainModFolderPath);
-            UpdateModFolderTreeViewer(loadedConfigFile.modFiles);
-            LoadTargetExecutableInfo(loadedConfigFile.targetFilePath);
+            this.LoadData(loadedConfigFile);
 
             generalSettingsPanelRef.LoadData(loadedConfigFile.configSettingsData.generalSettings);
             videoSettingsPanelRef.LoadData(loadedConfigFile.configSettingsData.videoSettings);
@@ -124,6 +124,16 @@ namespace SRB2KModConfigurator
             currentSelectedModItems.Clear();
             CP_ModFolderTreeView.Nodes.Clear();
             SetModFolderValidationStatus(false);
+        }
+
+        private void LoadData(SRB2ConfigFile data)
+        {
+            CP_TextboxConfigurationName.Text            = data.configurationDisplayName;
+            CP_CheckboxEnableOverrideSettings.Checked   = data.enableOverrideSettings;
+
+            LoadModFolder(data.mainModFolderPath);
+            UpdateModFolderTreeViewer(data.modFiles);
+            LoadTargetExecutableInfo(data.targetFilePath);
         }
 
         private bool LoadTargetExecutableInfo(string targetExecutablePathLocation)
@@ -372,6 +382,42 @@ namespace SRB2KModConfigurator
             CP_ButtonExportConfigFileDialog.Enabled = isConfigurationValid;
         }
 
+        private void SetSettingsControlStatus(bool enabled)
+        {
+            IEnumerable<Control> GetAllChildren(Control root)
+            {
+                Stack<Control> controlStack = new Stack<Control>();
+                controlStack.Push(root);
+
+                while (controlStack.Any())
+                {
+                    Control next = controlStack.Pop();
+                    foreach (Control child in next.Controls)
+                        controlStack.Push(child);
+                    yield return next;
+                }
+            }
+
+            List<Control> childPanelControls = new List<Control>();
+            childPanelControls.AddRange(GetAllChildren(generalSettingsPanelRef.Parent));
+            childPanelControls.AddRange(GetAllChildren(videoSettingsPanelRef.Parent));
+            childPanelControls.AddRange(GetAllChildren(audioSettingsPanelRef.Parent));
+            childPanelControls.AddRange(GetAllChildren(serverSettingsPanelRef.Parent));
+
+            foreach (TextBox textBox in childPanelControls.OfType<TextBox>())
+                textBox.Enabled = enabled;
+
+            foreach (ComboBox comboBox in childPanelControls.OfType<ComboBox>())
+                comboBox.Enabled = enabled;
+
+            foreach (CheckBox checkBox in childPanelControls.OfType<CheckBox>())
+                checkBox.Enabled = enabled;
+
+            foreach (Button button in childPanelControls.OfType<Button>())
+                button.Enabled = enabled;
+
+        }
+
         #endregion // End of region ~ Implementation. - 
 
         #region Implementation - Exporting & Saving
@@ -419,12 +465,11 @@ namespace SRB2KModConfigurator
                 using (StreamWriter writer  = new StreamWriter(fileStream))
                 {
                     FileInfo fileInfo = new FileInfo(fileName);
-
-                    // Not that pretty way to update the underlying struct data.
-                    generalSettingsPanelRef.GSP_TextBoxConfigName.Text = fileInfo.Name;
-                    configSettings.generalSettings = generalSettingsPanelRef.ReturnData();
-                    newConfigFile.configSettingsData = configSettings;
-
+                    newConfigFile.configurationDisplayName = fileInfo.Name;
+                    
+                    // Visual
+                    CP_TextboxConfigurationName.Text = fileInfo.Name;
+                    
                     writer.Write(newConfigFile.CreateJSONString());
                 }
                 return;
@@ -468,6 +513,12 @@ namespace SRB2KModConfigurator
         #endregion
 
         #region Callbacks
+
+        private void CP_CheckboxEnableOverrideSettings_CheckedChanged(object sender, EventArgs e)
+        {
+            SetSettingsControlStatus(CP_CheckboxEnableOverrideSettings.Checked);
+        }
+
         private void CP_ButtonSaveConfiguration_Click(object sender, EventArgs e)
         {
             SaveConfiguration();

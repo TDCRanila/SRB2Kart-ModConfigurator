@@ -37,7 +37,6 @@ namespace SRB2KModConfigurator.Forms
 
         public void LoadData(GeneralSettingsDataStruct data)
         {
-            GSP_TextBoxConfigName.Text              = data.displayConfigName;
             GSP_CheckboxBonusCharacters.Checked     = data.shouldAddBonusCharacterPack;
             GSP_CheckBoxSkipGameIntro.Checked       = data.shouldSkipGameIntro;
             GSP_ComboBoxDataActions.SelectedIndex   = (int)data.dataAction;
@@ -50,7 +49,6 @@ namespace SRB2KModConfigurator.Forms
         {
             GeneralSettingsDataStruct data = new GeneralSettingsDataStruct();
 
-            data.displayConfigName              = GSP_TextBoxConfigName.Text;
             data.shouldAddBonusCharacterPack    = GSP_CheckboxBonusCharacters.Checked;
             data.shouldSkipGameIntro            = GSP_CheckBoxSkipGameIntro.Checked;
             data.dataAction                     = (DataAction)Enum.Parse(typeof(DataAction), GSP_ComboBoxDataActions.SelectedItem.ToString());
@@ -59,11 +57,6 @@ namespace SRB2KModConfigurator.Forms
             data.additionalParametersString     = GSP_TextBoxAdditionalParameters.Text;
 
             return data;
-        }
-
-        public void SetConfigName(string configFileName)
-        {
-            GSP_TextBoxConfigName.Text = configFileName;
         }
 
         private void GSP_ButtonCustomConfigFile_Click(object sender, EventArgs e)

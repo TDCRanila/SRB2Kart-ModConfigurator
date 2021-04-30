@@ -68,7 +68,6 @@ namespace SRB2KModConfigurator.Data
 
     public struct GeneralSettingsDataStruct
     {
-        public string displayConfigName { get; set; }
         public bool shouldAddBonusCharacterPack { get; set; }
         public bool shouldSkipGameIntro { get; set; }
         public DataAction dataAction { get; set; }
@@ -98,7 +97,6 @@ namespace SRB2KModConfigurator.Data
     public struct ServerSettingsDataStruct
     {
         public OnlineModeType       onlineMode { get; set; }
-
         public string               serverJoinIP { get; set; }
         public string               serverJoinPort { get; set; }
         public bool                 serverJoinPreventDownload { get; set; }
