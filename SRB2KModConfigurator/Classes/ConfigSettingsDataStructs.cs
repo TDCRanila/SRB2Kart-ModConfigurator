@@ -73,7 +73,7 @@ namespace SRB2KModConfigurator.Data
         public DataAction dataAction { get; set; }
         public bool enableAdditionalConsole { get; set; }
         public string customConfigFilePath { get; set; }
-        public string additionalParametersString { get; set; }
+        public string additionalCommandlineParameters { get; set; }
     }
 
     public struct VideoSettingsDataStruct

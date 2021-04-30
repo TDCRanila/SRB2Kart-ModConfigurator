@@ -42,19 +42,19 @@ namespace SRB2KModConfigurator.Forms
             GSP_ComboBoxDataActions.SelectedIndex   = (int)data.dataAction;
             GSP_CheckBoxAdditionalConsole.Checked   = data.enableAdditionalConsole;
             currentCustomConfigFilePath             = data.customConfigFilePath;
-            GSP_TextBoxAdditionalParameters.Text    = data.additionalParametersString;
+            GSP_TextBoxAdditionalParameters.Text    = data.additionalCommandlineParameters;
         }
 
         public GeneralSettingsDataStruct ReturnData()
         {
             GeneralSettingsDataStruct data = new GeneralSettingsDataStruct();
 
-            data.shouldAddBonusCharacterPack    = GSP_CheckboxBonusCharacters.Checked;
-            data.shouldSkipGameIntro            = GSP_CheckBoxSkipGameIntro.Checked;
-            data.dataAction                     = (DataAction)Enum.Parse(typeof(DataAction), GSP_ComboBoxDataActions.SelectedItem.ToString());
-            data.enableAdditionalConsole        = GSP_CheckBoxAdditionalConsole.Checked;
-            data.customConfigFilePath           = currentCustomConfigFilePath;
-            data.additionalParametersString     = GSP_TextBoxAdditionalParameters.Text;
+            data.shouldAddBonusCharacterPack        = GSP_CheckboxBonusCharacters.Checked;
+            data.shouldSkipGameIntro                = GSP_CheckBoxSkipGameIntro.Checked;
+            data.dataAction                         = (DataAction)Enum.Parse(typeof(DataAction), GSP_ComboBoxDataActions.SelectedItem.ToString());
+            data.enableAdditionalConsole            = GSP_CheckBoxAdditionalConsole.Checked;
+            data.customConfigFilePath               = currentCustomConfigFilePath;
+            data.additionalCommandlineParameters    = GSP_TextBoxAdditionalParameters.Text;
 
             return data;
         }

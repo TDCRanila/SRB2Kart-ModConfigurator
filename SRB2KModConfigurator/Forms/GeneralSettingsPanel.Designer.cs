@@ -250,13 +250,13 @@ namespace SRB2KModConfigurator.Forms
             // 
             this.GSP_LabelAdditionalParameters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.GSP_LabelAdditionalParameters.AutoSize = true;
-            this.GSP_LabelAdditionalParameters.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.GSP_LabelAdditionalParameters.Font = new System.Drawing.Font("envypn7x15", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.GSP_LabelAdditionalParameters.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.GSP_LabelAdditionalParameters.Location = new System.Drawing.Point(4, 169);
+            this.GSP_LabelAdditionalParameters.Location = new System.Drawing.Point(4, 164);
             this.GSP_LabelAdditionalParameters.Name = "GSP_LabelAdditionalParameters";
-            this.GSP_LabelAdditionalParameters.Size = new System.Drawing.Size(176, 14);
+            this.GSP_LabelAdditionalParameters.Size = new System.Drawing.Size(176, 24);
             this.GSP_LabelAdditionalParameters.TabIndex = 4;
-            this.GSP_LabelAdditionalParameters.Text = "Additional Parameters";
+            this.GSP_LabelAdditionalParameters.Text = "Additional Commandline Parameters";
             this.GSP_LabelAdditionalParameters.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // GSP_TextBoxAdditionalParameters
