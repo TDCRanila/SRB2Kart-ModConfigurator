@@ -356,10 +356,8 @@ namespace SRB2KModConfigurator
 
             CheckConfigurationValiditity();
 
-            if (isValid)
-                CP_PictureBoxTargetExecutableValidation.Image = Properties.Resources.spr_checkmark;
-            else
-                CP_PictureBoxTargetExecutableValidation.Image = Properties.Resources.spr_crosss;
+            Image image                                     = isValid ? Properties.Resources.spr_checkmark : Properties.Resources.spr_crosss;
+            CP_PictureBoxTargetExecutableValidation.Image   = image;
         }
 
         private void SetModFolderValidationStatus(bool isValid)
@@ -368,10 +366,8 @@ namespace SRB2KModConfigurator
 
             CheckConfigurationValiditity();
 
-            if (isValid)
-                CP_PictureBoxModFolderValidation.Image = Properties.Resources.spr_checkmark;
-            else
-                CP_PictureBoxModFolderValidation.Image = Properties.Resources.spr_crosss;
+            Image image                             = isValid ? Properties.Resources.spr_checkmark : Properties.Resources.spr_crosss;
+            CP_PictureBoxModFolderValidation.Image  = image;
         }
 
         private void CheckConfigurationValiditity()
@@ -380,6 +376,10 @@ namespace SRB2KModConfigurator
 
             CP_ButtonSaveConfiguration.Enabled      = isConfigurationValid;
             CP_ButtonExportConfigFileDialog.Enabled = isConfigurationValid;
+
+            Image image                                     = isConfigurationValid ? null : Properties.Resources.spr_crosss;
+            CP_ButtonSaveConfiguration.BackgroundImage      = image;
+            CP_ButtonExportConfigFileDialog.BackgroundImage = image;
         }
 
         private void SetSettingsControlStatus(bool enabled)
