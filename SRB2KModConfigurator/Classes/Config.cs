@@ -64,9 +64,7 @@ namespace SRB2KModConfigurator.Config
             {
                 char quationMark    = '"';
                 char space          = ' ';
-                char newLine        = '\n';
 
-                
                 // Adding Mods
                 writer.Write("-file" + space);
 
@@ -80,7 +78,7 @@ namespace SRB2KModConfigurator.Config
                 if (generalSettings.shouldAddBonusCharacterPack)
                 {
                     DirectoryInfo targetDirInfo = new DirectoryInfo(targetFilePath);
-                    FileInfo[] files = targetDirInfo.Parent.GetFiles();
+                    FileInfo[] files            = targetDirInfo.Parent.GetFiles();
                     foreach(FileInfo file in files)
                     {
                         if (file.Name == "bonuschars.kart")
@@ -165,7 +163,7 @@ namespace SRB2KModConfigurator.Config
                             }
                             case WindowMode.Windowed:
                             {
-                                writer.Write("-win" + space);
+                                writer.Write("-win" + space + "+fullscreen" + space + "No" + space);
                                 break;
                             }
                         }
@@ -178,7 +176,7 @@ namespace SRB2KModConfigurator.Config
                         {
                             case RendererType.OpenGL2DSprites:
                             {
-                                writer.Write("-opengl" + space);
+                                writer.Write("-opengl" + space + "gr_mdls" + space + "No" + space);
                                 break;
                             }
                             case RendererType.OpenGL3DModels:
@@ -188,7 +186,7 @@ namespace SRB2KModConfigurator.Config
                             }
                             case RendererType.Software:
                             {
-                                writer.Write("-software" + "gr_mdls" + space + "No" + space);
+                                writer.Write("-software");
                                 break;
                             }
                         }
@@ -316,7 +314,7 @@ namespace SRB2KModConfigurator.Config
                 writer.Write("@echo off " + newLine);
 
                 // Name
-                writer.Write("::Config: " + this.configurationDisplayName + newLine);
+                writer.Write("::Config: " + space + this.configurationDisplayName + newLine);
 
                 // Exe
                 writer.Write("start" + space + quationMark + quationMark + space);
