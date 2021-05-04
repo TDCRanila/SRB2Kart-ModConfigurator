@@ -422,26 +422,35 @@ namespace SRB2KModConfigurator
 
         #region Implementation - Exporting & Saving
 
-        private void PrepareConfigurationData()
+        private SRB2ConfigFile ConstructConfigurationData()
         {
+            // Fetch Data from Child Settings Panels.
             configSettings.generalSettings  = generalSettingsPanelRef.ReturnData();
             configSettings.videoSettings    = videoSettingsPanelRef.ReturnData();
             configSettings.audioSettings    = audioSettingsPanelRef.ReturnData();
             configSettings.serverSettings   = serverSettingsPanelRef.ReturnData();
+
+            // Prepare Config
+            SRB2ConfigFile configFile = new SRB2ConfigFile();
+
+            configFile.configurationDisplayName  = CP_TextboxConfigurationName.Text;
+            configFile.enableOverrideSettings    = CP_CheckboxEnableOverrideSettings.Checked;
+            
+            configFile.targetFilePath            = currentTargetExecutable;
+            configFile.mainModFolderPath         = currentModFolderInfo.ToString();
+            
+            foreach (string modItem in currentSelectedModItems.Values)
+                configFile.modFiles.Add(modItem);
+            
+            configFile.configSettingsData        = configSettings;
+
+            return configFile;
         }
 
         private void SaveConfiguration()
         {
             // Collect Settings Data.
-            PrepareConfigurationData();
-
-            // Prepare File for Save Dialog.
-            SRB2ConfigFile newConfigFile = new SRB2ConfigFile();
-            newConfigFile.targetFilePath = currentTargetExecutable;
-            newConfigFile.mainModFolderPath = currentModFolderInfo.ToString();
-            foreach (string modItem in currentSelectedModItems.Values)
-                newConfigFile.modFiles.Add(modItem);
-            newConfigFile.configSettingsData = configSettings;
+            SRB2ConfigFile newConfigFile = ConstructConfigurationData();
 
             // Save File
             CommonSaveFileDialog configSaveFileDialog = new CommonSaveFileDialog();
@@ -479,21 +488,18 @@ namespace SRB2KModConfigurator
         private void ExportConfiguration()
         {
             // Collect Settings Data.
-            PrepareConfigurationData();
-
-            // Prepare Config
-            SRB2ConfigFile newConfigFile    = new SRB2ConfigFile();
-            newConfigFile.targetFilePath    = currentTargetExecutable;
-            newConfigFile.mainModFolderPath = currentModFolderInfo.ToString();
-            foreach (string modItem in currentSelectedModItems.Values)
-                newConfigFile.modFiles.Add(modItem);
-            newConfigFile.configSettingsData = configSettings;
+            SRB2ConfigFile newConfigFile = ConstructConfigurationData();
 
             // Save File & Dialog
             CommonSaveFileDialog configSaveFileDialog = new CommonSaveFileDialog();
 
-            configSaveFileDialog.AlwaysAppendDefaultExtension = true;
-            configSaveFileDialog.DefaultExtension = "bat";
+            var batchFilter = new CommonFileDialogFilter("Batch File", ".bat");
+            var allFilter   = new CommonFileDialogFilter("All Files", "*.*");
+            configSaveFileDialog.Filters.Add(batchFilter);
+            configSaveFileDialog.Filters.Add(allFilter);
+
+            configSaveFileDialog.AlwaysAppendDefaultExtension   = true;
+            configSaveFileDialog.DefaultExtension               = ".bat";
 
             if (configSaveFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
             {

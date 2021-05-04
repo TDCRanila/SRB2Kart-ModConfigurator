@@ -126,7 +126,7 @@ namespace SRB2KModConfigurator.Forms
             this.Controls.Add(this.ASP_MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AudioSettingsPanel";
-            this.Text = "GeneralSettingsPanel";
+            this.Text = "AudioSettingsPanel";
             this.ASP_MainPanel.ResumeLayout(false);
             this.ASP_TableLayout.ResumeLayout(false);
             this.ASP_TableLayout.PerformLayout();

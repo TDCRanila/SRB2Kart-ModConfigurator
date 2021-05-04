@@ -20,7 +20,8 @@ namespace SRB2KModConfigurator.Data
     {
         NoOverride = 0,
         Software,
-        OpenGL,
+        OpenGL2DSprites,
+        OpenGL3DModels,
     };
 
     public enum RenderResolution
@@ -61,7 +62,6 @@ namespace SRB2KModConfigurator.Data
 
     public enum ServerBroadcastType
     {
-        //Unlisted = 0,
         Casual = 0,
         Standard, 
     }

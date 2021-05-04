@@ -415,7 +415,7 @@ namespace SRB2KModConfigurator.Forms
             this.Controls.Add(this.SSP_MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ServerSettingsPanel";
-            this.Text = "GeneralSettingsPanel";
+            this.Text = "ServerSettingsPanel";
             this.SSP_MainPanel.ResumeLayout(false);
             this.SSP_TableLayout.ResumeLayout(false);
             this.SSP_TableLayout.PerformLayout();

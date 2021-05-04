@@ -275,7 +275,7 @@ namespace SRB2KModConfigurator.Forms
             this.Controls.Add(this.VSP_MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VideoSettingsPanel";
-            this.Text = "GeneralSettingsPanel";
+            this.Text = "VideoSettingsPanel";
             this.VSP_MainPanel.ResumeLayout(false);
             this.VSP_TableLayout.ResumeLayout(false);
             this.VSP_TableLayout.PerformLayout();
