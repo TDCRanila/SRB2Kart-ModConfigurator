@@ -176,12 +176,12 @@ namespace SRB2KModConfigurator.Config
                         {
                             case RendererType.OpenGL2DSprites:
                             {
-                                writer.Write("-opengl" + space + "gr_mdls" + space + "No" + space);
+                                writer.Write("-opengl" + space + "+gr_mdls" + space + "No" + space);
                                 break;
                             }
                             case RendererType.OpenGL3DModels:
                             {
-                                writer.Write("-opengl" + space + "gr_mdls" + space + "Yes" + space);
+                                writer.Write("-opengl" + space + "+gr_mdls" + space + "Yes" + space);
                                 break;
                             }
                             case RendererType.Software:
