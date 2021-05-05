@@ -491,23 +491,23 @@ namespace SRB2KModConfigurator
             SRB2ConfigFile newConfigFile = ConstructConfigurationData();
 
             // Save File & Dialog
-            CommonSaveFileDialog configSaveFileDialog = new CommonSaveFileDialog();
+            CommonSaveFileDialog exportBatchFileDialog = new CommonSaveFileDialog();
 
             var batchFilter = new CommonFileDialogFilter("Batch File", ".bat");
             var allFilter   = new CommonFileDialogFilter("All Files", "*.*");
-            configSaveFileDialog.Filters.Add(batchFilter);
-            configSaveFileDialog.Filters.Add(allFilter);
+            exportBatchFileDialog.Filters.Add(batchFilter);
+            exportBatchFileDialog.Filters.Add(allFilter);
 
-            configSaveFileDialog.AlwaysAppendDefaultExtension   = true;
-            configSaveFileDialog.DefaultExtension               = ".bat";
-
-            if (configSaveFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
+            exportBatchFileDialog.AlwaysAppendDefaultExtension   = true;
+            exportBatchFileDialog.DefaultExtension               = ".bat";
+            
+            if (exportBatchFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
             {
                 return;
             }
             else
             {
-                string fileName             = configSaveFileDialog.FileName;
+                string fileName             = exportBatchFileDialog.FileName;
                 FileStream fileStream       = File.Create(fileName);
                 using (StreamWriter writer  = new StreamWriter(fileStream))
                 {
