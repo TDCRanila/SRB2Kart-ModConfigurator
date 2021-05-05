@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 using Microsoft.WindowsAPICodePack.Dialogs;
 
@@ -21,7 +22,12 @@ namespace SRB2KModConfigurator
         public StarterPage()
         {
             InitializeComponent();
+
+            TryAndReadPreviousLaunchConfigurationSelection();
         }
+
+        private SRB2ConfigFile selectedConfigFile;
+        private string selectedConfigFilePath;
 
         #region Implementation
 
@@ -84,6 +90,98 @@ namespace SRB2KModConfigurator
             DisplayNewChildForm(newConfigurationPanel);
         }
 
+        private void SelectConfigFile(string filePath)
+        {
+            // Read File.
+            string configFileString = "";
+            var fileStream          = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            using (var reader = new StreamReader(fileStream, Encoding.UTF8))
+            {
+                configFileString = reader.ReadToEnd();
+            }
+
+            // Select & Load Config File
+            selectedConfigFile = new SRB2ConfigFile();
+            selectedConfigFile.LoadFromJSONString(configFileString);
+            selectedConfigFilePath = filePath;
+
+            // Visual
+            SP_TextBoxConfigurationSelect.Text = selectedConfigFile.configurationDisplayName;
+        }
+
+        private bool LaunchConfigFile()
+        {
+            if (selectedConfigFile == null)
+            {
+                return false;
+            }
+
+            string launchParameterString = selectedConfigFile.CreateParameterString();
+            ProcessStartInfo startInfo = new ProcessStartInfo(selectedConfigFile.targetFilePath, launchParameterString);
+            try
+            {
+                SavePreviousLaunchConfigurationSelection(selectedConfigFilePath);
+
+                Process.Start(startInfo);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void SavePreviousLaunchConfigurationSelection(string filePath)
+        {
+            Process process             = Process.GetCurrentProcess();
+            string fullPathOfProcess    = process.MainModule.FileName;
+            string dirOfProcess         = fullPathOfProcess.Replace(process.MainModule.ModuleName, "");
+            string fileName             = "last-used-configuration.txt";
+            string fullPath             = (dirOfProcess + fileName);
+
+            using (FileStream fs = new FileStream(fullPath, FileMode.Create))
+            {
+                byte[] data = new UTF8Encoding(true).GetBytes(selectedConfigFilePath);
+                fs.Write(data);
+            }
+        }
+
+        private bool TryAndReadPreviousLaunchConfigurationSelection()
+        {
+            Process process = Process.GetCurrentProcess();
+            string fullPathOfProcess = process.MainModule.FileName;
+            string dirOfProcess = fullPathOfProcess.Replace(process.MainModule.ModuleName, "");
+            string fileName = "last-used-configuration.txt";
+            string fullPath = (dirOfProcess + fileName);
+
+            FileInfo tempFileInfo = new FileInfo(fullPath);
+            if (!tempFileInfo.Exists)
+            {
+                return false;
+            }
+
+            string returnedData;
+            using (FileStream fs = new FileStream(fullPath, FileMode.Open))
+            {
+                using (StreamReader sr = new StreamReader(fs))
+                {
+                    returnedData = sr.ReadToEnd();
+                }
+            }
+
+            FileInfo fileInfo = new FileInfo(returnedData);
+            if (fileInfo.Exists)
+            {
+                SelectConfigFile(returnedData);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         #endregion // End of region ~ Implementation.
 
         #region Callbacks
@@ -97,32 +195,68 @@ namespace SRB2KModConfigurator
 
         private void SP_ButtonEditConfig_Click(object sender, EventArgs e)
         {
-            var targetExecutableFileDialog = new CommonOpenFileDialog();
+            var editConfigurationFileDialog = new CommonOpenFileDialog();
 
             var configFileFilter    = new CommonFileDialogFilter("SRB2Kart Config", ".srb2k-config");
             var allFilter           = new CommonFileDialogFilter("All Files", "*.*");
-            targetExecutableFileDialog.Filters.Add(configFileFilter);
-            targetExecutableFileDialog.Filters.Add(allFilter);
+            editConfigurationFileDialog.Filters.Add(configFileFilter);
+            editConfigurationFileDialog.Filters.Add(allFilter);
 
-            targetExecutableFileDialog.Title = "Select your SRB2Kart EXE.";
-            targetExecutableFileDialog.IsFolderPicker = false;
-            targetExecutableFileDialog.AllowNonFileSystemItems = false;
-            targetExecutableFileDialog.Multiselect = false;
-            targetExecutableFileDialog.AllowPropertyEditing = true;
-            targetExecutableFileDialog.EnsurePathExists = true;
+            editConfigurationFileDialog.Title                    = "Select your SRB2Kart EXE.";
+            editConfigurationFileDialog.IsFolderPicker           = false;
+            editConfigurationFileDialog.AllowNonFileSystemItems  = false;
+            editConfigurationFileDialog.Multiselect              = false;
+            editConfigurationFileDialog.AllowPropertyEditing     = true;
+            editConfigurationFileDialog.EnsurePathExists         = true;
+            editConfigurationFileDialog.Multiselect              = false;
 
-            if (targetExecutableFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
+            if (editConfigurationFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
             {
                 return;
             }
             else
             {
-                string[] files = targetExecutableFileDialog.FileNames.ToArray();
+                string[] files = editConfigurationFileDialog.FileNames.ToArray();
 
                 LoadConfigFile(files[0]);
             }
         }
 
+        private void SP_ButtonLaunchFileDialog_Click(object sender, EventArgs e)
+        {
+            var launchConfigurationFileDialog = new CommonOpenFileDialog();
+
+            var configFileFilter = new CommonFileDialogFilter("SRB2Kart Config", ".srb2k-config");
+            var allFilter = new CommonFileDialogFilter("All Files", "*.*");
+            launchConfigurationFileDialog.Filters.Add(configFileFilter);
+            launchConfigurationFileDialog.Filters.Add(allFilter);
+
+            launchConfigurationFileDialog.Title                    = "Select your SRB2Kart EXE.";
+            launchConfigurationFileDialog.IsFolderPicker           = false;
+            launchConfigurationFileDialog.AllowNonFileSystemItems  = false;
+            launchConfigurationFileDialog.Multiselect              = false;
+            launchConfigurationFileDialog.AllowPropertyEditing     = true;
+            launchConfigurationFileDialog.EnsurePathExists         = true;
+            launchConfigurationFileDialog.Multiselect              = false;
+
+            if (launchConfigurationFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
+            {
+                return;
+            }
+            else
+            {
+                string[] files = launchConfigurationFileDialog.FileNames.ToArray();
+
+                SelectConfigFile(files[0]);
+            }
+        }
+
+        private void SP_ButtonLaunchConfig_Click(object sender, EventArgs e)
+        {
+            LaunchConfigFile();
+        }
+
         #endregion // End of regin=n ~ Callbacks.
+
     }
 }
