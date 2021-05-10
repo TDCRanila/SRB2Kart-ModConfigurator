@@ -29,6 +29,7 @@ namespace SRB2KModConfigurator
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CP_MainPanel = new System.Windows.Forms.Panel();
             this.CP_ModFolderTable = new System.Windows.Forms.TableLayoutPanel();
             this.CP_FolderListPanel = new System.Windows.Forms.Panel();
@@ -69,6 +70,7 @@ namespace SRB2KModConfigurator
             this.CP_LabelEnableOverrideSettings = new System.Windows.Forms.Label();
             this.CP_LabelConfigurationName = new System.Windows.Forms.Label();
             this.CP_TextboxConfigurationName = new System.Windows.Forms.TextBox();
+            this.CP_MasterToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.CP_MainPanel.SuspendLayout();
             this.CP_ModFolderTable.SuspendLayout();
             this.CP_FolderListPanel.SuspendLayout();
@@ -679,6 +681,9 @@ namespace SRB2KModConfigurator
             this.CP_LabelEnableOverrideSettings.Size = new System.Drawing.Size(175, 28);
             this.CP_LabelEnableOverrideSettings.TabIndex = 4;
             this.CP_LabelEnableOverrideSettings.Text = "Enable Override Settings";
+            this.CP_MasterToolTip.SetToolTip(this.CP_LabelEnableOverrideSettings, "Enable Override Settings - Turns on/off all the settings provided below if there " +
+        "is no desire to override settings. The selected mods are not affected by this se" +
+        "tting.");
             // 
             // CP_LabelConfigurationName
             // 
@@ -691,6 +696,9 @@ namespace SRB2KModConfigurator
             this.CP_LabelConfigurationName.Size = new System.Drawing.Size(175, 16);
             this.CP_LabelConfigurationName.TabIndex = 2;
             this.CP_LabelConfigurationName.Text = "Config Name";
+            this.CP_MasterToolTip.SetToolTip(this.CP_LabelConfigurationName, "Config Name - Name of the configuration file which is used to identify the config" +
+        ". The name gets modified when saving the configuration file through the save fil" +
+        "e dialog.");
             // 
             // CP_TextboxConfigurationName
             // 
@@ -701,6 +709,13 @@ namespace SRB2KModConfigurator
             this.CP_TextboxConfigurationName.ReadOnly = true;
             this.CP_TextboxConfigurationName.Size = new System.Drawing.Size(528, 22);
             this.CP_TextboxConfigurationName.TabIndex = 3;
+            // 
+            // CP_MasterToolTip
+            // 
+            this.CP_MasterToolTip.AutoPopDelay = 900000000;
+            this.CP_MasterToolTip.InitialDelay = 500;
+            this.CP_MasterToolTip.IsBalloon = true;
+            this.CP_MasterToolTip.ReshowDelay = 100;
             // 
             // ConfigurationPanel
             // 
@@ -784,5 +799,6 @@ namespace SRB2KModConfigurator
         private System.Windows.Forms.Label CP_LabelEnableOverrideSettings;
         private System.Windows.Forms.CheckBox CP_CheckboxEnableOverrideSettings;
         private System.Windows.Forms.Button CP_ButtonLaunchConfiguration;
+        private System.Windows.Forms.ToolTip CP_MasterToolTip;
     }
 }

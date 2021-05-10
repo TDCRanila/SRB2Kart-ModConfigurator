@@ -30,6 +30,7 @@ namespace SRB2KModConfigurator.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoSettingsPanel));
             this.VSP_MainPanel = new System.Windows.Forms.Panel();
             this.VSP_TableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.VSP_LabelWindowMode = new System.Windows.Forms.Label();
@@ -44,7 +45,7 @@ namespace SRB2KModConfigurator.Forms
             this.VSP_LabelCustomWidthHeight = new System.Windows.Forms.Label();
             this.VSP_ComboBoxRenderType = new System.Windows.Forms.ComboBox();
             this.VSP_LabelRenderType = new System.Windows.Forms.Label();
-            this.GSP_MasterToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.VSP_MasterToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.VSP_MainPanel.SuspendLayout();
             this.VSP_TableLayout.SuspendLayout();
             this.VSP_TableLayoutRenderResolutionOptions.SuspendLayout();
@@ -95,6 +96,9 @@ namespace SRB2KModConfigurator.Forms
             this.VSP_LabelWindowMode.Size = new System.Drawing.Size(176, 14);
             this.VSP_LabelWindowMode.TabIndex = 0;
             this.VSP_LabelWindowMode.Text = "Window Mode";
+            this.VSP_MasterToolTip.SetToolTip(this.VSP_LabelWindowMode, "Window Mode - Selects the window mode that the game will use at launch. Window Mo" +
+        "de can still be changed in the in-game option menu. (Note: Fullscreen is usually" +
+        " better for game performance.)");
             // 
             // VSP_LabelRenderResolution
             // 
@@ -107,7 +111,7 @@ namespace SRB2KModConfigurator.Forms
             this.VSP_LabelRenderResolution.Size = new System.Drawing.Size(176, 14);
             this.VSP_LabelRenderResolution.TabIndex = 2;
             this.VSP_LabelRenderResolution.Text = "Resolution";
-            this.GSP_MasterToolTip.SetToolTip(this.VSP_LabelRenderResolution, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.VSP_MasterToolTip.SetToolTip(this.VSP_LabelRenderResolution, resources.GetString("VSP_LabelRenderResolution.ToolTip"));
             // 
             // VSP_ComboBoxWindowMode
             // 
@@ -215,7 +219,7 @@ namespace SRB2KModConfigurator.Forms
             this.VSP_LabelWidthHeightDivider.Size = new System.Drawing.Size(13, 14);
             this.VSP_LabelWidthHeightDivider.TabIndex = 5;
             this.VSP_LabelWidthHeightDivider.Text = "x";
-            this.GSP_MasterToolTip.SetToolTip(this.VSP_LabelWidthHeightDivider, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.VSP_MasterToolTip.SetToolTip(this.VSP_LabelWidthHeightDivider, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
             // 
             // VSP_TextBoxWidth
             // 
@@ -238,7 +242,7 @@ namespace SRB2KModConfigurator.Forms
             this.VSP_LabelCustomWidthHeight.Size = new System.Drawing.Size(123, 14);
             this.VSP_LabelCustomWidthHeight.TabIndex = 16;
             this.VSP_LabelCustomWidthHeight.Text = "Width x Height";
-            this.GSP_MasterToolTip.SetToolTip(this.VSP_LabelCustomWidthHeight, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.VSP_MasterToolTip.SetToolTip(this.VSP_LabelCustomWidthHeight, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
             // 
             // VSP_ComboBoxRenderType
             // 
@@ -250,7 +254,7 @@ namespace SRB2KModConfigurator.Forms
             this.VSP_ComboBoxRenderType.Items.AddRange(new object[] {
             "OpenGL",
             "Software"});
-            this.VSP_ComboBoxRenderType.Location = new System.Drawing.Point(187, 106);
+            this.VSP_ComboBoxRenderType.Location = new System.Drawing.Point(187, 107);
             this.VSP_ComboBoxRenderType.Name = "VSP_ComboBoxRenderType";
             this.VSP_ComboBoxRenderType.Size = new System.Drawing.Size(529, 21);
             this.VSP_ComboBoxRenderType.TabIndex = 14;
@@ -266,6 +270,16 @@ namespace SRB2KModConfigurator.Forms
             this.VSP_LabelRenderType.Size = new System.Drawing.Size(176, 14);
             this.VSP_LabelRenderType.TabIndex = 6;
             this.VSP_LabelRenderType.Text = "Renderer";
+            this.VSP_MasterToolTip.SetToolTip(this.VSP_LabelRenderType, "Renderer - Selects the rendertype that the game will use at launch. Software will" +
+        " use your CPU and OpenGL will use your GPU for rendering. OpenGL has support for" +
+        " 3D Models if chosen. ");
+            // 
+            // VSP_MasterToolTip
+            // 
+            this.VSP_MasterToolTip.AutoPopDelay = 900000000;
+            this.VSP_MasterToolTip.InitialDelay = 500;
+            this.VSP_MasterToolTip.IsBalloon = true;
+            this.VSP_MasterToolTip.ReshowDelay = 100;
             // 
             // VideoSettingsPanel
             // 
@@ -292,7 +306,7 @@ namespace SRB2KModConfigurator.Forms
         private System.Windows.Forms.TableLayoutPanel VSP_TableLayout;
         private System.Windows.Forms.Label VSP_LabelRenderResolution;
         private System.Windows.Forms.Label VSP_LabelRenderType;
-        private System.Windows.Forms.ToolTip GSP_MasterToolTip;
+        private System.Windows.Forms.ToolTip VSP_MasterToolTip;
         private System.Windows.Forms.Label VSP_LabelWindowMode;
         private System.Windows.Forms.ComboBox VSP_ComboBoxWindowMode;
         private System.Windows.Forms.ComboBox VSP_ComboBoxRenderResolution;

@@ -57,4 +57,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="VSP_LabelRenderResolution.ToolTip" xml:space="preserve">
+    <value>Resolution - Selects the resolution that the game will use at launch. A custom resolution can be chosen, however, this may cause graphical issues. (Note: A higher resolution can be chosen - e.g. 2560x1440p - but this will decrease performance. )</value>
+  </data>
 </root>

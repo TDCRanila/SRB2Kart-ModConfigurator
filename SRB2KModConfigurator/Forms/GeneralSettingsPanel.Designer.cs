@@ -105,7 +105,9 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_LabelBonusCharacter.Size = new System.Drawing.Size(176, 14);
             this.GSP_LabelBonusCharacter.TabIndex = 2;
             this.GSP_LabelBonusCharacter.Text = "Add Bonus Characters";
-            this.GSP_MasterToolTip.SetToolTip(this.GSP_LabelBonusCharacter, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.GSP_MasterToolTip.SetToolTip(this.GSP_LabelBonusCharacter, "Add Bonus Characters - Adds the already provided default bonus character pack to " +
+        "the game. If option is RED, the file \'bonuschars.kart\' cannot be found in the di" +
+        "rectory of the target executable.");
             // 
             // GSP_CheckboxBonusCharacters
             // 
@@ -129,6 +131,8 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_LabelSkipGameIntro.Size = new System.Drawing.Size(176, 14);
             this.GSP_LabelSkipGameIntro.TabIndex = 6;
             this.GSP_LabelSkipGameIntro.Text = "Skip Game Intro";
+            this.GSP_MasterToolTip.SetToolTip(this.GSP_LabelSkipGameIntro, "Skip Game Intro - Skips the intro on startup, immediately going to the title scre" +
+        "en instead. ");
             // 
             // GSP_CheckBoxSkipGameIntro
             // 
@@ -188,6 +192,8 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_LabelConsole.Size = new System.Drawing.Size(176, 28);
             this.GSP_LabelConsole.TabIndex = 3;
             this.GSP_LabelConsole.Text = "Enable Additional Console";
+            this.GSP_MasterToolTip.SetToolTip(this.GSP_LabelConsole, "Enable Additional Console - Creates a separate console window that shows the SRB2" +
+        " console\'s output and allows console commands and variables to be entered. ");
             // 
             // GSP_LabelCustomConfigFile
             // 
@@ -201,6 +207,9 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_LabelCustomConfigFile.TabIndex = 13;
             this.GSP_LabelCustomConfigFile.Text = "Custom Config File";
             this.GSP_LabelCustomConfigFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GSP_MasterToolTip.SetToolTip(this.GSP_LabelCustomConfigFile, "Custom Config File - If a custom config is selected, this configuration file will" +
+        " be used instead of the deafult config.cfg. Leave textbox empty if there is no n" +
+        "eed for it. ");
             // 
             // GSP_TableLayoutCustomConfigFile
             // 
@@ -258,6 +267,9 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_LabelAdditionalParameters.TabIndex = 4;
             this.GSP_LabelAdditionalParameters.Text = "Additional Commandline Parameters";
             this.GSP_LabelAdditionalParameters.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GSP_MasterToolTip.SetToolTip(this.GSP_LabelAdditionalParameters, "Additional Commandline Parameters - Any other commandline parameters or configura" +
+        "tion override parameters inserted will be used for the launching the game as one" +
+        " whole line of text.");
             // 
             // GSP_TextBoxAdditionalParameters
             // 
@@ -267,6 +279,13 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_TextBoxAdditionalParameters.Name = "GSP_TextBoxAdditionalParameters";
             this.GSP_TextBoxAdditionalParameters.Size = new System.Drawing.Size(529, 22);
             this.GSP_TextBoxAdditionalParameters.TabIndex = 10;
+            // 
+            // GSP_MasterToolTip
+            // 
+            this.GSP_MasterToolTip.AutoPopDelay = 900000000;
+            this.GSP_MasterToolTip.InitialDelay = 500;
+            this.GSP_MasterToolTip.IsBalloon = true;
+            this.GSP_MasterToolTip.ReshowDelay = 100;
             // 
             // GeneralSettingsPanel
             // 

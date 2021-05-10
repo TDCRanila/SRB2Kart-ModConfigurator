@@ -30,6 +30,7 @@ namespace SRB2KModConfigurator.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerSettingsPanel));
             this.SSP_MainPanel = new System.Windows.Forms.Panel();
             this.SSP_TableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.SSP_LabelHostServerType = new System.Windows.Forms.Label();
@@ -56,7 +57,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_CheckboxHostServerEnablePassword = new System.Windows.Forms.CheckBox();
             this.SSP_TextboxHostServerPassword = new System.Windows.Forms.TextBox();
             this.SSP_LabelHostServerPassword = new System.Windows.Forms.Label();
-            this.GSP_MasterToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.SSP_MasterToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SSP_MainPanel.SuspendLayout();
             this.SSP_TableLayout.SuspendLayout();
             this.SSP_TableMasterServer.SuspendLayout();
@@ -130,7 +131,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelHostServerType.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelHostServerType.TabIndex = 30;
             this.SSP_LabelHostServerType.Text = "Server Type";
-            this.GSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerType, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerType, resources.GetString("SSP_LabelHostServerType.ToolTip"));
             // 
             // SSP_ComboboxHostServerType
             // 
@@ -175,7 +176,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelJoinServerPreventAddonDownload.Size = new System.Drawing.Size(176, 28);
             this.SSP_LabelJoinServerPreventAddonDownload.TabIndex = 26;
             this.SSP_LabelJoinServerPreventAddonDownload.Text = "Prevent Addon Download";
-            this.GSP_MasterToolTip.SetToolTip(this.SSP_LabelJoinServerPreventAddonDownload, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelJoinServerPreventAddonDownload, resources.GetString("SSP_LabelJoinServerPreventAddonDownload.ToolTip"));
             // 
             // SSP_LabelOnlineMode
             // 
@@ -188,7 +189,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelOnlineMode.Size = new System.Drawing.Size(176, 16);
             this.SSP_LabelOnlineMode.TabIndex = 21;
             this.SSP_LabelOnlineMode.Text = "Online Mode";
-            this.GSP_MasterToolTip.SetToolTip(this.SSP_LabelOnlineMode, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelOnlineMode, resources.GetString("SSP_LabelOnlineMode.ToolTip"));
             // 
             // SSP_ComboboxOnlineMode
             // 
@@ -217,7 +218,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelJoinServerIP.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelJoinServerIP.TabIndex = 22;
             this.SSP_LabelJoinServerIP.Text = "Server IP";
-            this.GSP_MasterToolTip.SetToolTip(this.SSP_LabelJoinServerIP, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelJoinServerIP, resources.GetString("SSP_LabelJoinServerIP.ToolTip"));
             // 
             // SSP_TextboxJoinServerPort
             // 
@@ -246,7 +247,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelJoinServerPort.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelJoinServerPort.TabIndex = 25;
             this.SSP_LabelJoinServerPort.Text = "Server Port";
-            this.GSP_MasterToolTip.SetToolTip(this.SSP_LabelJoinServerPort, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelJoinServerPort, resources.GetString("SSP_LabelJoinServerPort.ToolTip"));
             // 
             // SSP_LabelHostServerName
             // 
@@ -259,7 +260,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelHostServerName.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelHostServerName.TabIndex = 18;
             this.SSP_LabelHostServerName.Text = "Server Name";
-            this.GSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerName, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerName, "Server Name - Name of the server you are hosting.");
             // 
             // SSP_LabelHostPreventAddonUpload
             // 
@@ -272,6 +273,8 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelHostPreventAddonUpload.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelHostPreventAddonUpload.TabIndex = 14;
             this.SSP_LabelHostPreventAddonUpload.Text = "Prevent Addon Upload";
+            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelHostPreventAddonUpload, "Prevent Addon Upload - Turns off downloading, so the game doesn\'t send files to c" +
+        "onnecting clients to be downloaded when acting as the server. ");
             // 
             // SSP_CheckboxHostServerPreventAddonUpload
             // 
@@ -294,6 +297,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelHostServerGameType.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelHostServerGameType.TabIndex = 4;
             this.SSP_LabelHostServerGameType.Text = "Server Game Type";
+            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerGameType, resources.GetString("SSP_LabelHostServerGameType.ToolTip"));
             // 
             // SSP_TextBoxHostServerGameType
             // 
@@ -314,6 +318,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelHostServerBroadcasting.Size = new System.Drawing.Size(176, 28);
             this.SSP_LabelHostServerBroadcasting.TabIndex = 6;
             this.SSP_LabelHostServerBroadcasting.Text = "Server Public Broadcasting";
+            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerBroadcasting, resources.GetString("SSP_LabelHostServerBroadcasting.ToolTip"));
             // 
             // SSP_TableMasterServer
             // 
@@ -405,7 +410,15 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelHostServerPassword.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelHostServerPassword.TabIndex = 11;
             this.SSP_LabelHostServerPassword.Text = "Password";
-            this.GSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerPassword, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerPassword, "Password - Sets the server password, which players can use to log in as netgame a" +
+        "dministrators. ");
+            // 
+            // SSP_MasterToolTip
+            // 
+            this.SSP_MasterToolTip.AutoPopDelay = 900000000;
+            this.SSP_MasterToolTip.InitialDelay = 500;
+            this.SSP_MasterToolTip.IsBalloon = true;
+            this.SSP_MasterToolTip.ReshowDelay = 100;
             // 
             // ServerSettingsPanel
             // 
@@ -434,7 +447,7 @@ namespace SRB2KModConfigurator.Forms
         private System.Windows.Forms.Label SSP_LabelHostServerGameType;
         private System.Windows.Forms.TextBox SSP_TextBoxHostServerGameType;
         private System.Windows.Forms.Label SSP_LabelHostServerBroadcasting;
-        private System.Windows.Forms.ToolTip GSP_MasterToolTip;
+        private System.Windows.Forms.ToolTip SSP_MasterToolTip;
         private System.Windows.Forms.Label SSP_LabelHostServerPassword;
         private System.Windows.Forms.TableLayoutPanel SSP_TableHostServerPasswordSettings;
         private System.Windows.Forms.CheckBox SSP_CheckboxHostServerEnablePassword;

@@ -36,7 +36,7 @@ namespace SRB2KModConfigurator.Forms
             this.ASP_CheckBoxMusic = new System.Windows.Forms.CheckBox();
             this.ASP_LabelMusic = new System.Windows.Forms.Label();
             this.ASP_LabelSFXs = new System.Windows.Forms.Label();
-            this.GSP_MasterToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ASP_MasterToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.ASP_MainPanel.SuspendLayout();
             this.ASP_TableLayout.SuspendLayout();
             this.SuspendLayout();
@@ -79,7 +79,7 @@ namespace SRB2KModConfigurator.Forms
             this.ASP_CheckBoxSFXs.Name = "ASP_CheckBoxSFXs";
             this.ASP_CheckBoxSFXs.Size = new System.Drawing.Size(529, 14);
             this.ASP_CheckBoxSFXs.TabIndex = 10;
-            this.GSP_MasterToolTip.SetToolTip(this.ASP_CheckBoxSFXs, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.ASP_MasterToolTip.SetToolTip(this.ASP_CheckBoxSFXs, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
             this.ASP_CheckBoxSFXs.UseVisualStyleBackColor = true;
             // 
             // ASP_CheckBoxMusic
@@ -90,7 +90,7 @@ namespace SRB2KModConfigurator.Forms
             this.ASP_CheckBoxMusic.Name = "ASP_CheckBoxMusic";
             this.ASP_CheckBoxMusic.Size = new System.Drawing.Size(529, 14);
             this.ASP_CheckBoxMusic.TabIndex = 9;
-            this.GSP_MasterToolTip.SetToolTip(this.ASP_CheckBoxMusic, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.ASP_MasterToolTip.SetToolTip(this.ASP_CheckBoxMusic, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
             this.ASP_CheckBoxMusic.UseVisualStyleBackColor = true;
             // 
             // ASP_LabelMusic
@@ -104,6 +104,7 @@ namespace SRB2KModConfigurator.Forms
             this.ASP_LabelMusic.Size = new System.Drawing.Size(176, 14);
             this.ASP_LabelMusic.TabIndex = 0;
             this.ASP_LabelMusic.Text = "No Music";
+            this.ASP_MasterToolTip.SetToolTip(this.ASP_LabelMusic, "No Music - Turns off all the music.");
             // 
             // ASP_LabelSFXs
             // 
@@ -116,7 +117,14 @@ namespace SRB2KModConfigurator.Forms
             this.ASP_LabelSFXs.Size = new System.Drawing.Size(176, 14);
             this.ASP_LabelSFXs.TabIndex = 2;
             this.ASP_LabelSFXs.Text = "No SFXs";
-            this.GSP_MasterToolTip.SetToolTip(this.ASP_LabelSFXs, "The setting adds the additional bonus characters WAD which comes with SRB2Kart.");
+            this.ASP_MasterToolTip.SetToolTip(this.ASP_LabelSFXs, "No SFXs - Turns off all the sound effects in the game.");
+            // 
+            // ASP_MasterToolTip
+            // 
+            this.ASP_MasterToolTip.AutoPopDelay = 900000000;
+            this.ASP_MasterToolTip.InitialDelay = 500;
+            this.ASP_MasterToolTip.IsBalloon = true;
+            this.ASP_MasterToolTip.ReshowDelay = 100;
             // 
             // AudioSettingsPanel
             // 
@@ -139,7 +147,7 @@ namespace SRB2KModConfigurator.Forms
         private System.Windows.Forms.Panel ASP_MainPanel;
         private System.Windows.Forms.TableLayoutPanel ASP_TableLayout;
         private System.Windows.Forms.Label ASP_LabelSFXs;
-        private System.Windows.Forms.ToolTip GSP_MasterToolTip;
+        private System.Windows.Forms.ToolTip ASP_MasterToolTip;
         private System.Windows.Forms.Label ASP_LabelMusic;
         private System.Windows.Forms.CheckBox ASP_CheckBoxSFXs;
         private System.Windows.Forms.CheckBox ASP_CheckBoxMusic;

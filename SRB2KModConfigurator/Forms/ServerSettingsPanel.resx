@@ -57,4 +57,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="SSP_LabelHostServerType.ToolTip" xml:space="preserve">
+    <value>Server Type - A 'ClientServer' is a server type where the host plays while they are hosting the server in the same game instance. When hosting a 'Dedicated' server, the host is not a player in the game and instead monitors the game from a console window. You will need to use another game instance to join this server locally to play.</value>
+  </data>
+  <data name="SSP_LabelJoinServerPreventAddonDownload.ToolTip" xml:space="preserve">
+    <value>Prevent Addon Download - Prevents the client from downloading any addon files from the server. Will most likely prevent the game from connecting to modded servers if there are addon mismatches or missing.</value>
+  </data>
+  <data name="SSP_LabelOnlineMode.ToolTip" xml:space="preserve">
+    <value>Online Mode - With 'JoinServer' selected, the game will automatically try to join the specified server upon launch. With 'HostServer' selected, the game will automatically to try to create a multiplayer lobby. Use 'Offline' to start the game as normal - can still connect to other servers through the in-game menus.</value>
+  </data>
+  <data name="SSP_LabelJoinServerIP.ToolTip" xml:space="preserve">
+    <value>Server IP - If an external IP address is specified, SRB2 will automatically try to connect to a netgame with that IP address. If no IP address is specified, SRB2 will search for a server on the local network and connect to the first server found. </value>
+  </data>
+  <data name="SSP_LabelJoinServerPort.ToolTip" xml:space="preserve">
+    <value>Server Port - Leave empty if joining an external server. Specifies the local UDP port to use. If you are hosting a netgame, this is useful for joining your own netgame with another instance of SRB2 on the same computer, especially if you are hosting a dedicated server.</value>
+  </data>
+  <data name="SSP_LabelHostServerGameType.ToolTip" xml:space="preserve">
+    <value>Server Game Type - Sets the gametype when hosting a server. This parameter is in the same format as that accepted by the map command's own -gametype parameter. Leave empty if this is not needed or have no knowledge about.</value>
+  </data>
+  <data name="SSP_LabelHostServerBroadcasting.ToolTip" xml:space="preserve">
+    <value>Server Public Broadcasting - If enabled, the server will be advertises the Master Server List. 'Standard' Room; Servers playing the official gametypes included with SRB2 should be hosted with this roomtype. Or 'Casual' Room; Servers playing the game in a different way than originally intended, such as role-playing or hangout, should be hosted in this room. </value>
+  </data>
 </root>
