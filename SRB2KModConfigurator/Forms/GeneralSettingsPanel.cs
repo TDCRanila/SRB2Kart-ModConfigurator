@@ -49,7 +49,7 @@ namespace SRB2KModConfigurator.Forms
         {
             GeneralSettingsDataStruct data = new GeneralSettingsDataStruct();
 
-            data.shouldAddBonusCharacterPack        = GSP_CheckboxBonusCharacters.Checked;
+            data.shouldAddBonusCharacterPack        = GSP_CheckboxBonusCharacters.Enabled && GSP_CheckboxBonusCharacters.Checked ;
             data.shouldSkipGameIntro                = GSP_CheckBoxSkipGameIntro.Checked;
             data.dataAction                         = (DataAction)Enum.Parse(typeof(DataAction), GSP_ComboBoxDataActions.SelectedItem.ToString());
             data.enableAdditionalConsole            = GSP_CheckBoxAdditionalConsole.Checked;
@@ -57,6 +57,18 @@ namespace SRB2KModConfigurator.Forms
             data.additionalCommandlineParameters    = GSP_TextBoxAdditionalParameters.Text;
 
             return data;
+        }
+
+        public void EnableBonusCharacterPackOption()
+        {
+            GSP_CheckboxBonusCharacters.Enabled = true;
+            GSP_LabelBonusCharacter.ForeColor   = Color.White;
+        }
+
+        public void DisableBonusCharacterPackOption()
+        {
+            GSP_CheckboxBonusCharacters.Enabled = false;
+            GSP_LabelBonusCharacter.ForeColor   = Color.Red;
         }
 
         private void GSP_ButtonCustomConfigFile_Click(object sender, EventArgs e)

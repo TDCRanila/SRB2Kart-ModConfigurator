@@ -49,9 +49,9 @@ namespace SRB2KModConfigurator
         private ServerSettingsPanel serverSettingsPanelRef;
 
         private DirectoryInfo currentModFolderInfo;
-        private FileInfo currentTargetExecutableInfo;
         private Dictionary<TreeNode, string> currentSelectedModItems;
-        private string currentTargetExecutable;
+        private FileInfo currentTargetExecutableInfo;
+        private string currentTargetExecutablePath;
         private ConfigurationSettingsDataStruct configSettings;
 
         private bool isModFolderLocationValid;
@@ -65,7 +65,7 @@ namespace SRB2KModConfigurator
             currentModFolderInfo        = null;
             currentSelectedModItems     = new Dictionary<TreeNode, string>();
             currentTargetExecutableInfo = null;
-            currentTargetExecutable     = "";
+            currentTargetExecutablePath = "";
 
             enableTreeViewAfterCheck    = true;
 
@@ -81,6 +81,8 @@ namespace SRB2KModConfigurator
             DockSettingsPanel(videoSettingsPanelRef, CP_PanelVideoSettings);
             DockSettingsPanel(audioSettingsPanelRef, CP_PanelAudioSettings);
             DockSettingsPanel(serverSettingsPanelRef, CP_PanelServerSettings);
+
+            generalSettingsPanelRef.DisableBonusCharacterPackOption();
         }
 
         private void ConfigurationPanel_Load(object sender, EventArgs e)
@@ -114,7 +116,7 @@ namespace SRB2KModConfigurator
         private void ClearTargetExecutableInfo()
         {
             currentTargetExecutableInfo = null;
-            currentTargetExecutable     = "";
+            currentTargetExecutablePath = "";
             SetTargetExecutableValidationStatus(false);
     }
 
@@ -142,28 +144,27 @@ namespace SRB2KModConfigurator
             if (!newFileInfo.Exists)
             {
                 // Error Message.
-                SetTargetExecutableValidationStatus(false);
+                ClearTargetExecutableInfo();
                 return false;
             }
 
             if (currentTargetExecutableInfo != null && currentTargetExecutableInfo == newFileInfo)
             {
                 // Ignore.
-                SetTargetExecutableValidationStatus(false);
-                return false;
+                return true;
             }
 
             string textPath = targetExecutablePathLocation;
-            bool isValidEntry   = textPath.Any() && textPath.Contains(".exe", StringComparison.InvariantCultureIgnoreCase);
+            bool isValidEntry = textPath.Any() && textPath.Contains(".exe", StringComparison.InvariantCultureIgnoreCase);
             if (!isValidEntry)
             {
                 // Error Message
-                SetTargetExecutableValidationStatus(false);
+                ClearTargetExecutableInfo();
                 return false;
             }
 
             currentTargetExecutableInfo = newFileInfo;
-            currentTargetExecutable     = targetExecutablePathLocation;
+            currentTargetExecutablePath = targetExecutablePathLocation;
 
             // Visual
             CP_TextBoxTargetExecutableLocation.Text = targetExecutablePathLocation;
@@ -358,6 +359,14 @@ namespace SRB2KModConfigurator
 
             Image image                                     = isValid ? Properties.Resources.spr_checkmark : Properties.Resources.spr_crosss;
             CP_PictureBoxTargetExecutableValidation.Image   = image;
+
+            if (generalSettingsPanelRef != null)
+            {
+                if (CheckBonusCharacterPackValidation())
+                    generalSettingsPanelRef.EnableBonusCharacterPackOption();
+                else
+                    generalSettingsPanelRef.DisableBonusCharacterPackOption();
+            }
         }
 
         private void SetModFolderValidationStatus(bool isValid)
@@ -420,6 +429,22 @@ namespace SRB2KModConfigurator
 
         }
 
+        public bool CheckBonusCharacterPackValidation()
+        {
+            if (currentTargetExecutableInfo == null)
+                return false;
+
+            string dirOfExe =  currentTargetExecutablePath.Replace(currentTargetExecutableInfo.Name, "");
+            string fileName = "bonuschars.kart";
+            string fullPath = (dirOfExe + fileName);
+
+            FileInfo tempFileInfo = new FileInfo(fullPath);
+            if (!tempFileInfo.Exists)
+                return false;
+            else
+                return true;
+        }
+
         #endregion // End of region ~ Implementation. - 
 
         #region Implementation - Exporting & Saving
@@ -438,7 +463,7 @@ namespace SRB2KModConfigurator
             configFile.configurationDisplayName  = CP_TextboxConfigurationName.Text;
             configFile.enableOverrideSettings    = CP_CheckboxEnableOverrideSettings.Checked;
             
-            configFile.targetFilePath            = currentTargetExecutable;
+            configFile.targetFilePath            = currentTargetExecutablePath;
             configFile.mainModFolderPath         = currentModFolderInfo.ToString();
             
             foreach (string modItem in currentSelectedModItems.Values)
@@ -562,17 +587,15 @@ namespace SRB2KModConfigurator
         {
             if (e.KeyCode == Keys.Enter)
             {
-                TextBox textBox     = CP_TextBoxTargetExecutableLocation;
-                bool isValidEntry   = textBox.Text.Any() && textBox.Text.Contains(".exe", StringComparison.InvariantCultureIgnoreCase);
-                SetTargetExecutableValidationStatus(isValidEntry);
+                TextBox textBox = CP_TextBoxTargetExecutableLocation;
+                LoadTargetExecutableInfo(CP_TextBoxTargetExecutableLocation.Text);
             }
         }
 
         private void CP_ButtonRefreshTargetExecutable_Click(object sender, EventArgs e)
         {
-            TextBox textBox     = CP_TextBoxTargetExecutableLocation;
-            bool isValidEntry   = textBox.Text.Any() && textBox.Text.Contains(".exe", StringComparison.InvariantCultureIgnoreCase);
-            SetTargetExecutableValidationStatus(isValidEntry);
+            TextBox textBox = CP_TextBoxTargetExecutableLocation;
+            LoadTargetExecutableInfo(CP_TextBoxTargetExecutableLocation.Text);
         }
 
         private void CP_ButtonFileDialogTargetExecutable_Click(object sender, EventArgs e)
