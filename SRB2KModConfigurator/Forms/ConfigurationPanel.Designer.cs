@@ -41,6 +41,7 @@ namespace SRB2KModConfigurator
             this.CP_ButtonRefreshModFolderLocation = new System.Windows.Forms.Button();
             this.CP_TableTopBar = new System.Windows.Forms.TableLayoutPanel();
             this.CP_TableTopBarTools = new System.Windows.Forms.TableLayoutPanel();
+            this.CP_ButtonLaunchConfiguration = new System.Windows.Forms.Button();
             this.CP_ButtonSaveConfiguration = new System.Windows.Forms.Button();
             this.CP_ButtonExportConfigFileDialog = new System.Windows.Forms.Button();
             this.CP_ButtonReturnStarterPage = new System.Windows.Forms.Button();
@@ -244,8 +245,8 @@ namespace SRB2KModConfigurator
             // 
             this.CP_TableTopBar.ColumnCount = 3;
             this.CP_TableTopBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.059603F));
-            this.CP_TableTopBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 547F));
-            this.CP_TableTopBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 223F));
+            this.CP_TableTopBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 517F));
+            this.CP_TableTopBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 253F));
             this.CP_TableTopBar.Controls.Add(this.CP_TableTopBarTools, 2, 0);
             this.CP_TableTopBar.Controls.Add(this.CP_NiceGroupTargetExecutable, 1, 0);
             this.CP_TableTopBar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -260,20 +261,40 @@ namespace SRB2KModConfigurator
             // CP_TableTopBarTools
             // 
             this.CP_TableTopBarTools.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CP_TableTopBarTools.ColumnCount = 3;
-            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.90944F));
-            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.90943F));
-            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.18113F));
-            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonSaveConfiguration, 0, 0);
-            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonExportConfigFileDialog, 1, 0);
-            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonReturnStarterPage, 2, 0);
-            this.CP_TableTopBarTools.Location = new System.Drawing.Point(553, 7);
+            this.CP_TableTopBarTools.ColumnCount = 4;
+            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.CP_TableTopBarTools.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonLaunchConfiguration, 0, 0);
+            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonSaveConfiguration, 1, 0);
+            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonExportConfigFileDialog, 2, 0);
+            this.CP_TableTopBarTools.Controls.Add(this.CP_ButtonReturnStarterPage, 3, 0);
+            this.CP_TableTopBarTools.Location = new System.Drawing.Point(523, 7);
             this.CP_TableTopBarTools.Margin = new System.Windows.Forms.Padding(0, 5, 3, 3);
             this.CP_TableTopBarTools.Name = "CP_TableTopBarTools";
             this.CP_TableTopBarTools.RowCount = 1;
             this.CP_TableTopBarTools.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.CP_TableTopBarTools.Size = new System.Drawing.Size(220, 44);
+            this.CP_TableTopBarTools.Size = new System.Drawing.Size(250, 44);
             this.CP_TableTopBarTools.TabIndex = 1;
+            // 
+            // CP_ButtonLaunchConfiguration
+            // 
+            this.CP_ButtonLaunchConfiguration.BackColor = System.Drawing.Color.White;
+            this.CP_ButtonLaunchConfiguration.BackgroundImage = global::SRB2KModConfigurator.Properties.Resources.spr_crosss;
+            this.CP_ButtonLaunchConfiguration.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CP_ButtonLaunchConfiguration.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CP_ButtonLaunchConfiguration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_ButtonLaunchConfiguration.Font = new System.Drawing.Font("envypn7x15", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CP_ButtonLaunchConfiguration.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.CP_ButtonLaunchConfiguration.Location = new System.Drawing.Point(1, 1);
+            this.CP_ButtonLaunchConfiguration.Margin = new System.Windows.Forms.Padding(1);
+            this.CP_ButtonLaunchConfiguration.Name = "CP_ButtonLaunchConfiguration";
+            this.CP_ButtonLaunchConfiguration.Size = new System.Drawing.Size(60, 42);
+            this.CP_ButtonLaunchConfiguration.TabIndex = 3;
+            this.CP_ButtonLaunchConfiguration.Text = "Launch";
+            this.CP_ButtonLaunchConfiguration.UseVisualStyleBackColor = false;
+            this.CP_ButtonLaunchConfiguration.Click += new System.EventHandler(this.CP_ButtonLaunchConfiguration_Click);
             // 
             // CP_ButtonSaveConfiguration
             // 
@@ -284,10 +305,10 @@ namespace SRB2KModConfigurator
             this.CP_ButtonSaveConfiguration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_ButtonSaveConfiguration.Font = new System.Drawing.Font("envypn7x15", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_ButtonSaveConfiguration.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.CP_ButtonSaveConfiguration.Location = new System.Drawing.Point(1, 1);
+            this.CP_ButtonSaveConfiguration.Location = new System.Drawing.Point(63, 1);
             this.CP_ButtonSaveConfiguration.Margin = new System.Windows.Forms.Padding(1);
             this.CP_ButtonSaveConfiguration.Name = "CP_ButtonSaveConfiguration";
-            this.CP_ButtonSaveConfiguration.Size = new System.Drawing.Size(66, 42);
+            this.CP_ButtonSaveConfiguration.Size = new System.Drawing.Size(60, 42);
             this.CP_ButtonSaveConfiguration.TabIndex = 0;
             this.CP_ButtonSaveConfiguration.Text = "Save";
             this.CP_ButtonSaveConfiguration.UseVisualStyleBackColor = false;
@@ -302,10 +323,10 @@ namespace SRB2KModConfigurator
             this.CP_ButtonExportConfigFileDialog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_ButtonExportConfigFileDialog.Font = new System.Drawing.Font("envypn7x15", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_ButtonExportConfigFileDialog.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.CP_ButtonExportConfigFileDialog.Location = new System.Drawing.Point(69, 1);
+            this.CP_ButtonExportConfigFileDialog.Location = new System.Drawing.Point(125, 1);
             this.CP_ButtonExportConfigFileDialog.Margin = new System.Windows.Forms.Padding(1);
             this.CP_ButtonExportConfigFileDialog.Name = "CP_ButtonExportConfigFileDialog";
-            this.CP_ButtonExportConfigFileDialog.Size = new System.Drawing.Size(66, 42);
+            this.CP_ButtonExportConfigFileDialog.Size = new System.Drawing.Size(60, 42);
             this.CP_ButtonExportConfigFileDialog.TabIndex = 1;
             this.CP_ButtonExportConfigFileDialog.Text = "Export";
             this.CP_ButtonExportConfigFileDialog.UseVisualStyleBackColor = false;
@@ -314,14 +335,13 @@ namespace SRB2KModConfigurator
             // CP_ButtonReturnStarterPage
             // 
             this.CP_ButtonReturnStarterPage.BackColor = System.Drawing.Color.White;
-            this.CP_ButtonReturnStarterPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CP_ButtonReturnStarterPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_ButtonReturnStarterPage.Font = new System.Drawing.Font("envypn7x15", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_ButtonReturnStarterPage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.CP_ButtonReturnStarterPage.Location = new System.Drawing.Point(137, 1);
+            this.CP_ButtonReturnStarterPage.Location = new System.Drawing.Point(187, 1);
             this.CP_ButtonReturnStarterPage.Margin = new System.Windows.Forms.Padding(1);
             this.CP_ButtonReturnStarterPage.Name = "CP_ButtonReturnStarterPage";
-            this.CP_ButtonReturnStarterPage.Size = new System.Drawing.Size(82, 42);
+            this.CP_ButtonReturnStarterPage.Size = new System.Drawing.Size(62, 42);
             this.CP_ButtonReturnStarterPage.TabIndex = 2;
             this.CP_ButtonReturnStarterPage.Text = "Return";
             this.CP_ButtonReturnStarterPage.UseVisualStyleBackColor = false;
@@ -340,7 +360,7 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupTargetExecutable.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.CP_NiceGroupTargetExecutable.Name = "CP_NiceGroupTargetExecutable";
             this.CP_NiceGroupTargetExecutable.Padding = new System.Windows.Forms.Padding(2, 0, 3, 0);
-            this.CP_NiceGroupTargetExecutable.Size = new System.Drawing.Size(544, 51);
+            this.CP_NiceGroupTargetExecutable.Size = new System.Drawing.Size(514, 51);
             this.CP_NiceGroupTargetExecutable.TabIndex = 0;
             this.CP_NiceGroupTargetExecutable.TabStop = false;
             this.CP_NiceGroupTargetExecutable.Text = "Target Executable";
@@ -362,7 +382,7 @@ namespace SRB2KModConfigurator
             this.CP_TableTargetExecutable.Padding = new System.Windows.Forms.Padding(2, 0, 2, 1);
             this.CP_TableTargetExecutable.RowCount = 1;
             this.CP_TableTargetExecutable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.CP_TableTargetExecutable.Size = new System.Drawing.Size(535, 44);
+            this.CP_TableTargetExecutable.Size = new System.Drawing.Size(508, 44);
             this.CP_TableTargetExecutable.TabIndex = 0;
             // 
             // CP_PictureBoxTargetExecutableValidation
@@ -371,7 +391,7 @@ namespace SRB2KModConfigurator
             this.CP_PictureBoxTargetExecutableValidation.BackColor = System.Drawing.Color.Transparent;
             this.CP_PictureBoxTargetExecutableValidation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CP_PictureBoxTargetExecutableValidation.Image = global::SRB2KModConfigurator.Properties.Resources.spr_checkmark;
-            this.CP_PictureBoxTargetExecutableValidation.Location = new System.Drawing.Point(416, 9);
+            this.CP_PictureBoxTargetExecutableValidation.Location = new System.Drawing.Point(389, 9);
             this.CP_PictureBoxTargetExecutableValidation.Name = "CP_PictureBoxTargetExecutableValidation";
             this.CP_PictureBoxTargetExecutableValidation.Size = new System.Drawing.Size(24, 24);
             this.CP_PictureBoxTargetExecutableValidation.TabIndex = 4;
@@ -383,7 +403,7 @@ namespace SRB2KModConfigurator
             this.CP_TextBoxTargetExecutableLocation.Location = new System.Drawing.Point(6, 10);
             this.CP_TextBoxTargetExecutableLocation.Margin = new System.Windows.Forms.Padding(4);
             this.CP_TextBoxTargetExecutableLocation.Name = "CP_TextBoxTargetExecutableLocation";
-            this.CP_TextBoxTargetExecutableLocation.Size = new System.Drawing.Size(403, 22);
+            this.CP_TextBoxTargetExecutableLocation.Size = new System.Drawing.Size(376, 22);
             this.CP_TextBoxTargetExecutableLocation.TabIndex = 0;
             this.CP_TextBoxTargetExecutableLocation.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CP_TextBoxTargetExecutableLocation_KeyDown);
             // 
@@ -396,7 +416,7 @@ namespace SRB2KModConfigurator
             this.CP_ButtonFileDialogTargetExecutable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_ButtonFileDialogTargetExecutable.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_ButtonFileDialogTargetExecutable.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.CP_ButtonFileDialogTargetExecutable.Location = new System.Drawing.Point(489, 10);
+            this.CP_ButtonFileDialogTargetExecutable.Location = new System.Drawing.Point(462, 10);
             this.CP_ButtonFileDialogTargetExecutable.MaximumSize = new System.Drawing.Size(40, 23);
             this.CP_ButtonFileDialogTargetExecutable.MinimumSize = new System.Drawing.Size(39, 22);
             this.CP_ButtonFileDialogTargetExecutable.Name = "CP_ButtonFileDialogTargetExecutable";
@@ -414,7 +434,7 @@ namespace SRB2KModConfigurator
             this.CP_ButtonRefreshTargetExecutable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_ButtonRefreshTargetExecutable.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_ButtonRefreshTargetExecutable.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.CP_ButtonRefreshTargetExecutable.Location = new System.Drawing.Point(444, 10);
+            this.CP_ButtonRefreshTargetExecutable.Location = new System.Drawing.Point(417, 10);
             this.CP_ButtonRefreshTargetExecutable.Margin = new System.Windows.Forms.Padding(1);
             this.CP_ButtonRefreshTargetExecutable.MaximumSize = new System.Drawing.Size(40, 23);
             this.CP_ButtonRefreshTargetExecutable.MinimumSize = new System.Drawing.Size(39, 22);
@@ -763,5 +783,6 @@ namespace SRB2KModConfigurator
         public System.Windows.Forms.TextBox CP_TextboxConfigurationName;
         private System.Windows.Forms.Label CP_LabelEnableOverrideSettings;
         private System.Windows.Forms.CheckBox CP_CheckboxEnableOverrideSettings;
+        private System.Windows.Forms.Button CP_ButtonLaunchConfiguration;
     }
 }

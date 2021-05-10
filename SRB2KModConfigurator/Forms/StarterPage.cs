@@ -109,29 +109,6 @@ namespace SRB2KModConfigurator
             SP_TextBoxConfigurationSelect.Text = selectedConfigFile.configurationDisplayName;
         }
 
-        private bool LaunchConfigFile()
-        {
-            if (selectedConfigFile == null)
-            {
-                return false;
-            }
-
-            string launchParameterString = selectedConfigFile.CreateParameterString();
-            ProcessStartInfo startInfo = new ProcessStartInfo(selectedConfigFile.targetFilePath, launchParameterString);
-            try
-            {
-                SavePreviousLaunchConfigurationSelection(selectedConfigFilePath);
-
-                Process.Start(startInfo);
-            }
-            catch
-            {
-                return false;
-            }
-
-            return true;
-        }
-
         private void SavePreviousLaunchConfigurationSelection(string filePath)
         {
             Process process             = Process.GetCurrentProcess();
@@ -226,8 +203,8 @@ namespace SRB2KModConfigurator
         {
             var launchConfigurationFileDialog = new CommonOpenFileDialog();
 
-            var configFileFilter = new CommonFileDialogFilter("SRB2Kart Config", ".srb2k-config");
-            var allFilter = new CommonFileDialogFilter("All Files", "*.*");
+            var configFileFilter    = new CommonFileDialogFilter("SRB2Kart Config", ".srb2k-config");
+            var allFilter           = new CommonFileDialogFilter("All Files", "*.*");
             launchConfigurationFileDialog.Filters.Add(configFileFilter);
             launchConfigurationFileDialog.Filters.Add(allFilter);
 
@@ -253,7 +230,10 @@ namespace SRB2KModConfigurator
 
         private void SP_ButtonLaunchConfig_Click(object sender, EventArgs e)
         {
-            LaunchConfigFile();
+            if (LauncherHelper.LaunchConfiguration(selectedConfigFile))
+            {
+                SavePreviousLaunchConfigurationSelection(selectedConfigFilePath);
+            }
         }
 
         #endregion // End of regin=n ~ Callbacks.

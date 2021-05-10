@@ -374,10 +374,12 @@ namespace SRB2KModConfigurator
         {
             isConfigurationValid = isTargetExecutableLocationValid && isModFolderLocationValid;
 
+            CP_ButtonLaunchConfiguration.Enabled    = isConfigurationValid;
             CP_ButtonSaveConfiguration.Enabled      = isConfigurationValid;
             CP_ButtonExportConfigFileDialog.Enabled = isConfigurationValid;
 
             Image image                                     = isConfigurationValid ? null : Properties.Resources.spr_crosss;
+            CP_ButtonLaunchConfiguration.BackgroundImage    = image;
             CP_ButtonSaveConfiguration.BackgroundImage      = image;
             CP_ButtonExportConfigFileDialog.BackgroundImage = image;
         }
@@ -445,6 +447,11 @@ namespace SRB2KModConfigurator
             configFile.configSettingsData        = configSettings;
 
             return configFile;
+        }
+
+        private void LaunchConfiguration()
+        {
+            LauncherHelper.LaunchConfiguration(ConstructConfigurationData());
         }
 
         private void SaveConfiguration()
@@ -523,6 +530,11 @@ namespace SRB2KModConfigurator
         private void CP_CheckboxEnableOverrideSettings_CheckedChanged(object sender, EventArgs e)
         {
             SetSettingsControlStatus(CP_CheckboxEnableOverrideSettings.Checked);
+        }
+
+        private void CP_ButtonLaunchConfiguration_Click(object sender, EventArgs e)
+        {
+            LaunchConfiguration();
         }
 
         private void CP_ButtonSaveConfiguration_Click(object sender, EventArgs e)
@@ -667,6 +679,7 @@ namespace SRB2KModConfigurator
         }
 
         #endregion // End of region ~ Callbacks.
+
     }
 
 }
