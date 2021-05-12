@@ -106,7 +106,7 @@ namespace SRB2KModConfigurator
             selectedConfigFilePath = filePath;
 
             // Visual
-            SP_TextBoxConfigurationSelect.Text = selectedConfigFile.configurationDisplayName;
+            SP_TextBoxConfigurationSelect.Text = new string(selectedConfigFile.configurationDisplayName + " - (" + selectedConfigFilePath + ")");
         }
 
         private void SavePreviousLaunchConfigurationSelection(string filePath)
