@@ -6,13 +6,21 @@ using System.Text;
 
 using System.Text.Json;
 using System.Text.Json.Serialization;
-
+using System.Windows.Forms;
 using SRB2KModConfigurator.Data;
 
 namespace SRB2KModConfigurator.Config
 {
     public class SRB2ConfigFile
     {
+        public string configurationDisplayName {get; set;}
+        public bool enableOverrideSettings { get; set; }
+
+        public string targetFilePath { get; set; }
+        public string mainModFolderPath { get; set; }
+        public List<string> modFiles { get; set; }
+        public ConfigurationSettingsDataStruct configSettingsData {get; set; }
+
         public SRB2ConfigFile()
         {
             configurationDisplayName    = "";
@@ -23,15 +31,6 @@ namespace SRB2KModConfigurator.Config
             configSettingsData          = new ConfigurationSettingsDataStruct();
         }
 
-        public string configurationDisplayName {get; set;}
-        public bool enableOverrideSettings { get; set; }
-
-        public string targetFilePath { get; set; }
-        public string mainModFolderPath { get; set; }
-        public List<string> modFiles { get; set; }
-
-        public ConfigurationSettingsDataStruct configSettingsData {get; set; }
-
         public string CreateJSONString()
         {
             JsonSerializerOptions options   = new JsonSerializerOptions();
@@ -41,19 +40,29 @@ namespace SRB2KModConfigurator.Config
             return jsonString;
         }
 
-        public void LoadFromJSONString(string loadedJSONString)
+        public bool LoadFromJSONString(string loadedJSONString)
         {
             JsonSerializerOptions options   = new JsonSerializerOptions();
             options.WriteIndented           = true;
 
-            SRB2ConfigFile loadedConfigFile = JsonSerializer.Deserialize<SRB2ConfigFile>(loadedJSONString);
+            try
+            {
+               SRB2ConfigFile loadedConfigFile = JsonSerializer.Deserialize<SRB2ConfigFile>(loadedJSONString);
+                this.configurationDisplayName   = loadedConfigFile.configurationDisplayName;
+                this.enableOverrideSettings     = loadedConfigFile.enableOverrideSettings;
+                this.targetFilePath             = loadedConfigFile.targetFilePath;
+                this.mainModFolderPath          = loadedConfigFile.mainModFolderPath;
+                this.modFiles                   = loadedConfigFile.modFiles;
+                this.configSettingsData         = loadedConfigFile.configSettingsData;
+                return true;
+            }
+            catch 
+            {
+                // POP UP: Invalid Configuration / Trying to Load incompatible Configuration.
+                MessageBox.Show("Cannot load this file as it is incompatible.", "Loading Invalid Configuration", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
 
-            this.configurationDisplayName   = loadedConfigFile.configurationDisplayName;
-            this.enableOverrideSettings     = loadedConfigFile.enableOverrideSettings;
-            this.targetFilePath             = loadedConfigFile.targetFilePath;
-            this.mainModFolderPath          = loadedConfigFile.mainModFolderPath;
-            this.modFiles                   = loadedConfigFile.modFiles;
-            this.configSettingsData         = loadedConfigFile.configSettingsData;
         }
 
         public string CreateParameterString()

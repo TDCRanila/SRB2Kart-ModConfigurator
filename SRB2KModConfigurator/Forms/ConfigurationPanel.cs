@@ -18,6 +18,27 @@ namespace SRB2KModConfigurator
 {
     public partial class ConfigurationPanel : Form
     {
+        private StarterPage parentFormRef;
+
+        private GeneralSettingsPanel generalSettingsPanelRef;
+        private VideoSettingsPanel videoSettingsPanelRef;
+        private AudioSettingsPanel audioSettingsPanelRef;
+        private ServerSettingsPanel serverSettingsPanelRef;
+
+        private DirectoryInfo currentModFolderInfo;
+        private Dictionary<TreeNode, string> currentSelectedModItems;
+        private FileInfo currentTargetExecutableInfo;
+        private string currentTargetExecutablePath;
+        private ConfigurationSettingsDataStruct configSettings;
+
+        private bool isModFolderLocationValid;
+        private bool isTargetExecutableLocationValid;
+        private bool isConfigurationValid;
+
+        private bool enableTreeViewAfterCheck;
+
+        private const string bonusCharacterPackFileName = "bonuschars.kart";
+
         public ConfigurationPanel()
         {
             InitializeComponent();
@@ -40,25 +61,6 @@ namespace SRB2KModConfigurator
             audioSettingsPanelRef.LoadData(loadedConfigFile.configSettingsData.audioSettings);
             serverSettingsPanelRef.LoadData(loadedConfigFile.configSettingsData.serverSettings);
         }
-
-        private StarterPage parentFormRef;
-
-        private GeneralSettingsPanel generalSettingsPanelRef;
-        private VideoSettingsPanel videoSettingsPanelRef;
-        private AudioSettingsPanel audioSettingsPanelRef;
-        private ServerSettingsPanel serverSettingsPanelRef;
-
-        private DirectoryInfo currentModFolderInfo;
-        private Dictionary<TreeNode, string> currentSelectedModItems;
-        private FileInfo currentTargetExecutableInfo;
-        private string currentTargetExecutablePath;
-        private ConfigurationSettingsDataStruct configSettings;
-
-        private bool isModFolderLocationValid;
-        private bool isTargetExecutableLocationValid;
-        private bool isConfigurationValid;
-
-        private bool enableTreeViewAfterCheck ;
 
         private void InitiliazeConfigurator()
         {
@@ -159,6 +161,8 @@ namespace SRB2KModConfigurator
             if (!isValidEntry)
             {
                 // Error Message
+                // POP UP : Is Not An Executable.
+                MessageBox.Show("Selected Target is not an executable file.", "Failed To Select Target", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ClearTargetExecutableInfo();
                 return false;
             }
@@ -217,8 +221,11 @@ namespace SRB2KModConfigurator
         {
             if (modList.Count == 0)
             {
+                // Early Exit.
                 return;
             }
+
+            List<string> missingMods = new List<string>();
 
             TreeNodeCollection treeViewNodeCollection =  CP_ModFolderTreeView.Nodes;
             // Find mods that were present in the modlist/configuration.
@@ -229,14 +236,15 @@ namespace SRB2KModConfigurator
                 {
                     // Warning, tried to find item that was present in configuration, but can
                     //          no longer be found in the mod folder.
-                    // Action , continue but just warn user.
+                    // Action , continue but just warn user fater loading.
+                    missingMods.Add(modPath);
                     continue;
                 }
 
                 if (foundNodes.Length >= 2)
                 {
-                    // Warning, multiple items found with same name.
-                    // Action , continue and select both, but warn user.
+                    // Warning, multiple nodes found regarding a selected mod. Shouldn't
+                    // happen unless the OS allows items of the same name in explorer.
                 }
 
                 foreach (TreeNode node in foundNodes)
@@ -284,6 +292,27 @@ namespace SRB2KModConfigurator
             InternalRecursiveFunc(treeParentNode);
             
             enableTreeViewAfterCheck    = true;
+
+            // Warn User.
+            string info;
+            if (missingMods.Count > 0)
+            {
+                using (StringWriter writer = new StringWriter())
+                {
+                    foreach (string mod in missingMods)
+                        writer.Write(mod + "\n");
+
+                    info = writer.ToString();
+                }
+
+                // POP UP : Missing mods when updating configuration.
+                MessageBox.Show("Selected mod files are missing during (re)loading of the mod folder." + '\n' + info
+                    , "Missing Selected Mod Files", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                DialogResult result = MessageBox.Show("Do you want to copy the missing mod filepaths to your clipboard?", "Clipboard", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                    Clipboard.SetText(info);
+            }
         }
 
         private bool FeedModFolderTreeViewer()
@@ -434,8 +463,8 @@ namespace SRB2KModConfigurator
             if (currentTargetExecutableInfo == null)
                 return false;
 
-            string dirOfExe =  currentTargetExecutablePath.Replace(currentTargetExecutableInfo.Name, "");
-            string fileName = "bonuschars.kart";
+            string dirOfExe = currentTargetExecutablePath.Replace(currentTargetExecutableInfo.Name, "");
+            string fileName = bonusCharacterPackFileName;
             string fullPath = (dirOfExe + fileName);
 
             FileInfo tempFileInfo = new FileInfo(fullPath);
@@ -501,18 +530,24 @@ namespace SRB2KModConfigurator
             }
             else
             {
-                string fileName             = configSaveFileDialog.FileName;
-                FileStream fileStream       = File.Create(fileName);
-                using (StreamWriter writer  = new StreamWriter(fileStream))
+                string fileName = configSaveFileDialog.FileName;
+                using (FileStream fs = File.Create(fileName))
                 {
-                    FileInfo fileInfo = new FileInfo(fileName);
-                    newConfigFile.configurationDisplayName = fileInfo.Name;
+                    if (fs.CanWrite)
+                    {
+                        using (StreamWriter writer  = new StreamWriter(fs))
+                        {
+                            FileInfo fileInfo = new FileInfo(fileName);
+                            newConfigFile.configurationDisplayName = fileInfo.Name;
                     
-                    // Visual
-                    CP_TextboxConfigurationName.Text = fileInfo.Name;
+                            // Visual
+                            CP_TextboxConfigurationName.Text = fileInfo.Name;
                     
-                    writer.Write(newConfigFile.CreateJSONString());
+                            writer.Write(newConfigFile.CreateJSONString());
+                        }
+                    }
                 }
+
                 return;
             }
         }
@@ -539,12 +574,19 @@ namespace SRB2KModConfigurator
             }
             else
             {
-                string fileName             = exportBatchFileDialog.FileName;
-                FileStream fileStream       = File.Create(fileName);
-                using (StreamWriter writer  = new StreamWriter(fileStream))
+                string fileName = exportBatchFileDialog.FileName;
+                using (FileStream fs = File.Create(fileName))
                 {
-                    writer.Write(newConfigFile.CreateLauncherString());
+                    if (fs.CanWrite)
+                    {
+                        using (StreamWriter writer = new StreamWriter(fs))
+                        {
+                            writer.Write(newConfigFile.CreateLauncherString());
+                        }
+                    }
                 }
+
+                return;
             }
         }
 
@@ -578,6 +620,7 @@ namespace SRB2KModConfigurator
             {
                 StarterPage starterPageRef = (StarterPage)this.ParentForm;
                 starterPageRef.ShowStarterPageElements();
+                starterPageRef.RefreshStarterPage();
             }
 
             this.Close();
@@ -607,12 +650,12 @@ namespace SRB2KModConfigurator
             targetExecutableFileDialog.Filters.Add(exeFilter);
             targetExecutableFileDialog.Filters.Add(allFilter);
             
-            targetExecutableFileDialog.Title = "Select your SRB2Kart EXE.";
-            targetExecutableFileDialog.IsFolderPicker = false;
-            targetExecutableFileDialog.AllowNonFileSystemItems = false;
-            targetExecutableFileDialog.Multiselect = false;
-            targetExecutableFileDialog.AllowPropertyEditing = true;
-            targetExecutableFileDialog.EnsurePathExists = true;
+            targetExecutableFileDialog.Title                    = "Select your SRB2Kart EXE.";
+            targetExecutableFileDialog.IsFolderPicker           = false;
+            targetExecutableFileDialog.AllowNonFileSystemItems  = false;
+            targetExecutableFileDialog.Multiselect              = false;
+            targetExecutableFileDialog.AllowPropertyEditing     = true;
+            targetExecutableFileDialog.EnsurePathExists         = true;
 
             if (targetExecutableFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
             {
@@ -624,6 +667,7 @@ namespace SRB2KModConfigurator
 
                 ClearTargetExecutableInfo();
                 LoadTargetExecutableInfo(files[0]);
+
                 return;
             }
         }
@@ -669,6 +713,7 @@ namespace SRB2KModConfigurator
                 string[] directory = modFolderFileDialog.FileNames.ToArray();
 
                 LoadModFolder(directory[0]);
+
                 return;
             }
         }

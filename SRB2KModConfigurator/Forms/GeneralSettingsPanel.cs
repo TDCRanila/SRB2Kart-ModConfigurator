@@ -80,12 +80,12 @@ namespace SRB2KModConfigurator.Forms
             targetExecutableFileDialog.Filters.Add(cfgFilter);
             targetExecutableFileDialog.Filters.Add(allFilter);
 
-            targetExecutableFileDialog.Title = "Select your Custom Config File.";
-            targetExecutableFileDialog.IsFolderPicker = false;
-            targetExecutableFileDialog.AllowNonFileSystemItems = false;
-            targetExecutableFileDialog.Multiselect = false;
-            targetExecutableFileDialog.AllowPropertyEditing = true;
-            targetExecutableFileDialog.EnsurePathExists = true;
+            targetExecutableFileDialog.Title                    = "Select your Custom Config File.";
+            targetExecutableFileDialog.IsFolderPicker           = false;
+            targetExecutableFileDialog.AllowNonFileSystemItems  = false;
+            targetExecutableFileDialog.Multiselect              = false;
+            targetExecutableFileDialog.AllowPropertyEditing     = true;
+            targetExecutableFileDialog.EnsurePathExists         = true;
 
             if (targetExecutableFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
             {
@@ -95,10 +95,20 @@ namespace SRB2KModConfigurator.Forms
             {
                 string[] files = targetExecutableFileDialog.FileNames.ToArray();
 
-                currentCustomConfigFilePath     = files[0];
+                currentCustomConfigFilePath = files[0];
                 currentCustomConfigFileInfo = new FileInfo(currentCustomConfigFilePath);
 
                 GSP_TextBoxCustomConfigFile.Text = currentCustomConfigFilePath;
+
+                string textPath = currentCustomConfigFilePath;
+                bool isValidEntry = textPath.Any() && textPath.Contains(".cfg", StringComparison.InvariantCultureIgnoreCase);
+                if (!isValidEntry)
+                {
+                    // Warning Message
+                    // POP UP : Regarding extension (cfg)
+                    MessageBox.Show("Selected File doesn't have the '.cfg' extension and might not be compatible.", 
+                        "Selected File might not be compatible.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
 
                 return;
             }

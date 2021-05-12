@@ -158,8 +158,8 @@ namespace SRB2KModConfigurator.Forms
                 }
                 catch (FormatException /*exception*/)
                 {
-                    VSP_TextBoxWidth.Text = "0";
-                    currentWidth = 0;
+                    VSP_TextBoxWidth.Text   = "0";
+                    currentWidth            = 0;
                     throw;
                 }
             }

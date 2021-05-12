@@ -133,7 +133,7 @@ namespace SRB2KModConfigurator
             this.SP_ButtonConfigurationSelectFileDialog.Size = new System.Drawing.Size(49, 28);
             this.SP_ButtonConfigurationSelectFileDialog.TabIndex = 4;
             this.SP_ButtonConfigurationSelectFileDialog.UseVisualStyleBackColor = true;
-            this.SP_ButtonConfigurationSelectFileDialog.Click += new System.EventHandler(this.SP_ButtonLaunchFileDialog_Click);
+            this.SP_ButtonConfigurationSelectFileDialog.Click += new System.EventHandler(this.SP_ButtonConfigurationSelect);
             // 
             // SP_LabelTitle
             // 

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,15 +15,60 @@ namespace SRB2KModConfigurator
     {
         private Form _activeChildForm = null;
 
+        private SRB2ConfigFile selectedConfigFile;
+        private string selectedConfigFilePath;
+        private const string previousLaunchedConfigurationFileName = "last-used-configuration.txt";
+
         public StarterPage()
         {
             InitializeComponent();
 
+            ClearStarterPageData();
+
             TryAndReadPreviousLaunchConfigurationSelection();
         }
 
-        private SRB2ConfigFile selectedConfigFile;
-        private string selectedConfigFilePath;
+        #region Helper
+
+        private void ClearStarterPageData()
+        {
+            selectedConfigFile      = null;
+            selectedConfigFilePath  = "";
+
+            SP_TextBoxConfigurationSelect.Text = "No Configuration Selected";
+        }
+
+        private bool HelperLoadConfigFileDialog(ref string returnedFilePath)
+        {
+            CommonOpenFileDialog launchConfigurationFileDialog = new CommonOpenFileDialog();
+
+            CommonFileDialogFilter configFileFilter = new CommonFileDialogFilter("SRB2Kart Config", ".srb2k-config");
+            CommonFileDialogFilter allFilter        = new CommonFileDialogFilter("All Files", "*.*");
+            launchConfigurationFileDialog.Filters.Add(configFileFilter);
+            launchConfigurationFileDialog.Filters.Add(allFilter);
+
+            launchConfigurationFileDialog.Title                    = "Select your SRB2Kart Config.";
+            launchConfigurationFileDialog.IsFolderPicker           = false;
+            launchConfigurationFileDialog.AllowNonFileSystemItems  = false;
+            launchConfigurationFileDialog.Multiselect              = false;
+            launchConfigurationFileDialog.AllowPropertyEditing     = true;
+            launchConfigurationFileDialog.EnsurePathExists         = true;
+            launchConfigurationFileDialog.Multiselect              = false;
+
+            if (launchConfigurationFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
+            {
+                returnedFilePath = "";
+                return false;
+            }
+            else
+            {
+                string[] files = launchConfigurationFileDialog.FileNames.ToArray();
+                returnedFilePath = files[0];
+                return true;
+            }
+        }
+
+        #endregion // End of region ~ Helper
 
         #region Implementation
 
@@ -43,6 +84,15 @@ namespace SRB2KModConfigurator
             SP_TableMainOptions.Visible     = true;
             SP_TableLaunchOptions.Visible   = true;
             SP_LabelTitle.Visible           = true;
+        }
+
+        public void RefreshStarterPage()
+        {
+            if (!SelectConfigFile(selectedConfigFilePath))
+            {
+                ClearStarterPageData();
+                MessageBox.Show("Selected Configuration File cannot be found or is invalid.", "Failed To Load Config", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void DisplayNewChildForm(Form newChildForm)
@@ -62,75 +112,127 @@ namespace SRB2KModConfigurator
 
             SP_ChildPanel.Controls.Clear();
             SP_ChildPanel.Controls.Add(_activeChildForm);
-            SP_ChildPanel.Tag = _activeChildForm;
-            SP_ChildPanel.Visible = true;
+            SP_ChildPanel.Tag                   = _activeChildForm;
+            SP_ChildPanel.Visible               = true;
 
             _activeChildForm.BringToFront();
 
             HideStarterPageElements();
-            _activeChildForm.Show();
-            
+            _activeChildForm.Show();  
         }
 
-        private void LoadConfigFile(string filePath)
+        private bool LoadAndEditConfigFile(string filePath)
         {
-            // Read File.
-            string configFileString = "";
-            var fileStream          = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-            using (var reader = new StreamReader(fileStream, Encoding.UTF8))
+            FileInfo tempFileInfo = new FileInfo(filePath);
+            if (!tempFileInfo.Exists)
             {
-                configFileString = reader.ReadToEnd();
+                return false;
+            }
+
+            // Read File.
+            string returnedData = "";
+            using (FileStream fs = new FileStream(filePath, FileMode.Open))
+            {
+                if (fs.CanRead)
+                {
+                    using (StreamReader sr = new StreamReader(fs))
+                    {
+                        returnedData = sr.ReadToEnd();
+                    }
+                }
+            }
+
+            if (returnedData == "")
+            {
+                ClearStarterPageData();
+                return false;
             }
 
             // Load Config File
-            SRB2ConfigFile configFile = new SRB2ConfigFile();
-            configFile.LoadFromJSONString(configFileString);
+            selectedConfigFile = new SRB2ConfigFile();
+            if (!selectedConfigFile.LoadFromJSONString(returnedData))
+            {
+                ClearStarterPageData();
+                return false;
+            }
 
-            ConfigurationPanel newConfigurationPanel = new ConfigurationPanel(configFile);
+            ConfigurationPanel newConfigurationPanel = new ConfigurationPanel(selectedConfigFile);
             DisplayNewChildForm(newConfigurationPanel);
+
+            return true;
         }
 
-        private void SelectConfigFile(string filePath)
+        private bool SelectConfigFile(string filePath)
         {
-            // Read File.
-            string configFileString = "";
-            var fileStream          = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-            using (var reader = new StreamReader(fileStream, Encoding.UTF8))
+            FileInfo tempFileInfo = new FileInfo(filePath);
+            if (!tempFileInfo.Exists)
             {
-                configFileString = reader.ReadToEnd();
+                return false;
+            }
+
+            // Read File.
+            string returnedData = "";
+            using (FileStream fs = new FileStream(filePath, FileMode.Open))
+            {
+                if (fs.CanRead)
+                {
+                    using (StreamReader sr = new StreamReader(fs))
+                    {
+                        returnedData = sr.ReadToEnd();
+                    }
+                }
+            }
+
+            if (returnedData == "")
+            {
+                ClearStarterPageData();
+                return false;
             }
 
             // Select & Load Config File
             selectedConfigFile = new SRB2ConfigFile();
-            selectedConfigFile.LoadFromJSONString(configFileString);
+            if (!selectedConfigFile.LoadFromJSONString(returnedData))
+            {
+                ClearStarterPageData();
+                return false;
+            }
+
             selectedConfigFilePath = filePath;
 
             // Visual
             SP_TextBoxConfigurationSelect.Text = new string(selectedConfigFile.configurationDisplayName + " - (" + selectedConfigFilePath + ")");
+
+            return true;
         }
 
-        private void SavePreviousLaunchConfigurationSelection(string filePath)
+        private bool SavePreviousLaunchConfigurationSelection(string filePath)
         {
             Process process             = Process.GetCurrentProcess();
             string fullPathOfProcess    = process.MainModule.FileName;
             string dirOfProcess         = fullPathOfProcess.Replace(process.MainModule.ModuleName, "");
-            string fileName             = "last-used-configuration.txt";
+            string fileName             = previousLaunchedConfigurationFileName;
             string fullPath             = (dirOfProcess + fileName);
 
             using (FileStream fs = new FileStream(fullPath, FileMode.Create))
             {
-                byte[] data = new UTF8Encoding(true).GetBytes(selectedConfigFilePath);
-                fs.Write(data);
+                if (fs.CanWrite)
+                {
+                    byte[] data = new UTF8Encoding(true).GetBytes(selectedConfigFilePath);
+                    fs.Write(data);
+                    return true;
+                }
             }
+
+            return false;
         }
 
         private bool TryAndReadPreviousLaunchConfigurationSelection()
         {
-            Process process = Process.GetCurrentProcess();
-            string fullPathOfProcess = process.MainModule.FileName;
-            string dirOfProcess = fullPathOfProcess.Replace(process.MainModule.ModuleName, "");
-            string fileName = "last-used-configuration.txt";
-            string fullPath = (dirOfProcess + fileName);
+            Process process             = Process.GetCurrentProcess();
+            string fullPathOfProcess    = process.MainModule.FileName;
+            string dirOfProcess         = fullPathOfProcess.Replace(process.MainModule.ModuleName, "");
+            string fileName             = previousLaunchedConfigurationFileName;
+            string fullPath             = (dirOfProcess + fileName);
 
             FileInfo tempFileInfo = new FileInfo(fullPath);
             if (!tempFileInfo.Exists)
@@ -138,25 +240,21 @@ namespace SRB2KModConfigurator
                 return false;
             }
 
-            string returnedData;
             using (FileStream fs = new FileStream(fullPath, FileMode.Open))
             {
-                using (StreamReader sr = new StreamReader(fs))
+                if (fs.CanRead)
                 {
-                    returnedData = sr.ReadToEnd();
+                    using (StreamReader sr = new StreamReader(fs))
+                    {
+                        // Data in the file is the filepath already.
+                        string returnedData = sr.ReadToEnd();
+                        SelectConfigFile(returnedData);
+                        return true;
+                    }
                 }
             }
 
-            FileInfo fileInfo = new FileInfo(returnedData);
-            if (fileInfo.Exists)
-            {
-                SelectConfigFile(returnedData);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         #endregion // End of region ~ Implementation.
@@ -167,64 +265,25 @@ namespace SRB2KModConfigurator
         {
             ConfigurationPanel newConfigurationPanel = new ConfigurationPanel();
             DisplayNewChildForm(newConfigurationPanel);
-
         }
 
         private void SP_ButtonEditConfig_Click(object sender, EventArgs e)
         {
-            var editConfigurationFileDialog = new CommonOpenFileDialog();
-
-            var configFileFilter    = new CommonFileDialogFilter("SRB2Kart Config", ".srb2k-config");
-            var allFilter           = new CommonFileDialogFilter("All Files", "*.*");
-            editConfigurationFileDialog.Filters.Add(configFileFilter);
-            editConfigurationFileDialog.Filters.Add(allFilter);
-
-            editConfigurationFileDialog.Title                    = "Select your SRB2Kart EXE.";
-            editConfigurationFileDialog.IsFolderPicker           = false;
-            editConfigurationFileDialog.AllowNonFileSystemItems  = false;
-            editConfigurationFileDialog.Multiselect              = false;
-            editConfigurationFileDialog.AllowPropertyEditing     = true;
-            editConfigurationFileDialog.EnsurePathExists         = true;
-            editConfigurationFileDialog.Multiselect              = false;
-
-            if (editConfigurationFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
+            string filePath = "";
+            if (HelperLoadConfigFileDialog(ref filePath))
             {
-                return;
-            }
-            else
-            {
-                string[] files = editConfigurationFileDialog.FileNames.ToArray();
-
-                LoadConfigFile(files[0]);
+                if (!LoadAndEditConfigFile(filePath))
+                    MessageBox.Show("Failed to load configuration file for editing.", "Failed To Load Config", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void SP_ButtonLaunchFileDialog_Click(object sender, EventArgs e)
+        private void SP_ButtonConfigurationSelect(object sender, EventArgs e)
         {
-            var launchConfigurationFileDialog = new CommonOpenFileDialog();
-
-            var configFileFilter    = new CommonFileDialogFilter("SRB2Kart Config", ".srb2k-config");
-            var allFilter           = new CommonFileDialogFilter("All Files", "*.*");
-            launchConfigurationFileDialog.Filters.Add(configFileFilter);
-            launchConfigurationFileDialog.Filters.Add(allFilter);
-
-            launchConfigurationFileDialog.Title                    = "Select your SRB2Kart EXE.";
-            launchConfigurationFileDialog.IsFolderPicker           = false;
-            launchConfigurationFileDialog.AllowNonFileSystemItems  = false;
-            launchConfigurationFileDialog.Multiselect              = false;
-            launchConfigurationFileDialog.AllowPropertyEditing     = true;
-            launchConfigurationFileDialog.EnsurePathExists         = true;
-            launchConfigurationFileDialog.Multiselect              = false;
-
-            if (launchConfigurationFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
+            string filePath = "";
+            if (HelperLoadConfigFileDialog(ref filePath))
             {
-                return;
-            }
-            else
-            {
-                string[] files = launchConfigurationFileDialog.FileNames.ToArray();
-
-                SelectConfigFile(files[0]);
+                if (!SelectConfigFile(filePath))
+                    MessageBox.Show("Failed to load & select configuration file.", "Failed To Load Config", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -236,7 +295,7 @@ namespace SRB2KModConfigurator
             }
         }
 
-        #endregion // End of regin=n ~ Callbacks.
+        #endregion // End of region ~ Callbacks.
 
     }
 }
