@@ -74,16 +74,18 @@ namespace SRB2KModConfigurator
 
         public void HideStarterPageElements()
         {
-            SP_TableMainOptions.Visible     = false;
-            SP_TableLaunchOptions.Visible   = false;
-            SP_LabelTitle.Visible           = false;
+            SP_TableMainOptions.Visible         = false;
+            SP_TableLaunchOptions.Visible       = false;
+            SP_LabelTitle.Visible               = false;
+            SP_TableOrganisation.Visible        = false;
         }
 
         public void ShowStarterPageElements()
         {
-            SP_TableMainOptions.Visible     = true;
-            SP_TableLaunchOptions.Visible   = true;
-            SP_LabelTitle.Visible           = true;
+            SP_TableMainOptions.Visible         = true;
+            SP_TableLaunchOptions.Visible       = true;
+            SP_LabelTitle.Visible               = true;
+            SP_TableOrganisation.Visible        = true;
         }
 
         public void RefreshStarterPage()

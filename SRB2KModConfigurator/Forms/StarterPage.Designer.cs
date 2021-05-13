@@ -31,6 +31,7 @@ namespace SRB2KModConfigurator
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StarterPage));
             this.SP_MainPanel = new System.Windows.Forms.Panel();
+            this.SP_ChildPanel = new System.Windows.Forms.Panel();
             this.SP_TableOrganisation = new System.Windows.Forms.TableLayoutPanel();
             this.SP_TableLaunchOptions = new System.Windows.Forms.TableLayoutPanel();
             this.SP_ButtonLaunchConfig = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@ namespace SRB2KModConfigurator
             this.SP_ButtonCredits = new System.Windows.Forms.Button();
             this.SP_ButtonEditConfig = new System.Windows.Forms.Button();
             this.SP_ButtonNewConfig = new System.Windows.Forms.Button();
-            this.SP_ChildPanel = new System.Windows.Forms.Panel();
             this.SP_MainPanel.SuspendLayout();
             this.SP_TableOrganisation.SuspendLayout();
             this.SP_TableLaunchOptions.SuspendLayout();
@@ -53,13 +53,23 @@ namespace SRB2KModConfigurator
             // SP_MainPanel
             // 
             this.SP_MainPanel.BackColor = System.Drawing.Color.Transparent;
-            this.SP_MainPanel.Controls.Add(this.SP_ChildPanel);
             this.SP_MainPanel.Controls.Add(this.SP_TableOrganisation);
+            this.SP_MainPanel.Controls.Add(this.SP_ChildPanel);
             this.SP_MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SP_MainPanel.Location = new System.Drawing.Point(0, 0);
             this.SP_MainPanel.Name = "SP_MainPanel";
             this.SP_MainPanel.Size = new System.Drawing.Size(1264, 681);
             this.SP_MainPanel.TabIndex = 0;
+            // 
+            // SP_ChildPanel
+            // 
+            this.SP_ChildPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SP_ChildPanel.Location = new System.Drawing.Point(0, 0);
+            this.SP_ChildPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.SP_ChildPanel.Name = "SP_ChildPanel";
+            this.SP_ChildPanel.Size = new System.Drawing.Size(1264, 681);
+            this.SP_ChildPanel.TabIndex = 3;
+            this.SP_ChildPanel.Visible = false;
             // 
             // SP_TableOrganisation
             // 
@@ -222,16 +232,6 @@ namespace SRB2KModConfigurator
             this.SP_ButtonNewConfig.Text = "New Configuration";
             this.SP_ButtonNewConfig.UseVisualStyleBackColor = true;
             this.SP_ButtonNewConfig.Click += new System.EventHandler(this.SP_ButtonNewConfig_Click);
-            // 
-            // SP_ChildPanel
-            // 
-            this.SP_ChildPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SP_ChildPanel.Location = new System.Drawing.Point(0, 0);
-            this.SP_ChildPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.SP_ChildPanel.Name = "SP_ChildPanel";
-            this.SP_ChildPanel.Size = new System.Drawing.Size(1264, 681);
-            this.SP_ChildPanel.TabIndex = 3;
-            this.SP_ChildPanel.Visible = false;
             // 
             // StarterPage
             // 
