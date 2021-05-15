@@ -150,6 +150,8 @@ namespace SRB2KModConfigurator
             this.CP_ModFolderTreeView.Size = new System.Drawing.Size(455, 593);
             this.CP_ModFolderTreeView.TabIndex = 0;
             this.CP_ModFolderTreeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.CP_ModFolderTreeView_AfterCheck);
+            this.CP_ModFolderTreeView.AfterCollapse += new System.Windows.Forms.TreeViewEventHandler(this.CP_ModFolderTreeView_AfterCollapse);
+            this.CP_ModFolderTreeView.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.CP_ModFolderTreeView_AfterExpand);
             // 
             // CP_NiceGroupModFolderSettings
             // 

@@ -352,31 +352,34 @@ namespace SRB2KModConfigurator
         private void HelpFunctionAlternateNodeColours(TreeNodeCollection nodeCollection)
         {
             // Local Recursive Function.
-            void InternalRecursiveFunc(TreeNode nodeParent)
+            bool InternalRecursiveFunc(TreeNode nodeParent, bool isAlternateNode)
             {
-                bool isNodeAlternate = false;
-
-                foreach (TreeNode childNode in nodeParent.Nodes)
+                if (isAlternateNode)
                 {
-                    InternalRecursiveFunc(childNode);
+                    isAlternateNode = false;
+                    nodeParent.BackColor = Color.FromArgb(255, 75, 75, 25);
+                }
+                else
+                {
+                    isAlternateNode = true;
+                    nodeParent.BackColor = Color.FromArgb(255, 55, 55, 55);
+                }
 
-                    if (isNodeAlternate)
+                if (nodeParent.IsExpanded)
+                {
+                    foreach (TreeNode childNode in nodeParent.Nodes)
                     {
-                        isNodeAlternate = false;
-                        childNode.BackColor = Color.FromArgb(255, 75, 75, 25);
-                    }
-                    else
-                    {
-                        isNodeAlternate = true;
-                        childNode.BackColor = Color.FromArgb(255, 35, 35, 35);
+                        isAlternateNode = InternalRecursiveFunc(childNode, isAlternateNode);
                     }
                 }
+
+                return isAlternateNode;
             }
 
             // Start Recursive Process.
             foreach (TreeNode nodeParent in nodeCollection)
             {
-                InternalRecursiveFunc(nodeParent);
+                InternalRecursiveFunc(nodeParent, true);
             }
         }
 
@@ -637,6 +640,7 @@ namespace SRB2KModConfigurator
 
         private void CP_ButtonRefreshTargetExecutable_Click(object sender, EventArgs e)
         {
+            HelpFunctionAlternateNodeColours(CP_ModFolderTreeView.Nodes);
             TextBox textBox = CP_TextBoxTargetExecutableLocation;
             LoadTargetExecutableInfo(CP_TextBoxTargetExecutableLocation.Text);
         }
@@ -744,6 +748,15 @@ namespace SRB2KModConfigurator
             TreeNode selectedNode           = e.Node;
             bool isSelectedNodeCheckmarked  = selectedNode.Checked;
             InternalRecursiveFunc(selectedNode, isSelectedNodeCheckmarked);
+        }
+
+        private void CP_ModFolderTreeView_AfterExpand(object sender, TreeViewEventArgs e)
+        {
+            HelpFunctionAlternateNodeColours(CP_ModFolderTreeView.Nodes);
+        }
+        private void CP_ModFolderTreeView_AfterCollapse(object sender, TreeViewEventArgs e)
+        {
+            HelpFunctionAlternateNodeColours(CP_ModFolderTreeView.Nodes);
         }
 
         #endregion // End of region ~ Callbacks.
