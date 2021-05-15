@@ -309,7 +309,7 @@ namespace SRB2KModConfigurator
                 MessageBox.Show("Selected mod files are missing during (re)loading of the mod folder." + '\n' + info
                     , "Missing Selected Mod Files", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                DialogResult result = MessageBox.Show("Do you want to copy the missing mod filepaths to your clipboard?", "Clipboard", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Do you want to copy the missing mod filepath(s) to your clipboard?", "Clipboard", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                     Clipboard.SetText(info);
             }
