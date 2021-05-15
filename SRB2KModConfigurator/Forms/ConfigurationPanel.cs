@@ -691,12 +691,8 @@ namespace SRB2KModConfigurator
 
         private void CP_ButtonRefreshFolderLocation_Click(object sender, EventArgs e)
         {
-            bool ignoreRefresh = currentModFolderInfo.FullName != CP_TextBoxModFolderLocation.Text;
-            if (ignoreRefresh)
-            {
-                ClearModFolder();
-                LoadModFolder(CP_TextBoxModFolderLocation.Text);
-            }
+            ClearModFolder();
+            LoadModFolder(CP_TextBoxModFolderLocation.Text);
         }
 
         private void CP_ButtonModFolderFileDialog_Click(object sender, EventArgs e)
