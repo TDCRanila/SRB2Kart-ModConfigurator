@@ -382,7 +382,7 @@ namespace SRB2KModConfigurator
             this.CP_TableTargetExecutable.Controls.Add(this.CP_ButtonRefreshTargetExecutable, 2, 0);
             this.CP_TableTargetExecutable.Location = new System.Drawing.Point(3, 7);
             this.CP_TableTargetExecutable.Name = "CP_TableTargetExecutable";
-            this.CP_TableTargetExecutable.Padding = new System.Windows.Forms.Padding(2, 0, 2, 1);
+            this.CP_TableTargetExecutable.Padding = new System.Windows.Forms.Padding(3, 0, 2, 1);
             this.CP_TableTargetExecutable.RowCount = 1;
             this.CP_TableTargetExecutable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.CP_TableTargetExecutable.Size = new System.Drawing.Size(492, 44);
@@ -403,10 +403,10 @@ namespace SRB2KModConfigurator
             // CP_TextBoxTargetExecutableLocation
             // 
             this.CP_TextBoxTargetExecutableLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CP_TextBoxTargetExecutableLocation.Location = new System.Drawing.Point(6, 10);
+            this.CP_TextBoxTargetExecutableLocation.Location = new System.Drawing.Point(7, 10);
             this.CP_TextBoxTargetExecutableLocation.Margin = new System.Windows.Forms.Padding(4);
             this.CP_TextBoxTargetExecutableLocation.Name = "CP_TextBoxTargetExecutableLocation";
-            this.CP_TextBoxTargetExecutableLocation.Size = new System.Drawing.Size(356, 22);
+            this.CP_TextBoxTargetExecutableLocation.Size = new System.Drawing.Size(355, 22);
             this.CP_TextBoxTargetExecutableLocation.TabIndex = 0;
             this.CP_TextBoxTargetExecutableLocation.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CP_TextBoxTargetExecutableLocation_KeyDown);
             // 
@@ -444,6 +444,7 @@ namespace SRB2KModConfigurator
             // 
             // CP_TableMainSettingsContainer
             // 
+            this.CP_TableMainSettingsContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CP_TableMainSettingsContainer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.CP_TableMainSettingsContainer.ColumnCount = 1;
             this.CP_TableMainSettingsContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 775F));
@@ -462,6 +463,7 @@ namespace SRB2KModConfigurator
             // CP_OverrideSettingsView
             // 
             this.CP_OverrideSettingsView.AutoScroll = true;
+            this.CP_OverrideSettingsView.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CP_OverrideSettingsView.Controls.Add(this.CP_TableSettings);
             this.CP_OverrideSettingsView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CP_OverrideSettingsView.Location = new System.Drawing.Point(4, 105);
@@ -503,7 +505,6 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupServerParameters.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_NiceGroupServerParameters.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.CP_NiceGroupServerParameters.Location = new System.Drawing.Point(7, 472);
-            this.CP_NiceGroupServerParameters.MinimumSize = new System.Drawing.Size(100, 50);
             this.CP_NiceGroupServerParameters.Name = "CP_NiceGroupServerParameters";
             this.CP_NiceGroupServerParameters.Size = new System.Drawing.Size(736, 367);
             this.CP_NiceGroupServerParameters.TabIndex = 3;
@@ -531,7 +532,6 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupAudioParameters.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_NiceGroupAudioParameters.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.CP_NiceGroupAudioParameters.Location = new System.Drawing.Point(7, 390);
-            this.CP_NiceGroupAudioParameters.MinimumSize = new System.Drawing.Size(100, 50);
             this.CP_NiceGroupAudioParameters.Name = "CP_NiceGroupAudioParameters";
             this.CP_NiceGroupAudioParameters.Size = new System.Drawing.Size(736, 76);
             this.CP_NiceGroupAudioParameters.TabIndex = 2;
@@ -559,7 +559,6 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupVideoSettings.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_NiceGroupVideoSettings.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.CP_NiceGroupVideoSettings.Location = new System.Drawing.Point(7, 235);
-            this.CP_NiceGroupVideoSettings.MinimumSize = new System.Drawing.Size(100, 50);
             this.CP_NiceGroupVideoSettings.Name = "CP_NiceGroupVideoSettings";
             this.CP_NiceGroupVideoSettings.Size = new System.Drawing.Size(736, 149);
             this.CP_NiceGroupVideoSettings.TabIndex = 1;
@@ -587,7 +586,6 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupGeneralSettings.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_NiceGroupGeneralSettings.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.CP_NiceGroupGeneralSettings.Location = new System.Drawing.Point(7, 7);
-            this.CP_NiceGroupGeneralSettings.MinimumSize = new System.Drawing.Size(100, 100);
             this.CP_NiceGroupGeneralSettings.Name = "CP_NiceGroupGeneralSettings";
             this.CP_NiceGroupGeneralSettings.Size = new System.Drawing.Size(736, 222);
             this.CP_NiceGroupGeneralSettings.TabIndex = 0;
@@ -614,6 +612,7 @@ namespace SRB2KModConfigurator
             this.CP_TableConfigurationSettingsView.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.CP_TableConfigurationSettingsView.Location = new System.Drawing.Point(4, 4);
             this.CP_TableConfigurationSettingsView.Name = "CP_TableConfigurationSettingsView";
+            this.CP_TableConfigurationSettingsView.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.CP_TableConfigurationSettingsView.RowCount = 1;
             this.CP_TableConfigurationSettingsView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.CP_TableConfigurationSettingsView.Size = new System.Drawing.Size(769, 94);
@@ -629,10 +628,10 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupConfigurationSettings.Controls.Add(this.CP_TableConfigurationSettings);
             this.CP_NiceGroupConfigurationSettings.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_NiceGroupConfigurationSettings.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CP_NiceGroupConfigurationSettings.Location = new System.Drawing.Point(3, 3);
-            this.CP_NiceGroupConfigurationSettings.MinimumSize = new System.Drawing.Size(100, 0);
+            this.CP_NiceGroupConfigurationSettings.Location = new System.Drawing.Point(7, 3);
             this.CP_NiceGroupConfigurationSettings.Name = "CP_NiceGroupConfigurationSettings";
-            this.CP_NiceGroupConfigurationSettings.Size = new System.Drawing.Size(763, 88);
+            this.CP_NiceGroupConfigurationSettings.Padding = new System.Windows.Forms.Padding(4, 3, 3, 3);
+            this.CP_NiceGroupConfigurationSettings.Size = new System.Drawing.Size(759, 88);
             this.CP_NiceGroupConfigurationSettings.TabIndex = 2;
             this.CP_NiceGroupConfigurationSettings.TabStop = false;
             this.CP_NiceGroupConfigurationSettings.Text = "Configuration Settings";
@@ -648,21 +647,21 @@ namespace SRB2KModConfigurator
             this.CP_TableConfigurationSettings.Controls.Add(this.CP_LabelEnableOverrideSettings, 0, 1);
             this.CP_TableConfigurationSettings.Controls.Add(this.CP_LabelConfigurationName, 0, 0);
             this.CP_TableConfigurationSettings.Controls.Add(this.CP_TextboxConfigurationName, 1, 0);
-            this.CP_TableConfigurationSettings.Location = new System.Drawing.Point(8, 14);
+            this.CP_TableConfigurationSettings.Location = new System.Drawing.Point(9, 14);
             this.CP_TableConfigurationSettings.Name = "CP_TableConfigurationSettings";
             this.CP_TableConfigurationSettings.RowCount = 2;
             this.CP_TableConfigurationSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.CP_TableConfigurationSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.CP_TableConfigurationSettings.Size = new System.Drawing.Size(744, 68);
+            this.CP_TableConfigurationSettings.Size = new System.Drawing.Size(739, 68);
             this.CP_TableConfigurationSettings.TabIndex = 0;
             // 
             // CP_CheckboxEnableOverrideSettings
             // 
             this.CP_CheckboxEnableOverrideSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.CP_CheckboxEnableOverrideSettings.AutoSize = true;
-            this.CP_CheckboxEnableOverrideSettings.Location = new System.Drawing.Point(193, 43);
+            this.CP_CheckboxEnableOverrideSettings.Location = new System.Drawing.Point(192, 43);
             this.CP_CheckboxEnableOverrideSettings.Name = "CP_CheckboxEnableOverrideSettings";
-            this.CP_CheckboxEnableOverrideSettings.Size = new System.Drawing.Size(547, 14);
+            this.CP_CheckboxEnableOverrideSettings.Size = new System.Drawing.Size(543, 14);
             this.CP_CheckboxEnableOverrideSettings.TabIndex = 28;
             this.CP_CheckboxEnableOverrideSettings.UseVisualStyleBackColor = true;
             this.CP_CheckboxEnableOverrideSettings.CheckedChanged += new System.EventHandler(this.CP_CheckboxEnableOverrideSettings_CheckedChanged);
@@ -675,7 +674,7 @@ namespace SRB2KModConfigurator
             this.CP_LabelEnableOverrideSettings.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.CP_LabelEnableOverrideSettings.Location = new System.Drawing.Point(4, 36);
             this.CP_LabelEnableOverrideSettings.Name = "CP_LabelEnableOverrideSettings";
-            this.CP_LabelEnableOverrideSettings.Size = new System.Drawing.Size(182, 28);
+            this.CP_LabelEnableOverrideSettings.Size = new System.Drawing.Size(181, 28);
             this.CP_LabelEnableOverrideSettings.TabIndex = 4;
             this.CP_LabelEnableOverrideSettings.Text = "Enable Override Settings";
             this.CP_MasterToolTip.SetToolTip(this.CP_LabelEnableOverrideSettings, "Enable Override Settings - Turns on/off all the settings provided below if there " +
@@ -690,7 +689,7 @@ namespace SRB2KModConfigurator
             this.CP_LabelConfigurationName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.CP_LabelConfigurationName.Location = new System.Drawing.Point(4, 9);
             this.CP_LabelConfigurationName.Name = "CP_LabelConfigurationName";
-            this.CP_LabelConfigurationName.Size = new System.Drawing.Size(182, 16);
+            this.CP_LabelConfigurationName.Size = new System.Drawing.Size(181, 16);
             this.CP_LabelConfigurationName.TabIndex = 2;
             this.CP_LabelConfigurationName.Text = "Config Name";
             this.CP_MasterToolTip.SetToolTip(this.CP_LabelConfigurationName, "Config Name - Name of the configuration file which is used to identify the config" +
@@ -701,10 +700,10 @@ namespace SRB2KModConfigurator
             // 
             this.CP_TextboxConfigurationName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.CP_TextboxConfigurationName.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CP_TextboxConfigurationName.Location = new System.Drawing.Point(193, 6);
+            this.CP_TextboxConfigurationName.Location = new System.Drawing.Point(192, 6);
             this.CP_TextboxConfigurationName.Name = "CP_TextboxConfigurationName";
             this.CP_TextboxConfigurationName.ReadOnly = true;
-            this.CP_TextboxConfigurationName.Size = new System.Drawing.Size(547, 22);
+            this.CP_TextboxConfigurationName.Size = new System.Drawing.Size(543, 22);
             this.CP_TextboxConfigurationName.TabIndex = 3;
             // 
             // CP_MasterToolTip
