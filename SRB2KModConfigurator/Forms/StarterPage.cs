@@ -19,6 +19,17 @@ namespace SRB2KModConfigurator
         private string selectedConfigFilePath;
         private const string previousLaunchedConfigurationFileName = "last-used-configuration.txt";
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                // WS_EX_COMPOSITED
+                CreateParams handleParams = base.CreateParams;
+                handleParams.ExStyle |= 0x2000000;
+                return handleParams;
+            }
+        }
+
         public StarterPage()
         {
             InitializeComponent();
