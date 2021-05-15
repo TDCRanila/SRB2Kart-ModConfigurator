@@ -641,7 +641,6 @@ namespace SRB2KModConfigurator
 
         private void CP_ButtonRefreshTargetExecutable_Click(object sender, EventArgs e)
         {
-            HelpFunctionAlternateNodeColours(CP_ModFolderTreeView.Nodes);
             TextBox textBox = CP_TextBoxTargetExecutableLocation;
             LoadTargetExecutableInfo(CP_TextBoxTargetExecutableLocation.Text);
         }
