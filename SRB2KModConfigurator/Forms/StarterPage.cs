@@ -32,8 +32,8 @@ namespace SRB2KModConfigurator
 
         private void ClearStarterPageData()
         {
-            selectedConfigFile      = null;
-            selectedConfigFilePath  = "";
+            selectedConfigFile = null;
+            selectedConfigFilePath = "";
 
             SP_TextBoxConfigurationSelect.Text = "No Configuration Selected";
         }
@@ -43,17 +43,17 @@ namespace SRB2KModConfigurator
             CommonOpenFileDialog launchConfigurationFileDialog = new CommonOpenFileDialog();
 
             CommonFileDialogFilter configFileFilter = new CommonFileDialogFilter("SRB2Kart Config", ".srb2k-config");
-            CommonFileDialogFilter allFilter        = new CommonFileDialogFilter("All Files", "*.*");
+            CommonFileDialogFilter allFilter = new CommonFileDialogFilter("All Files", "*.*");
             launchConfigurationFileDialog.Filters.Add(configFileFilter);
             launchConfigurationFileDialog.Filters.Add(allFilter);
 
-            launchConfigurationFileDialog.Title                    = "Select your SRB2Kart Config.";
-            launchConfigurationFileDialog.IsFolderPicker           = false;
-            launchConfigurationFileDialog.AllowNonFileSystemItems  = false;
-            launchConfigurationFileDialog.Multiselect              = false;
-            launchConfigurationFileDialog.AllowPropertyEditing     = true;
-            launchConfigurationFileDialog.EnsurePathExists         = true;
-            launchConfigurationFileDialog.Multiselect              = false;
+            launchConfigurationFileDialog.Title = "Select your SRB2Kart Config.";
+            launchConfigurationFileDialog.IsFolderPicker = false;
+            launchConfigurationFileDialog.AllowNonFileSystemItems = false;
+            launchConfigurationFileDialog.Multiselect = false;
+            launchConfigurationFileDialog.AllowPropertyEditing = true;
+            launchConfigurationFileDialog.EnsurePathExists = true;
+            launchConfigurationFileDialog.Multiselect = false;
 
             if (launchConfigurationFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
             {
@@ -74,18 +74,18 @@ namespace SRB2KModConfigurator
 
         public void HideStarterPageElements()
         {
-            SP_TableMainOptions.Visible         = false;
-            SP_TableLaunchOptions.Visible       = false;
-            SP_LabelTitle.Visible               = false;
-            SP_TableOrganisation.Visible        = false;
+            SP_TableMainOptions.Visible = false;
+            SP_TableLaunchOptions.Visible = false;
+            SP_LabelTitle.Visible = false;
+            SP_TableOrganisation.Visible = false;
         }
 
         public void ShowStarterPageElements()
         {
-            SP_TableMainOptions.Visible         = true;
-            SP_TableLaunchOptions.Visible       = true;
-            SP_LabelTitle.Visible               = true;
-            SP_TableOrganisation.Visible        = true;
+            SP_TableMainOptions.Visible = true;
+            SP_TableLaunchOptions.Visible = true;
+            SP_LabelTitle.Visible = true;
+            SP_TableOrganisation.Visible = true;
         }
 
         public void RefreshStarterPage()
@@ -107,20 +107,20 @@ namespace SRB2KModConfigurator
             }
 
             // Set new child form and the proper form settings.
-            _activeChildForm                    = newChildForm;
-            _activeChildForm.TopLevel           = false;
-            _activeChildForm.FormBorderStyle    = FormBorderStyle.None;
-            _activeChildForm.Dock               = DockStyle.Fill;
+            _activeChildForm = newChildForm;
+            _activeChildForm.TopLevel = false;
+            _activeChildForm.FormBorderStyle = FormBorderStyle.None;
+            _activeChildForm.Dock = DockStyle.Fill;
 
             SP_ChildPanel.Controls.Clear();
             SP_ChildPanel.Controls.Add(_activeChildForm);
-            SP_ChildPanel.Tag                   = _activeChildForm;
-            SP_ChildPanel.Visible               = true;
+            SP_ChildPanel.Tag = _activeChildForm;
+            SP_ChildPanel.Visible = true;
 
             _activeChildForm.BringToFront();
 
             HideStarterPageElements();
-            _activeChildForm.Show();  
+            _activeChildForm.Show();
         }
 
         private bool LoadAndEditConfigFile(string filePath)
@@ -209,11 +209,11 @@ namespace SRB2KModConfigurator
 
         private bool SavePreviousLaunchConfigurationSelection(string filePath)
         {
-            Process process             = Process.GetCurrentProcess();
-            string fullPathOfProcess    = process.MainModule.FileName;
-            string dirOfProcess         = fullPathOfProcess.Replace(process.MainModule.ModuleName, "");
-            string fileName             = previousLaunchedConfigurationFileName;
-            string fullPath             = (dirOfProcess + fileName);
+            Process process = Process.GetCurrentProcess();
+            string fullPathOfProcess = process.MainModule.FileName;
+            string dirOfProcess = fullPathOfProcess.Replace(process.MainModule.ModuleName, "");
+            string fileName = previousLaunchedConfigurationFileName;
+            string fullPath = (dirOfProcess + fileName);
 
             using (FileStream fs = new FileStream(fullPath, FileMode.Create))
             {
@@ -230,11 +230,11 @@ namespace SRB2KModConfigurator
 
         private bool TryAndReadPreviousLaunchConfigurationSelection()
         {
-            Process process             = Process.GetCurrentProcess();
-            string fullPathOfProcess    = process.MainModule.FileName;
-            string dirOfProcess         = fullPathOfProcess.Replace(process.MainModule.ModuleName, "");
-            string fileName             = previousLaunchedConfigurationFileName;
-            string fullPath             = (dirOfProcess + fileName);
+            Process process = Process.GetCurrentProcess();
+            string fullPathOfProcess = process.MainModule.FileName;
+            string dirOfProcess = fullPathOfProcess.Replace(process.MainModule.ModuleName, "");
+            string fileName = previousLaunchedConfigurationFileName;
+            string fullPath = (dirOfProcess + fileName);
 
             FileInfo tempFileInfo = new FileInfo(fullPath);
             if (!tempFileInfo.Exists)
@@ -295,6 +295,17 @@ namespace SRB2KModConfigurator
             {
                 SavePreviousLaunchConfigurationSelection(selectedConfigFilePath);
             }
+        }
+
+        private void SP_LinkLabelCredits_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ProcessStartInfo processStartInfo = new ProcessStartInfo
+            {
+                FileName = "https://github.com/TDCRanila",
+                UseShellExecute = true
+            };
+
+            Process.Start(processStartInfo);
         }
 
         #endregion // End of region ~ Callbacks.

@@ -31,7 +31,6 @@ namespace SRB2KModConfigurator
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StarterPage));
             this.SP_MainPanel = new System.Windows.Forms.Panel();
-            this.SP_ChildPanel = new System.Windows.Forms.Panel();
             this.SP_TableOrganisation = new System.Windows.Forms.TableLayoutPanel();
             this.SP_TableLaunchOptions = new System.Windows.Forms.TableLayoutPanel();
             this.SP_ButtonLaunchConfig = new System.Windows.Forms.Button();
@@ -40,9 +39,10 @@ namespace SRB2KModConfigurator
             this.SP_ButtonConfigurationSelectFileDialog = new System.Windows.Forms.Button();
             this.SP_LabelTitle = new System.Windows.Forms.Label();
             this.SP_TableMainOptions = new System.Windows.Forms.TableLayoutPanel();
-            this.SP_ButtonCredits = new System.Windows.Forms.Button();
             this.SP_ButtonEditConfig = new System.Windows.Forms.Button();
             this.SP_ButtonNewConfig = new System.Windows.Forms.Button();
+            this.SP_LinkLabelCredits = new System.Windows.Forms.LinkLabel();
+            this.SP_ChildPanel = new System.Windows.Forms.Panel();
             this.SP_MainPanel.SuspendLayout();
             this.SP_TableOrganisation.SuspendLayout();
             this.SP_TableLaunchOptions.SuspendLayout();
@@ -61,16 +61,6 @@ namespace SRB2KModConfigurator
             this.SP_MainPanel.Size = new System.Drawing.Size(1264, 681);
             this.SP_MainPanel.TabIndex = 0;
             // 
-            // SP_ChildPanel
-            // 
-            this.SP_ChildPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SP_ChildPanel.Location = new System.Drawing.Point(0, 0);
-            this.SP_ChildPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.SP_ChildPanel.Name = "SP_ChildPanel";
-            this.SP_ChildPanel.Size = new System.Drawing.Size(1264, 681);
-            this.SP_ChildPanel.TabIndex = 3;
-            this.SP_ChildPanel.Visible = false;
-            // 
             // SP_TableOrganisation
             // 
             this.SP_TableOrganisation.ColumnCount = 1;
@@ -78,6 +68,7 @@ namespace SRB2KModConfigurator
             this.SP_TableOrganisation.Controls.Add(this.SP_TableLaunchOptions, 0, 3);
             this.SP_TableOrganisation.Controls.Add(this.SP_LabelTitle, 0, 1);
             this.SP_TableOrganisation.Controls.Add(this.SP_TableMainOptions, 0, 2);
+            this.SP_TableOrganisation.Controls.Add(this.SP_LinkLabelCredits, 0, 4);
             this.SP_TableOrganisation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SP_TableOrganisation.Location = new System.Drawing.Point(0, 0);
             this.SP_TableOrganisation.Name = "SP_TableOrganisation";
@@ -179,13 +170,11 @@ namespace SRB2KModConfigurator
             // SP_TableMainOptions
             // 
             this.SP_TableMainOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SP_TableMainOptions.ColumnCount = 5;
-            this.SP_TableMainOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.SP_TableMainOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.92593F));
-            this.SP_TableMainOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.92593F));
-            this.SP_TableMainOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.81481F));
-            this.SP_TableMainOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.SP_TableMainOptions.Controls.Add(this.SP_ButtonCredits, 3, 0);
+            this.SP_TableMainOptions.ColumnCount = 4;
+            this.SP_TableMainOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
+            this.SP_TableMainOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.SP_TableMainOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.SP_TableMainOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
             this.SP_TableMainOptions.Controls.Add(this.SP_ButtonEditConfig, 1, 0);
             this.SP_TableMainOptions.Controls.Add(this.SP_ButtonNewConfig, 2, 0);
             this.SP_TableMainOptions.Location = new System.Drawing.Point(0, 345);
@@ -196,17 +185,6 @@ namespace SRB2KModConfigurator
             this.SP_TableMainOptions.Size = new System.Drawing.Size(1264, 32);
             this.SP_TableMainOptions.TabIndex = 0;
             // 
-            // SP_ButtonCredits
-            // 
-            this.SP_ButtonCredits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SP_ButtonCredits.Font = new System.Drawing.Font("envypn7x15", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SP_ButtonCredits.Location = new System.Drawing.Point(867, 3);
-            this.SP_ButtonCredits.Name = "SP_ButtonCredits";
-            this.SP_ButtonCredits.Size = new System.Drawing.Size(181, 26);
-            this.SP_ButtonCredits.TabIndex = 2;
-            this.SP_ButtonCredits.Text = "Credits";
-            this.SP_ButtonCredits.UseVisualStyleBackColor = true;
-            // 
             // SP_ButtonEditConfig
             // 
             this.SP_ButtonEditConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -215,7 +193,7 @@ namespace SRB2KModConfigurator
             this.SP_ButtonEditConfig.Font = new System.Drawing.Font("envypn7x15", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.SP_ButtonEditConfig.Location = new System.Drawing.Point(213, 3);
             this.SP_ButtonEditConfig.Name = "SP_ButtonEditConfig";
-            this.SP_ButtonEditConfig.Size = new System.Drawing.Size(321, 26);
+            this.SP_ButtonEditConfig.Size = new System.Drawing.Size(415, 26);
             this.SP_ButtonEditConfig.TabIndex = 0;
             this.SP_ButtonEditConfig.Text = "Edit Configuration";
             this.SP_ButtonEditConfig.UseVisualStyleBackColor = false;
@@ -225,13 +203,39 @@ namespace SRB2KModConfigurator
             // 
             this.SP_ButtonNewConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SP_ButtonNewConfig.Font = new System.Drawing.Font("envypn7x15", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SP_ButtonNewConfig.Location = new System.Drawing.Point(540, 3);
+            this.SP_ButtonNewConfig.Location = new System.Drawing.Point(634, 3);
             this.SP_ButtonNewConfig.Name = "SP_ButtonNewConfig";
-            this.SP_ButtonNewConfig.Size = new System.Drawing.Size(321, 26);
+            this.SP_ButtonNewConfig.Size = new System.Drawing.Size(415, 26);
             this.SP_ButtonNewConfig.TabIndex = 1;
             this.SP_ButtonNewConfig.Text = "New Configuration";
             this.SP_ButtonNewConfig.UseVisualStyleBackColor = true;
             this.SP_ButtonNewConfig.Click += new System.EventHandler(this.SP_ButtonNewConfig_Click);
+            // 
+            // SP_LinkLabelCredits
+            // 
+            this.SP_LinkLabelCredits.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.SP_LinkLabelCredits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SP_LinkLabelCredits.AutoSize = true;
+            this.SP_LinkLabelCredits.Font = new System.Drawing.Font("envypn7x15", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SP_LinkLabelCredits.LinkColor = System.Drawing.Color.White;
+            this.SP_LinkLabelCredits.Location = new System.Drawing.Point(902, 662);
+            this.SP_LinkLabelCredits.Name = "SP_LinkLabelCredits";
+            this.SP_LinkLabelCredits.Size = new System.Drawing.Size(359, 19);
+            this.SP_LinkLabelCredits.TabIndex = 3;
+            this.SP_LinkLabelCredits.TabStop = true;
+            this.SP_LinkLabelCredits.Text = "Made By: TDRChan ~ github@TDCRanila";
+            this.SP_LinkLabelCredits.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.SP_LinkLabelCredits.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.SP_LinkLabelCredits_LinkClicked);
+            // 
+            // SP_ChildPanel
+            // 
+            this.SP_ChildPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SP_ChildPanel.Location = new System.Drawing.Point(0, 0);
+            this.SP_ChildPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.SP_ChildPanel.Name = "SP_ChildPanel";
+            this.SP_ChildPanel.Size = new System.Drawing.Size(1264, 681);
+            this.SP_ChildPanel.TabIndex = 3;
+            this.SP_ChildPanel.Visible = false;
             // 
             // StarterPage
             // 
@@ -246,6 +250,7 @@ namespace SRB2KModConfigurator
             this.Text = "StarterPage";
             this.SP_MainPanel.ResumeLayout(false);
             this.SP_TableOrganisation.ResumeLayout(false);
+            this.SP_TableOrganisation.PerformLayout();
             this.SP_TableLaunchOptions.ResumeLayout(false);
             this.SP_TableConfigurationSelect.ResumeLayout(false);
             this.SP_TableConfigurationSelect.PerformLayout();
@@ -266,8 +271,8 @@ namespace SRB2KModConfigurator
         private System.Windows.Forms.Button SP_ButtonConfigurationSelectFileDialog;
         private System.Windows.Forms.Label SP_LabelTitle;
         private System.Windows.Forms.TableLayoutPanel SP_TableMainOptions;
-        private System.Windows.Forms.Button SP_ButtonCredits;
         private System.Windows.Forms.Button SP_ButtonEditConfig;
         private System.Windows.Forms.Button SP_ButtonNewConfig;
+        private System.Windows.Forms.LinkLabel SP_LinkLabelCredits;
     }
 }
