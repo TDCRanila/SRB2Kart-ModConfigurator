@@ -246,6 +246,7 @@ namespace SRB2KModConfigurator
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.SP_MainPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StarterPage";
             this.Text = "StarterPage";
             this.SP_MainPanel.ResumeLayout(false);
