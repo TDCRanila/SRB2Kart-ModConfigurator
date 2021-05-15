@@ -90,10 +90,9 @@ namespace SRB2KModConfigurator
 
         public void RefreshStarterPage()
         {
-            if (!SelectConfigFile(selectedConfigFilePath))
+            if (!TryAndReadPreviousLaunchConfigurationSelection())
             {
                 ClearStarterPageData();
-                MessageBox.Show("Selected Configuration File cannot be found or is invalid.", "Failed To Load Config", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -230,11 +229,11 @@ namespace SRB2KModConfigurator
 
         private bool TryAndReadPreviousLaunchConfigurationSelection()
         {
-            Process process = Process.GetCurrentProcess();
-            string fullPathOfProcess = process.MainModule.FileName;
-            string dirOfProcess = fullPathOfProcess.Replace(process.MainModule.ModuleName, "");
-            string fileName = previousLaunchedConfigurationFileName;
-            string fullPath = (dirOfProcess + fileName);
+            Process process             = Process.GetCurrentProcess();
+            string fullPathOfProcess    = process.MainModule.FileName;
+            string dirOfProcess         = fullPathOfProcess.Replace(process.MainModule.ModuleName, "");
+            string fileName             = previousLaunchedConfigurationFileName;
+            string fullPath             = (dirOfProcess + fileName);
 
             FileInfo tempFileInfo = new FileInfo(fullPath);
             if (!tempFileInfo.Exists)
@@ -250,8 +249,8 @@ namespace SRB2KModConfigurator
                     {
                         // Data in the file is the filepath already.
                         string returnedData = sr.ReadToEnd();
-                        SelectConfigFile(returnedData);
-                        return true;
+                        bool result = SelectConfigFile(returnedData);
+                        return result;
                     }
                 }
             }
