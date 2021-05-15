@@ -248,7 +248,7 @@ namespace SRB2KModConfigurator
             this.Controls.Add(this.SP_MainPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StarterPage";
-            this.Text = "StarterPage";
+            this.Text = "SRB2Kart ModConfigurator";
             this.SP_MainPanel.ResumeLayout(false);
             this.SP_TableOrganisation.ResumeLayout(false);
             this.SP_TableOrganisation.PerformLayout();
