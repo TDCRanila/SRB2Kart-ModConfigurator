@@ -290,9 +290,21 @@ namespace SRB2KModConfigurator
 
         private void SP_ButtonLaunchConfig_Click(object sender, EventArgs e)
         {
+            if (selectedConfigFile == null)
+            {
+                MessageBox.Show("Failed to launch game as there is no configuration selected.", "Failed To Launch", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (LauncherHelper.LaunchConfiguration(selectedConfigFile))
             {
                 SavePreviousLaunchConfigurationSelection(selectedConfigFilePath);
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Couldn't open the game executable as an error occurred. ", "Failed To Launch", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
