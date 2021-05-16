@@ -30,6 +30,7 @@ namespace SRB2KModConfigurator.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralSettingsPanel));
             this.GSP_MainPanel = new System.Windows.Forms.Panel();
             this.GSP_TableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.GSP_LabelBonusCharacter = new System.Windows.Forms.Label();
@@ -105,9 +106,7 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_LabelBonusCharacter.Size = new System.Drawing.Size(176, 14);
             this.GSP_LabelBonusCharacter.TabIndex = 2;
             this.GSP_LabelBonusCharacter.Text = "Add Bonus Characters";
-            this.GSP_MasterToolTip.SetToolTip(this.GSP_LabelBonusCharacter, "Add Bonus Characters - Adds the already provided default bonus character pack to " +
-        "the game. If option is RED, the file \'bonuschars.kart\' cannot be found in the di" +
-        "rectory of the target executable.");
+            this.GSP_MasterToolTip.SetToolTip(this.GSP_LabelBonusCharacter, resources.GetString("GSP_LabelBonusCharacter.ToolTip"));
             // 
             // GSP_CheckboxBonusCharacters
             // 
@@ -132,7 +131,7 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_LabelSkipGameIntro.TabIndex = 6;
             this.GSP_LabelSkipGameIntro.Text = "Skip Game Intro";
             this.GSP_MasterToolTip.SetToolTip(this.GSP_LabelSkipGameIntro, "Skip Game Intro - Skips the intro on startup, immediately going to the title scre" +
-        "en instead. ");
+        "en instead.");
             // 
             // GSP_CheckBoxSkipGameIntro
             // 
@@ -155,6 +154,7 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_LabelSaveDataActions.Size = new System.Drawing.Size(176, 14);
             this.GSP_LabelSaveDataActions.TabIndex = 5;
             this.GSP_LabelSaveDataActions.Text = "Save Data Actions";
+            this.GSP_MasterToolTip.SetToolTip(this.GSP_LabelSaveDataActions, resources.GetString("GSP_LabelSaveDataActions.ToolTip"));
             // 
             // GSP_ComboBoxDataActions
             // 
@@ -166,7 +166,7 @@ namespace SRB2KModConfigurator.Forms
             "No Action",
             "Reset Data",
             "No Data"});
-            this.GSP_ComboBoxDataActions.Location = new System.Drawing.Point(187, 60);
+            this.GSP_ComboBoxDataActions.Location = new System.Drawing.Point(187, 61);
             this.GSP_ComboBoxDataActions.Name = "GSP_ComboBoxDataActions";
             this.GSP_ComboBoxDataActions.Size = new System.Drawing.Size(529, 21);
             this.GSP_ComboBoxDataActions.TabIndex = 11;
@@ -205,11 +205,11 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_LabelCustomConfigFile.Name = "GSP_LabelCustomConfigFile";
             this.GSP_LabelCustomConfigFile.Size = new System.Drawing.Size(176, 14);
             this.GSP_LabelCustomConfigFile.TabIndex = 13;
-            this.GSP_LabelCustomConfigFile.Text = "Custom Config File";
+            this.GSP_LabelCustomConfigFile.Text = "Custom CFG File";
             this.GSP_LabelCustomConfigFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GSP_MasterToolTip.SetToolTip(this.GSP_LabelCustomConfigFile, "Custom Config File - If a custom config is selected, this configuration file will" +
-        " be used instead of the deafult config.cfg. Leave textbox empty if there is no n" +
-        "eed for it. ");
+            this.GSP_MasterToolTip.SetToolTip(this.GSP_LabelCustomConfigFile, "Custom CFG File - If a custom CFG file is selected, this file will be used instea" +
+        "d of the default ‘config.cfg’. Leave the textbox empty if there is no need for i" +
+        "t. ");
             // 
             // GSP_TableLayoutCustomConfigFile
             // 
@@ -267,9 +267,7 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_LabelAdditionalParameters.TabIndex = 4;
             this.GSP_LabelAdditionalParameters.Text = "Additional Commandline Parameters";
             this.GSP_LabelAdditionalParameters.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GSP_MasterToolTip.SetToolTip(this.GSP_LabelAdditionalParameters, "Additional Commandline Parameters - Any other commandline parameters or configura" +
-        "tion override parameters inserted will be used for the launching the game as one" +
-        " whole line of text.");
+            this.GSP_MasterToolTip.SetToolTip(this.GSP_LabelAdditionalParameters, resources.GetString("GSP_LabelAdditionalParameters.ToolTip"));
             // 
             // GSP_TextBoxAdditionalParameters
             // 

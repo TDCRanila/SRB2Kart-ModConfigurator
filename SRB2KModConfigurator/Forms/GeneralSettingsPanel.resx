@@ -57,4 +57,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="GSP_LabelBonusCharacter.ToolTip" xml:space="preserve">
+    <value>Add Bonus Character Pack - Adds the already provided default bonus character pack to the game. If the option is RED, the 'bonuschars.kart' file cannot be found in the directory of the target executable which it is normally located.</value>
+  </data>
+  <data name="GSP_LabelSaveDataActions.ToolTip" xml:space="preserve">
+    <value>Save Data Actions - With 'LoadWithNoData' selected, the game starts without loading game data and will NOT overwrite any existing game data. With 'ResetExistingData' selected, the game starts without loading game data and allows the game to overwrite the game data file later. With 'NoOverride' slected, nothing will be changed and the existing game data is loaded.</value>
+  </data>
+  <data name="GSP_LabelAdditionalParameters.ToolTip" xml:space="preserve">
+    <value>Additional Commandline Parameters - Any other commandline parameters or configuration override parameters inserted here will be used for launching the game as one whole line of text. Make sure the format is correct.</value>
+  </data>
 </root>

@@ -679,9 +679,9 @@ namespace SRB2KModConfigurator
             this.CP_LabelEnableOverrideSettings.Size = new System.Drawing.Size(181, 28);
             this.CP_LabelEnableOverrideSettings.TabIndex = 4;
             this.CP_LabelEnableOverrideSettings.Text = "Enable Override Settings";
-            this.CP_MasterToolTip.SetToolTip(this.CP_LabelEnableOverrideSettings, "Enable Override Settings - Turns on/off all the settings provided below if there " +
-        "is no desire to override settings. The selected mods are not affected by this se" +
-        "tting.");
+            this.CP_MasterToolTip.SetToolTip(this.CP_LabelEnableOverrideSettings, "Enable Override Settings - Turns on/off all the settings provided below. If there" +
+        " is no desire to override these settings then turn this off. The selected mods a" +
+        "re not affected by this setting.");
             // 
             // CP_LabelConfigurationName
             // 
@@ -693,10 +693,10 @@ namespace SRB2KModConfigurator
             this.CP_LabelConfigurationName.Name = "CP_LabelConfigurationName";
             this.CP_LabelConfigurationName.Size = new System.Drawing.Size(181, 16);
             this.CP_LabelConfigurationName.TabIndex = 2;
-            this.CP_LabelConfigurationName.Text = "Config Name";
-            this.CP_MasterToolTip.SetToolTip(this.CP_LabelConfigurationName, "Config Name - Name of the configuration file which is used to identify the config" +
-        ". The name gets modified when saving the configuration file through the save fil" +
-        "e dialog.");
+            this.CP_LabelConfigurationName.Text = "Configuration Name";
+            this.CP_MasterToolTip.SetToolTip(this.CP_LabelConfigurationName, "Configuration Name - Name of the file which is used to identify the config. The t" +
+        "extbox gets modified when saving the configuration file through the save file di" +
+        "alog.");
             // 
             // CP_TextboxConfigurationName
             // 

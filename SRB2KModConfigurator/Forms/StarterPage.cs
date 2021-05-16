@@ -285,7 +285,7 @@ namespace SRB2KModConfigurator
             if (HelperLoadConfigFileDialog(ref filePath))
             {
                 if (!LoadAndEditConfigFile(filePath))
-                    MessageBox.Show("Failed to load configuration file for editing.", "Failed To Load Config", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Failed to load the selected configuration file for editing.", "Failed To Load Config", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -295,7 +295,7 @@ namespace SRB2KModConfigurator
             if (HelperLoadConfigFileDialog(ref filePath))
             {
                 if (!SelectConfigFile(filePath))
-                    MessageBox.Show("Failed to load & select configuration file.", "Failed To Load Config", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Failed to load and prepare the selected configuration file.", "Failed To Load Config", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -303,7 +303,7 @@ namespace SRB2KModConfigurator
         {
             if (selectedConfigFile == null)
             {
-                MessageBox.Show("Failed to launch game as there is no configuration selected.", "Failed To Launch", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to the launch game as there is no configuration selected.", "Failed To Launch Game", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -314,7 +314,7 @@ namespace SRB2KModConfigurator
             }
             else
             {
-                MessageBox.Show("Couldn't open the game executable as an error occurred. ", "Failed To Launch", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Couldn't open the game executable as an error has occurred. ", "Failed To Launch Game", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }

@@ -106,8 +106,8 @@ namespace SRB2KModConfigurator.Forms
                 {
                     // Warning Message
                     // POP UP : Regarding extension (cfg)
-                    MessageBox.Show("Selected File doesn't have the '.cfg' extension and might not be compatible.", 
-                        "Selected File might not be compatible.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("The selected File doesn't have the '.cfg' extension and might not be compatible.", 
+                        "Potential Incomptabile File", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 return;

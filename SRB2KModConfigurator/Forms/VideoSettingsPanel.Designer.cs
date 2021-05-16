@@ -97,8 +97,8 @@ namespace SRB2KModConfigurator.Forms
             this.VSP_LabelWindowMode.TabIndex = 0;
             this.VSP_LabelWindowMode.Text = "Window Mode";
             this.VSP_MasterToolTip.SetToolTip(this.VSP_LabelWindowMode, "Window Mode - Selects the window mode that the game will use at launch. Window Mo" +
-        "de can still be changed in the in-game option menu. (Note: Fullscreen is usually" +
-        " better for game performance.)");
+        "de can still be changed in the in-game options menu. (Note: Fullscreen is usuall" +
+        "y better for game performance.)");
             // 
             // VSP_LabelRenderResolution
             // 
@@ -274,9 +274,9 @@ namespace SRB2KModConfigurator.Forms
             this.VSP_LabelRenderType.Size = new System.Drawing.Size(176, 14);
             this.VSP_LabelRenderType.TabIndex = 6;
             this.VSP_LabelRenderType.Text = "Renderer";
-            this.VSP_MasterToolTip.SetToolTip(this.VSP_LabelRenderType, "Renderer - Selects the rendertype that the game will use at launch. Software will" +
-        " use your CPU and OpenGL will use your GPU for rendering. OpenGL has support for" +
-        " 3D Models if chosen. ");
+            this.VSP_MasterToolTip.SetToolTip(this.VSP_LabelRenderType, "Renderer - Selects the render type that the game will use at launch. Software wil" +
+        "l use your CPU for rendering and OpenGL will use your GPU for rendering. OpenGL " +
+        "has support for 3D Models if chosen. ");
             // 
             // VSP_MasterToolTip
             // 

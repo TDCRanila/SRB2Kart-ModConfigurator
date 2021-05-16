@@ -104,7 +104,7 @@ namespace SRB2KModConfigurator.Forms
             this.ASP_LabelMusic.Size = new System.Drawing.Size(176, 14);
             this.ASP_LabelMusic.TabIndex = 0;
             this.ASP_LabelMusic.Text = "No Music";
-            this.ASP_MasterToolTip.SetToolTip(this.ASP_LabelMusic, "No Music - Turns off all the music.");
+            this.ASP_MasterToolTip.SetToolTip(this.ASP_LabelMusic, "No Music - Disables all music.");
             // 
             // ASP_LabelSFXs
             // 
@@ -117,7 +117,7 @@ namespace SRB2KModConfigurator.Forms
             this.ASP_LabelSFXs.Size = new System.Drawing.Size(176, 14);
             this.ASP_LabelSFXs.TabIndex = 2;
             this.ASP_LabelSFXs.Text = "No SFXs";
-            this.ASP_MasterToolTip.SetToolTip(this.ASP_LabelSFXs, "No SFXs - Turns off all the sound effects in the game.");
+            this.ASP_MasterToolTip.SetToolTip(this.ASP_LabelSFXs, "No SFXs - Disables all sound effects in the game.");
             // 
             // ASP_MasterToolTip
             // 

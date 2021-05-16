@@ -175,7 +175,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelJoinServerPreventAddonDownload.Name = "SSP_LabelJoinServerPreventAddonDownload";
             this.SSP_LabelJoinServerPreventAddonDownload.Size = new System.Drawing.Size(176, 28);
             this.SSP_LabelJoinServerPreventAddonDownload.TabIndex = 26;
-            this.SSP_LabelJoinServerPreventAddonDownload.Text = "Prevent Addon Download";
+            this.SSP_LabelJoinServerPreventAddonDownload.Text = "Prevent Add-on Download";
             this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelJoinServerPreventAddonDownload, resources.GetString("SSP_LabelJoinServerPreventAddonDownload.ToolTip"));
             // 
             // SSP_LabelOnlineMode
@@ -272,9 +272,9 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelHostPreventAddonUpload.Name = "SSP_LabelHostPreventAddonUpload";
             this.SSP_LabelHostPreventAddonUpload.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelHostPreventAddonUpload.TabIndex = 14;
-            this.SSP_LabelHostPreventAddonUpload.Text = "Prevent Addon Upload";
-            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelHostPreventAddonUpload, "Prevent Addon Upload - Turns off downloading, so the game doesn\'t send files to c" +
-        "onnecting clients to be downloaded when acting as the server. ");
+            this.SSP_LabelHostPreventAddonUpload.Text = "Prevent Add-on Upload";
+            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelHostPreventAddonUpload, "Prevent Add-on Upload - Turns off downloading, so the server doesn\'t send files t" +
+        "o connecting clients to be downloaded. ");
             // 
             // SSP_CheckboxHostServerPreventAddonUpload
             // 
@@ -409,9 +409,9 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_LabelHostServerPassword.Name = "SSP_LabelHostServerPassword";
             this.SSP_LabelHostServerPassword.Size = new System.Drawing.Size(176, 14);
             this.SSP_LabelHostServerPassword.TabIndex = 11;
-            this.SSP_LabelHostServerPassword.Text = "Password";
-            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerPassword, "Password - Sets the server password, which players can use to log in as netgame a" +
-        "dministrators. ");
+            this.SSP_LabelHostServerPassword.Text = "Admin Password";
+            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerPassword, "Admin Password - Sets the server administrator password, which players can use to" +
+        " log in as net-game administrators. ");
             // 
             // SSP_MasterToolTip
             // 

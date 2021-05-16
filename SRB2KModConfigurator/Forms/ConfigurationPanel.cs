@@ -162,7 +162,7 @@ namespace SRB2KModConfigurator
             {
                 // Error Message
                 // POP UP : Is Not An Executable.
-                MessageBox.Show("Selected Target is not an executable file.", "Failed To Select Target", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The selected sarget is not an executable file, as it is missing the '.exe' file extension.", "Failed To Select Target", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ClearTargetExecutableInfo();
                 return false;
             }
@@ -305,11 +305,19 @@ namespace SRB2KModConfigurator
                     info = writer.ToString();
                 }
 
-                // POP UP : Missing mods when updating configuration.
-                MessageBox.Show("Selected mod files are missing during (re)loading of the mod folder." + '\n' + info
-                    , "Missing Selected Mod Files", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // POP UP : Missing mods when loading configuration.
+                if (missingMods.Count == 0)
+                {
+                    MessageBox.Show("A selected mod file is missing during (re)loading of the mod folder:" + '\n' + '\n' + info
+                        , "Missing Selected Mod File", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Several selected mods files are missing during (re)loading of the mod folder:" + '\n' + '\n' + info
+                        , "Missing Selected Mod Files", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
 
-                DialogResult result = MessageBox.Show("Do you want to copy the missing mod filepath(s) to your clipboard?", "Clipboard", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Do you want to copy the missing mod filepath(s) to your clipboard? This will overwrite your current clipboard.", "Clipboard", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                     Clipboard.SetText(info);
             }
@@ -694,7 +702,7 @@ namespace SRB2KModConfigurator
             bool isRefreshingSameFolder = currentModFolderInfo.FullName == CP_TextBoxModFolderLocation.Text;
             if (isRefreshingSameFolder)
             {
-                DialogResult result = MessageBox.Show("Refreshing the same folder will remove all selected mods. Are you sure?", "Refreshing same folder.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Refreshing the same mod folder will remove all selected mods. Are you sure?", "Refreshing same folder", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.No)
                     canRefreshModFolder = false;
             }
