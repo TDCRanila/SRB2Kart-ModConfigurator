@@ -609,7 +609,7 @@ namespace SRB2KModConfigurator
             // CP_TableConfigurationSettingsView
             // 
             this.CP_TableConfigurationSettingsView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CP_TableConfigurationSettingsView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.CP_TableConfigurationSettingsView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.CP_TableConfigurationSettingsView.ColumnCount = 1;
             this.CP_TableConfigurationSettingsView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.CP_TableConfigurationSettingsView.Controls.Add(this.CP_NiceGroupConfigurationSettings, 0, 0);
@@ -625,7 +625,6 @@ namespace SRB2KModConfigurator
             // CP_NiceGroupConfigurationSettings
             // 
             this.CP_NiceGroupConfigurationSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CP_NiceGroupConfigurationSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.CP_NiceGroupConfigurationSettings.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.CP_NiceGroupConfigurationSettings.BorderRectangleHeightOffset = 0;
             this.CP_NiceGroupConfigurationSettings.BorderRectangleWidthOffset = 4;
@@ -638,7 +637,7 @@ namespace SRB2KModConfigurator
             this.CP_NiceGroupConfigurationSettings.Size = new System.Drawing.Size(759, 88);
             this.CP_NiceGroupConfigurationSettings.TabIndex = 2;
             this.CP_NiceGroupConfigurationSettings.TabStop = false;
-            this.CP_NiceGroupConfigurationSettings.Text = "Configuration Settings";
+            this.CP_NiceGroupConfigurationSettings.Text = "Main Configuration Settings";
             // 
             // CP_TableConfigurationSettings
             // 
@@ -662,12 +661,14 @@ namespace SRB2KModConfigurator
             // CP_CheckboxEnableOverrideSettings
             // 
             this.CP_CheckboxEnableOverrideSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CP_CheckboxEnableOverrideSettings.AutoSize = true;
-            this.CP_CheckboxEnableOverrideSettings.Location = new System.Drawing.Point(183, 43);
+            this.CP_CheckboxEnableOverrideSettings.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.CP_CheckboxEnableOverrideSettings.FlatAppearance.BorderSize = 2;
+            this.CP_CheckboxEnableOverrideSettings.FlatAppearance.CheckedBackColor = System.Drawing.Color.ForestGreen;
+            this.CP_CheckboxEnableOverrideSettings.Location = new System.Drawing.Point(183, 37);
             this.CP_CheckboxEnableOverrideSettings.Name = "CP_CheckboxEnableOverrideSettings";
-            this.CP_CheckboxEnableOverrideSettings.Size = new System.Drawing.Size(552, 14);
+            this.CP_CheckboxEnableOverrideSettings.Size = new System.Drawing.Size(552, 26);
             this.CP_CheckboxEnableOverrideSettings.TabIndex = 28;
-            this.CP_CheckboxEnableOverrideSettings.UseVisualStyleBackColor = true;
+            this.CP_CheckboxEnableOverrideSettings.UseVisualStyleBackColor = false;
             this.CP_CheckboxEnableOverrideSettings.CheckedChanged += new System.EventHandler(this.CP_CheckboxEnableOverrideSettings_CheckedChanged);
             // 
             // CP_LabelEnableOverrideSettings
@@ -703,6 +704,7 @@ namespace SRB2KModConfigurator
             // CP_TextboxConfigurationName
             // 
             this.CP_TextboxConfigurationName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CP_TextboxConfigurationName.Enabled = false;
             this.CP_TextboxConfigurationName.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CP_TextboxConfigurationName.Location = new System.Drawing.Point(183, 6);
             this.CP_TextboxConfigurationName.Name = "CP_TextboxConfigurationName";
