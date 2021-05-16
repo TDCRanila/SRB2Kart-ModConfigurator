@@ -126,6 +126,8 @@ namespace SRB2KModConfigurator.Forms
             return data;
         }
 
+        #region Callbacks
+
         private void VSP_ComboBoxRenderResolution_SelectedIndexChanged(object sender, EventArgs e)
         {
             int CustomResolutionIndex        = 1;
@@ -145,16 +147,21 @@ namespace SRB2KModConfigurator.Forms
 
         private void VSP_TextBoxWidth_TextChanged(object sender, EventArgs e)
         {
-            string newWidth = VSP_TextBoxWidth.Text;
+            string newWidthText = VSP_TextBoxWidth.Text;
+            if (newWidthText.Length == 0)
+            {
+                VSP_TextBoxHeight.Text = currentWidth.ToString();
+                return;
+            }
 
-            bool containsNonDigits = newWidth.Any(c => !char.IsDigit(c));
+            bool containsNonDigits = newWidthText.Any(c => !char.IsDigit(c));
             if (containsNonDigits)
                 VSP_TextBoxWidth.Text = currentWidth.ToString();
             else
             {
                 try
                 {
-                    currentWidth = Convert.ToInt32(newWidth);
+                    currentWidth = Convert.ToInt32(newWidthText);
                 }
                 catch (FormatException /*exception*/)
                 {
@@ -167,16 +174,21 @@ namespace SRB2KModConfigurator.Forms
 
         private void VSP_TextBoxHeight_TextChanged(object sender, EventArgs e)
         {
-            string newHeight = VSP_TextBoxHeight.Text;
+            string newHeightText = VSP_TextBoxHeight.Text;
+            if (newHeightText.Length == 0)
+            {
+                VSP_TextBoxHeight.Text = currentHeight.ToString();
+                return;
+            }
 
-            bool containsNonDigits = newHeight.Any(c => !char.IsDigit(c));
+            bool containsNonDigits = newHeightText.Any(c => !char.IsDigit(c));
             if (containsNonDigits)
                 VSP_TextBoxHeight.Text = currentHeight.ToString();
             else
             {
                 try
                 {
-                    currentHeight = Convert.ToInt32(newHeight);
+                    currentHeight = Convert.ToInt32(newHeightText);
                 }
                 catch (FormatException /*exception*/)
                 {
@@ -186,5 +198,23 @@ namespace SRB2KModConfigurator.Forms
                 }
             }
         }
+
+        private void VSP_TextBoxWidth_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void VSP_TextBoxHeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        #endregion // End of region ~ Callbacks.
     }
 }
