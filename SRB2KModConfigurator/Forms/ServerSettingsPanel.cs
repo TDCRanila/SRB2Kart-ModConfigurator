@@ -58,17 +58,17 @@ namespace SRB2KModConfigurator.Forms
             ServerSettingsDataStruct data       = new ServerSettingsDataStruct();
 
             data.onlineMode                     = (OnlineModeType)Enum.Parse(typeof(OnlineModeType), SSP_ComboboxOnlineMode.SelectedItem.ToString());
-            data.serverJoinIP                   = SSP_TextboxJoinServerIP.Text;
-            data.serverJoinPort                 = SSP_TextboxJoinServerPort.Text;
+            data.serverJoinIP                   = (SSP_TextboxJoinServerIP.Text).TrimEnd();
+            data.serverJoinPort                 = (SSP_TextboxJoinServerPort.Text).TrimEnd();
             data.serverJoinPreventDownload      = SSP_CheckboxJoinServerPreventAddonDownload.Checked;
 
-            data.serverHostName                 = SSP_TextboxHostServerName.Text;
+            data.serverHostName                 = (SSP_TextboxHostServerName.Text).TrimEnd();
             data.serverHostType                 = (ServerType)Enum.Parse(typeof(ServerType), SSP_ComboboxHostServerType.SelectedItem.ToString());
             data.enableServerHostPassword       = SSP_CheckboxHostServerEnablePassword.Checked;
-            data.serverHostPassword             = SSP_TextboxHostServerPassword.Text;
+            data.serverHostPassword             = (SSP_TextboxHostServerPassword.Text).TrimEnd();
             data.enableServerHostBroadcastType  = SSP_CheckboxHostServerPublicBroadCast.Checked;
             data.serverHostBroadcastType        = (ServerBroadcastType)Enum.Parse(typeof(ServerBroadcastType), SSP_ComboboxHostServerPublicBroadcast.SelectedItem.ToString());
-            data.serverHostGameType             = SSP_TextBoxHostServerGameType.Text;
+            data.serverHostGameType             = (SSP_TextBoxHostServerGameType.Text).TrimEnd();
             data.serverHostPreventUpload        = SSP_CheckboxHostServerPreventAddonUpload.Checked;
 
             return data;
@@ -113,6 +113,8 @@ namespace SRB2KModConfigurator.Forms
             SSP_CheckboxHostServerPreventAddonUpload.Enabled    = enableServerHostSettings;
         }
 
+        #region Callbacks
+
         private void SSP_CheckboxEnablePassword_CheckedChanged(object sender, EventArgs e)
         {
             UpdateServerSettingsControls();
@@ -127,5 +129,42 @@ namespace SRB2KModConfigurator.Forms
         {
             UpdateServerSettingsControls();
         }
+
+        private void SSP_TextboxJoinServerIP_TextChanged(object sender, EventArgs e)
+        {
+            SSP_TextboxJoinServerIP.Text = (SSP_TextboxJoinServerIP.Text).TrimStart();
+        }
+
+        private void SSP_TextboxJoinServerPort_TextChanged(object sender, EventArgs e)
+        {
+            SSP_TextboxJoinServerPort.Text = (SSP_TextboxJoinServerPort.Text).TrimStart();
+        }
+
+        private void SSP_TextboxHostServerName_TextChanged(object sender, EventArgs e)
+        {
+            SSP_TextboxHostServerName.Text = (SSP_TextboxHostServerName.Text).TrimStart();
+        }
+
+        private void SSP_TextboxHostServerPassword_TextChanged(object sender, EventArgs e)
+        {
+            SSP_TextboxHostServerPassword.Text = (SSP_TextboxHostServerPassword.Text).TrimStart();
+        }
+
+        private void SSP_TextboxHostServerPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Password should not accept spaces.
+            if (e.KeyChar == ' ')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void SSP_TextBoxHostServerGameType_TextChanged(object sender, EventArgs e)
+        {
+            SSP_TextBoxHostServerGameType.Text = (SSP_TextBoxHostServerGameType.Text).TrimStart();
+        }
+
+        #endregion // End of region ~ Callbacks.
+
     }
 }

@@ -647,6 +647,11 @@ namespace SRB2KModConfigurator
             }
         }
 
+        private void CP_TextBoxTargetExecutableLocation_TextChanged(object sender, EventArgs e)
+        {
+            CP_TextBoxTargetExecutableLocation.Text = (CP_TextBoxTargetExecutableLocation.Text).TrimStart();
+        }
+
         private void CP_ButtonRefreshTargetExecutable_Click(object sender, EventArgs e)
         {
             TextBox textBox = CP_TextBoxTargetExecutableLocation;
@@ -694,6 +699,11 @@ namespace SRB2KModConfigurator
                     LoadModFolder(CP_TextBoxModFolderLocation.Text);
                 }
            }
+        }
+
+        private void CP_TextBoxModFolderLocation_TextChanged(object sender, EventArgs e)
+        {
+            CP_TextBoxModFolderLocation.Text = (CP_TextBoxModFolderLocation.Text).TrimStart();
         }
 
         private void CP_ButtonRefreshFolderLocation_Click(object sender, EventArgs e)

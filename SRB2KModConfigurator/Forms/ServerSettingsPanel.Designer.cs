@@ -154,6 +154,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_TextboxHostServerName.Name = "SSP_TextboxHostServerName";
             this.SSP_TextboxHostServerName.Size = new System.Drawing.Size(529, 23);
             this.SSP_TextboxHostServerName.TabIndex = 28;
+            this.SSP_TextboxHostServerName.TextChanged += new System.EventHandler(this.SSP_TextboxHostServerName_TextChanged);
             // 
             // SSP_CheckboxJoinServerPreventAddonDownload
             // 
@@ -227,6 +228,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_TextboxJoinServerPort.Name = "SSP_TextboxJoinServerPort";
             this.SSP_TextboxJoinServerPort.Size = new System.Drawing.Size(529, 23);
             this.SSP_TextboxJoinServerPort.TabIndex = 24;
+            this.SSP_TextboxJoinServerPort.TextChanged += new System.EventHandler(this.SSP_TextboxJoinServerPort_TextChanged);
             // 
             // SSP_TextboxJoinServerIP
             // 
@@ -235,6 +237,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_TextboxJoinServerIP.Name = "SSP_TextboxJoinServerIP";
             this.SSP_TextboxJoinServerIP.Size = new System.Drawing.Size(529, 23);
             this.SSP_TextboxJoinServerIP.TabIndex = 23;
+            this.SSP_TextboxJoinServerIP.TextChanged += new System.EventHandler(this.SSP_TextboxJoinServerIP_TextChanged);
             // 
             // SSP_LabelJoinServerPort
             // 
@@ -306,6 +309,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_TextBoxHostServerGameType.Name = "SSP_TextBoxHostServerGameType";
             this.SSP_TextBoxHostServerGameType.Size = new System.Drawing.Size(529, 23);
             this.SSP_TextBoxHostServerGameType.TabIndex = 10;
+            this.SSP_TextBoxHostServerGameType.TextChanged += new System.EventHandler(this.SSP_TextBoxHostServerGameType_TextChanged);
             // 
             // SSP_LabelHostServerBroadcasting
             // 
@@ -398,6 +402,8 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_TextboxHostServerPassword.Name = "SSP_TextboxHostServerPassword";
             this.SSP_TextboxHostServerPassword.Size = new System.Drawing.Size(523, 23);
             this.SSP_TextboxHostServerPassword.TabIndex = 1;
+            this.SSP_TextboxHostServerPassword.TextChanged += new System.EventHandler(this.SSP_TextboxHostServerPassword_TextChanged);
+            this.SSP_TextboxHostServerPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SSP_TextboxHostServerPassword_KeyPress);
             // 
             // SSP_LabelHostServerPassword
             // 

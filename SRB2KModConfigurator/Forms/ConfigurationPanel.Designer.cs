@@ -211,6 +211,7 @@ namespace SRB2KModConfigurator
             this.CP_TextBoxModFolderLocation.Name = "CP_TextBoxModFolderLocation";
             this.CP_TextBoxModFolderLocation.Size = new System.Drawing.Size(321, 22);
             this.CP_TextBoxModFolderLocation.TabIndex = 0;
+            this.CP_TextBoxModFolderLocation.TextChanged += new System.EventHandler(this.CP_TextBoxModFolderLocation_TextChanged);
             this.CP_TextBoxModFolderLocation.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CP_TextBoxModFolderLocation_KeyDown);
             // 
             // CP_ButtonModFolderFileDialog
@@ -410,6 +411,7 @@ namespace SRB2KModConfigurator
             this.CP_TextBoxTargetExecutableLocation.Name = "CP_TextBoxTargetExecutableLocation";
             this.CP_TextBoxTargetExecutableLocation.Size = new System.Drawing.Size(355, 22);
             this.CP_TextBoxTargetExecutableLocation.TabIndex = 0;
+            this.CP_TextBoxTargetExecutableLocation.TextChanged += new System.EventHandler(this.CP_TextBoxTargetExecutableLocation_TextChanged);
             this.CP_TextBoxTargetExecutableLocation.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CP_TextBoxTargetExecutableLocation_KeyDown);
             // 
             // CP_ButtonFileDialogTargetExecutable

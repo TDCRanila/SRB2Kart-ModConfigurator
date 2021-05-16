@@ -166,7 +166,7 @@ namespace SRB2KModConfigurator.Forms
             "No Action",
             "Reset Data",
             "No Data"});
-            this.GSP_ComboBoxDataActions.Location = new System.Drawing.Point(187, 61);
+            this.GSP_ComboBoxDataActions.Location = new System.Drawing.Point(187, 60);
             this.GSP_ComboBoxDataActions.Name = "GSP_ComboBoxDataActions";
             this.GSP_ComboBoxDataActions.Size = new System.Drawing.Size(529, 21);
             this.GSP_ComboBoxDataActions.TabIndex = 11;
@@ -254,6 +254,7 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_TextBoxCustomConfigFile.Name = "GSP_TextBoxCustomConfigFile";
             this.GSP_TextBoxCustomConfigFile.Size = new System.Drawing.Size(477, 22);
             this.GSP_TextBoxCustomConfigFile.TabIndex = 11;
+            this.GSP_TextBoxCustomConfigFile.TextChanged += new System.EventHandler(this.GSP_TextBoxCustomConfigFile_TextChanged);
             // 
             // GSP_LabelAdditionalParameters
             // 
@@ -277,6 +278,7 @@ namespace SRB2KModConfigurator.Forms
             this.GSP_TextBoxAdditionalParameters.Name = "GSP_TextBoxAdditionalParameters";
             this.GSP_TextBoxAdditionalParameters.Size = new System.Drawing.Size(529, 22);
             this.GSP_TextBoxAdditionalParameters.TabIndex = 10;
+            this.GSP_TextBoxAdditionalParameters.TextChanged += new System.EventHandler(this.GSP_TextBoxAdditionalParameters_TextChanged);
             // 
             // GSP_MasterToolTip
             // 

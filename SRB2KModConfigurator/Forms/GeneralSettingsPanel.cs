@@ -54,7 +54,7 @@ namespace SRB2KModConfigurator.Forms
             data.dataAction                         = (DataAction)Enum.Parse(typeof(DataAction), GSP_ComboBoxDataActions.SelectedItem.ToString());
             data.enableAdditionalConsole            = GSP_CheckBoxAdditionalConsole.Checked;
             data.customConfigFilePath               = currentCustomConfigFilePath;
-            data.additionalCommandlineParameters    = GSP_TextBoxAdditionalParameters.Text;
+            data.additionalCommandlineParameters    = (GSP_TextBoxAdditionalParameters.Text).TrimEnd();
 
             return data;
         }
@@ -70,6 +70,8 @@ namespace SRB2KModConfigurator.Forms
             GSP_CheckboxBonusCharacters.Enabled = false;
             GSP_LabelBonusCharacter.ForeColor   = Color.Red;
         }
+
+        #region Callbacks
 
         private void GSP_ButtonCustomConfigFile_Click(object sender, EventArgs e)
         {
@@ -113,5 +115,18 @@ namespace SRB2KModConfigurator.Forms
                 return;
             }
         }
+
+        private void GSP_TextBoxCustomConfigFile_TextChanged(object sender, EventArgs e)
+        {
+            GSP_TextBoxCustomConfigFile.Text = (GSP_TextBoxCustomConfigFile.Text).TrimStart();
+        }
+
+        private void GSP_TextBoxAdditionalParameters_TextChanged(object sender, EventArgs e)
+        {
+            GSP_TextBoxAdditionalParameters.Text = (GSP_TextBoxAdditionalParameters.Text).TrimStart();
+        }
+
+        #endregion // End of region ~ Callbacks.
+
     }
 }
