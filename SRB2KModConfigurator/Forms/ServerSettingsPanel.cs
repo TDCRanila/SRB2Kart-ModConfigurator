@@ -43,8 +43,8 @@ namespace SRB2KModConfigurator.Forms
 
             SSP_TextboxHostServerName.Text                      = data.serverHostName;
             SSP_ComboboxHostServerType.SelectedIndex            = (int)data.serverHostType;
-            SSP_CheckboxHostServerEnablePassword.Checked        = data.enableServerHostPassword;
-            SSP_TextboxHostServerPassword.Text                  = data.serverHostPassword;
+            SSP_CheckboxHostServerEnableAdminPassword.Checked   = data.enableServerHostAdminPassword;
+            SSP_TextboxHostServerAdminPassword.Text             = data.serverHostAdminPassword;
             SSP_CheckboxHostServerPublicBroadCast.Checked       = data.enableServerHostBroadcastType;
             SSP_ComboboxHostServerPublicBroadcast.SelectedIndex = (int)data.serverHostBroadcastType;
             SSP_TextBoxHostServerGameType.Text                  = data.serverHostGameType;
@@ -64,8 +64,8 @@ namespace SRB2KModConfigurator.Forms
 
             data.serverHostName                 = (SSP_TextboxHostServerName.Text).TrimEnd();
             data.serverHostType                 = (ServerType)Enum.Parse(typeof(ServerType), SSP_ComboboxHostServerType.SelectedItem.ToString());
-            data.enableServerHostPassword       = SSP_CheckboxHostServerEnablePassword.Checked;
-            data.serverHostPassword             = (SSP_TextboxHostServerPassword.Text).TrimEnd();
+            data.enableServerHostAdminPassword  = SSP_CheckboxHostServerEnableAdminPassword.Checked;
+            data.serverHostAdminPassword        = (SSP_TextboxHostServerAdminPassword.Text).TrimEnd();
             data.enableServerHostBroadcastType  = SSP_CheckboxHostServerPublicBroadCast.Checked;
             data.serverHostBroadcastType        = (ServerBroadcastType)Enum.Parse(typeof(ServerBroadcastType), SSP_ComboboxHostServerPublicBroadcast.SelectedItem.ToString());
             data.serverHostGameType             = (SSP_TextBoxHostServerGameType.Text).TrimEnd();
@@ -105,8 +105,8 @@ namespace SRB2KModConfigurator.Forms
 
             SSP_TextboxHostServerName.Enabled                   = enableServerHostSettings;
             SSP_ComboboxHostServerType.Enabled                  = enableServerHostSettings;
-            SSP_CheckboxHostServerEnablePassword.Enabled        = enableServerHostSettings;
-            SSP_TextboxHostServerPassword.Enabled               = enableServerHostSettings && SSP_CheckboxHostServerEnablePassword.Checked;
+            SSP_CheckboxHostServerEnableAdminPassword.Enabled   = enableServerHostSettings;
+            SSP_TextboxHostServerAdminPassword.Enabled          = enableServerHostSettings && SSP_CheckboxHostServerEnableAdminPassword.Checked;
             SSP_CheckboxHostServerPublicBroadCast.Enabled       = enableServerHostSettings;
             SSP_ComboboxHostServerPublicBroadcast.Enabled       = enableServerHostSettings && SSP_CheckboxHostServerPublicBroadCast.Checked;
             SSP_TextBoxHostServerGameType.Enabled               = enableServerHostSettings;
@@ -147,7 +147,7 @@ namespace SRB2KModConfigurator.Forms
 
         private void SSP_TextboxHostServerPassword_TextChanged(object sender, EventArgs e)
         {
-            SSP_TextboxHostServerPassword.Text = (SSP_TextboxHostServerPassword.Text).TrimStart();
+            SSP_TextboxHostServerAdminPassword.Text = (SSP_TextboxHostServerAdminPassword.Text).TrimStart();
         }
 
         private void SSP_TextboxHostServerPassword_KeyPress(object sender, KeyPressEventArgs e)

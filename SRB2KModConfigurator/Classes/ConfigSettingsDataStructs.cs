@@ -103,8 +103,8 @@ namespace SRB2KModConfigurator.Data
 
         public string               serverHostName { get; set; }
         public ServerType           serverHostType { get; set; }
-        public bool                 enableServerHostPassword { get; set; }
-        public string               serverHostPassword { get; set; }
+        public bool                 enableServerHostAdminPassword { get; set; }
+        public string               serverHostAdminPassword { get; set; }
         public bool                 enableServerHostBroadcastType { get; set; }
         public ServerBroadcastType  serverHostBroadcastType { get; set; }
         public string               serverHostGameType { get; set; }

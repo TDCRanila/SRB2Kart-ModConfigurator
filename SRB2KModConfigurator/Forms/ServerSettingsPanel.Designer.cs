@@ -54,9 +54,9 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_ComboboxHostServerPublicBroadcast = new System.Windows.Forms.ComboBox();
             this.SSP_CheckboxHostServerPublicBroadCast = new System.Windows.Forms.CheckBox();
             this.SSP_TableHostServerPasswordSettings = new System.Windows.Forms.TableLayoutPanel();
-            this.SSP_CheckboxHostServerEnablePassword = new System.Windows.Forms.CheckBox();
-            this.SSP_TextboxHostServerPassword = new System.Windows.Forms.TextBox();
-            this.SSP_LabelHostServerPassword = new System.Windows.Forms.Label();
+            this.SSP_CheckboxHostServerEnableAdminPassword = new System.Windows.Forms.CheckBox();
+            this.SSP_TextboxHostServerAdminPassword = new System.Windows.Forms.TextBox();
+            this.SSP_LabelHostServerAdminPassword = new System.Windows.Forms.Label();
             this.SSP_MasterToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SSP_MainPanel.SuspendLayout();
             this.SSP_TableLayout.SuspendLayout();
@@ -100,7 +100,7 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_TableLayout.Controls.Add(this.SSP_LabelHostServerBroadcasting, 0, 9);
             this.SSP_TableLayout.Controls.Add(this.SSP_TableMasterServer, 1, 9);
             this.SSP_TableLayout.Controls.Add(this.SSP_TableHostServerPasswordSettings, 1, 8);
-            this.SSP_TableLayout.Controls.Add(this.SSP_LabelHostServerPassword, 0, 8);
+            this.SSP_TableLayout.Controls.Add(this.SSP_LabelHostServerAdminPassword, 0, 8);
             this.SSP_TableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SSP_TableLayout.Location = new System.Drawing.Point(0, 0);
             this.SSP_TableLayout.Name = "SSP_TableLayout";
@@ -374,8 +374,8 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_TableHostServerPasswordSettings.ColumnCount = 2;
             this.SSP_TableHostServerPasswordSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.SSP_TableHostServerPasswordSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 529F));
-            this.SSP_TableHostServerPasswordSettings.Controls.Add(this.SSP_CheckboxHostServerEnablePassword, 0, 0);
-            this.SSP_TableHostServerPasswordSettings.Controls.Add(this.SSP_TextboxHostServerPassword, 1, 0);
+            this.SSP_TableHostServerPasswordSettings.Controls.Add(this.SSP_CheckboxHostServerEnableAdminPassword, 0, 0);
+            this.SSP_TableHostServerPasswordSettings.Controls.Add(this.SSP_TextboxHostServerAdminPassword, 1, 0);
             this.SSP_TableHostServerPasswordSettings.Location = new System.Drawing.Point(184, 235);
             this.SSP_TableHostServerPasswordSettings.Margin = new System.Windows.Forms.Padding(0);
             this.SSP_TableHostServerPasswordSettings.Name = "SSP_TableHostServerPasswordSettings";
@@ -384,39 +384,39 @@ namespace SRB2KModConfigurator.Forms
             this.SSP_TableHostServerPasswordSettings.Size = new System.Drawing.Size(535, 32);
             this.SSP_TableHostServerPasswordSettings.TabIndex = 12;
             // 
-            // SSP_CheckboxHostServerEnablePassword
+            // SSP_CheckboxHostServerEnableAdminPassword
             // 
-            this.SSP_CheckboxHostServerEnablePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SSP_CheckboxHostServerEnablePassword.AutoSize = true;
-            this.SSP_CheckboxHostServerEnablePassword.Location = new System.Drawing.Point(3, 9);
-            this.SSP_CheckboxHostServerEnablePassword.Name = "SSP_CheckboxHostServerEnablePassword";
-            this.SSP_CheckboxHostServerEnablePassword.Size = new System.Drawing.Size(14, 14);
-            this.SSP_CheckboxHostServerEnablePassword.TabIndex = 0;
-            this.SSP_CheckboxHostServerEnablePassword.UseVisualStyleBackColor = true;
-            this.SSP_CheckboxHostServerEnablePassword.CheckedChanged += new System.EventHandler(this.SSP_CheckboxEnablePassword_CheckedChanged);
+            this.SSP_CheckboxHostServerEnableAdminPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SSP_CheckboxHostServerEnableAdminPassword.AutoSize = true;
+            this.SSP_CheckboxHostServerEnableAdminPassword.Location = new System.Drawing.Point(3, 9);
+            this.SSP_CheckboxHostServerEnableAdminPassword.Name = "SSP_CheckboxHostServerEnableAdminPassword";
+            this.SSP_CheckboxHostServerEnableAdminPassword.Size = new System.Drawing.Size(14, 14);
+            this.SSP_CheckboxHostServerEnableAdminPassword.TabIndex = 0;
+            this.SSP_CheckboxHostServerEnableAdminPassword.UseVisualStyleBackColor = true;
+            this.SSP_CheckboxHostServerEnableAdminPassword.CheckedChanged += new System.EventHandler(this.SSP_CheckboxEnablePassword_CheckedChanged);
             // 
-            // SSP_TextboxHostServerPassword
+            // SSP_TextboxHostServerAdminPassword
             // 
-            this.SSP_TextboxHostServerPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SSP_TextboxHostServerPassword.Location = new System.Drawing.Point(23, 4);
-            this.SSP_TextboxHostServerPassword.Name = "SSP_TextboxHostServerPassword";
-            this.SSP_TextboxHostServerPassword.Size = new System.Drawing.Size(523, 23);
-            this.SSP_TextboxHostServerPassword.TabIndex = 1;
-            this.SSP_TextboxHostServerPassword.TextChanged += new System.EventHandler(this.SSP_TextboxHostServerPassword_TextChanged);
-            this.SSP_TextboxHostServerPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SSP_TextboxHostServerPassword_KeyPress);
+            this.SSP_TextboxHostServerAdminPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SSP_TextboxHostServerAdminPassword.Location = new System.Drawing.Point(23, 4);
+            this.SSP_TextboxHostServerAdminPassword.Name = "SSP_TextboxHostServerAdminPassword";
+            this.SSP_TextboxHostServerAdminPassword.Size = new System.Drawing.Size(523, 23);
+            this.SSP_TextboxHostServerAdminPassword.TabIndex = 1;
+            this.SSP_TextboxHostServerAdminPassword.TextChanged += new System.EventHandler(this.SSP_TextboxHostServerPassword_TextChanged);
+            this.SSP_TextboxHostServerAdminPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SSP_TextboxHostServerPassword_KeyPress);
             // 
-            // SSP_LabelHostServerPassword
+            // SSP_LabelHostServerAdminPassword
             // 
-            this.SSP_LabelHostServerPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SSP_LabelHostServerPassword.AutoSize = true;
-            this.SSP_LabelHostServerPassword.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SSP_LabelHostServerPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.SSP_LabelHostServerPassword.Location = new System.Drawing.Point(4, 244);
-            this.SSP_LabelHostServerPassword.Name = "SSP_LabelHostServerPassword";
-            this.SSP_LabelHostServerPassword.Size = new System.Drawing.Size(176, 14);
-            this.SSP_LabelHostServerPassword.TabIndex = 11;
-            this.SSP_LabelHostServerPassword.Text = "Admin Password";
-            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerPassword, "Admin Password - Sets the server administrator password, which players can use to" +
+            this.SSP_LabelHostServerAdminPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SSP_LabelHostServerAdminPassword.AutoSize = true;
+            this.SSP_LabelHostServerAdminPassword.Font = new System.Drawing.Font("envypn7x15", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SSP_LabelHostServerAdminPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.SSP_LabelHostServerAdminPassword.Location = new System.Drawing.Point(4, 244);
+            this.SSP_LabelHostServerAdminPassword.Name = "SSP_LabelHostServerAdminPassword";
+            this.SSP_LabelHostServerAdminPassword.Size = new System.Drawing.Size(176, 14);
+            this.SSP_LabelHostServerAdminPassword.TabIndex = 11;
+            this.SSP_LabelHostServerAdminPassword.Text = "Admin Password";
+            this.SSP_MasterToolTip.SetToolTip(this.SSP_LabelHostServerAdminPassword, "Admin Password - Sets the server administrator password, which players can use to" +
         " log in as net-game administrators. ");
             // 
             // SSP_MasterToolTip
@@ -454,10 +454,10 @@ namespace SRB2KModConfigurator.Forms
         private System.Windows.Forms.TextBox SSP_TextBoxHostServerGameType;
         private System.Windows.Forms.Label SSP_LabelHostServerBroadcasting;
         private System.Windows.Forms.ToolTip SSP_MasterToolTip;
-        private System.Windows.Forms.Label SSP_LabelHostServerPassword;
+        private System.Windows.Forms.Label SSP_LabelHostServerAdminPassword;
         private System.Windows.Forms.TableLayoutPanel SSP_TableHostServerPasswordSettings;
-        private System.Windows.Forms.CheckBox SSP_CheckboxHostServerEnablePassword;
-        private System.Windows.Forms.TextBox SSP_TextboxHostServerPassword;
+        private System.Windows.Forms.CheckBox SSP_CheckboxHostServerEnableAdminPassword;
+        private System.Windows.Forms.TextBox SSP_TextboxHostServerAdminPassword;
         private System.Windows.Forms.TableLayoutPanel SSP_TableMasterServer;
         private System.Windows.Forms.CheckBox SSP_CheckboxHostServerPublicBroadCast;
         private System.Windows.Forms.ComboBox SSP_ComboboxHostServerPublicBroadcast;

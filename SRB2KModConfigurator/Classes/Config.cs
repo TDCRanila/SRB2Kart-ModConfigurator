@@ -268,9 +268,9 @@ namespace SRB2KModConfigurator.Config
                             }
 
                             /// Server Password
-                            if (serverSettings.enableServerHostPassword && serverSettings.serverHostPassword.Length != 0)
+                            if (serverSettings.enableServerHostAdminPassword && serverSettings.serverHostAdminPassword.Length != 0)
                             {
-                                writer.Write("-password" + space + serverSettings.serverHostPassword + space);
+                                writer.Write("-password" + space + serverSettings.serverHostAdminPassword + space);
                             }
 
                             /// Server BroadcastType
