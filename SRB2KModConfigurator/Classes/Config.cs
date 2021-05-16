@@ -151,7 +151,7 @@ namespace SRB2KModConfigurator.Config
                     /// Additional Commandline Parameters
                     if (generalSettings.additionalCommandlineParameters.Length != 0)
                     {
-                        writer.Write(generalSettings.additionalCommandlineParameters);
+                        writer.Write(generalSettings.additionalCommandlineParameters + space);
                     }
 
                     // Video Override Settings
@@ -236,12 +236,12 @@ namespace SRB2KModConfigurator.Config
                         case OnlineModeType.JoinServer:
                         {
                             /// Server IP
-                            writer.Write("-connect" + serverSettings.serverJoinIP + space);
+                            writer.Write("-connect" + space + serverSettings.serverJoinIP + space);
 
                             /// Server Port
                             if (serverSettings.serverJoinPort.Length != 0)
                             {
-                                writer.Write("-port" + serverSettings.serverJoinPort + space);
+                                writer.Write("-port" + space + serverSettings.serverJoinPort + space);
                             }
 
                             /// Prevent Addon Download
