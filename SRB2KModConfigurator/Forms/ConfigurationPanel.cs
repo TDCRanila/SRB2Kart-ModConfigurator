@@ -433,7 +433,7 @@ namespace SRB2KModConfigurator
             CP_ButtonExportConfigFileDialog.BackgroundImage = image;
         }
 
-        private void SetSettingsControlStatus(bool enabled)
+        private void SetSettingsControlStatus(bool enableControls)
         {
             IEnumerable<Control> GetAllChildren(Control root)
             {
@@ -456,16 +456,20 @@ namespace SRB2KModConfigurator
             childPanelControls.AddRange(GetAllChildren(serverSettingsPanelRef.Parent));
 
             foreach (TextBox textBox in childPanelControls.OfType<TextBox>())
-                textBox.Enabled = enabled;
+                textBox.Enabled = enableControls;
 
             foreach (ComboBox comboBox in childPanelControls.OfType<ComboBox>())
-                comboBox.Enabled = enabled;
+                comboBox.Enabled = enableControls;
 
             foreach (CheckBox checkBox in childPanelControls.OfType<CheckBox>())
-                checkBox.Enabled = enabled;
+                checkBox.Enabled = enableControls;
 
             foreach (Button button in childPanelControls.OfType<Button>())
-                button.Enabled = enabled;
+                button.Enabled = enableControls;
+
+            // Server Settings Panel has its own rules whether childeren should be active or not.
+            if (enableControls)
+                serverSettingsPanelRef.UpdateServerSettingsControls();
 
         }
 

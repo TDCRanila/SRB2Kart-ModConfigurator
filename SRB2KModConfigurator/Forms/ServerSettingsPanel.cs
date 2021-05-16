@@ -74,7 +74,7 @@ namespace SRB2KModConfigurator.Forms
             return data;
         }
 
-        private void UpdateServerSettingsControls()
+        public void UpdateServerSettingsControls()
         {
             OnlineModeType onlineMode = (OnlineModeType)Enum.Parse(typeof(OnlineModeType), SSP_ComboboxOnlineMode.SelectedItem.ToString());
 
