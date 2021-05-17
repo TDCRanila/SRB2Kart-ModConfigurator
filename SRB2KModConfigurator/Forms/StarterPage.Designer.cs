@@ -41,6 +41,8 @@ namespace SRB2KModConfigurator
             this.SP_TableMainOptions = new System.Windows.Forms.TableLayoutPanel();
             this.SP_ButtonEditConfig = new System.Windows.Forms.Button();
             this.SP_ButtonNewConfig = new System.Windows.Forms.Button();
+            this.SP_TableLinkLabelDivider = new System.Windows.Forms.TableLayoutPanel();
+            this.SP_LinkLabelServerBrowser = new System.Windows.Forms.LinkLabel();
             this.SP_LinkLabelCredits = new System.Windows.Forms.LinkLabel();
             this.SP_ChildPanel = new System.Windows.Forms.Panel();
             this.SP_MainPanel.SuspendLayout();
@@ -48,6 +50,7 @@ namespace SRB2KModConfigurator
             this.SP_TableLaunchOptions.SuspendLayout();
             this.SP_TableConfigurationSelect.SuspendLayout();
             this.SP_TableMainOptions.SuspendLayout();
+            this.SP_TableLinkLabelDivider.SuspendLayout();
             this.SuspendLayout();
             // 
             // SP_MainPanel
@@ -68,7 +71,7 @@ namespace SRB2KModConfigurator
             this.SP_TableOrganisation.Controls.Add(this.SP_TableLaunchOptions, 0, 3);
             this.SP_TableOrganisation.Controls.Add(this.SP_LabelTitle, 0, 1);
             this.SP_TableOrganisation.Controls.Add(this.SP_TableMainOptions, 0, 2);
-            this.SP_TableOrganisation.Controls.Add(this.SP_LinkLabelCredits, 0, 4);
+            this.SP_TableOrganisation.Controls.Add(this.SP_TableLinkLabelDivider, 0, 4);
             this.SP_TableOrganisation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SP_TableOrganisation.Location = new System.Drawing.Point(0, 0);
             this.SP_TableOrganisation.Name = "SP_TableOrganisation";
@@ -211,19 +214,52 @@ namespace SRB2KModConfigurator
             this.SP_ButtonNewConfig.UseVisualStyleBackColor = true;
             this.SP_ButtonNewConfig.Click += new System.EventHandler(this.SP_ButtonNewConfig_Click);
             // 
+            // SP_TableLinkLabelDivider
+            // 
+            this.SP_TableLinkLabelDivider.ColumnCount = 2;
+            this.SP_TableLinkLabelDivider.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SP_TableLinkLabelDivider.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SP_TableLinkLabelDivider.Controls.Add(this.SP_LinkLabelServerBrowser, 0, 0);
+            this.SP_TableLinkLabelDivider.Controls.Add(this.SP_LinkLabelCredits, 1, 0);
+            this.SP_TableLinkLabelDivider.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SP_TableLinkLabelDivider.Location = new System.Drawing.Point(3, 462);
+            this.SP_TableLinkLabelDivider.Name = "SP_TableLinkLabelDivider";
+            this.SP_TableLinkLabelDivider.RowCount = 1;
+            this.SP_TableLinkLabelDivider.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SP_TableLinkLabelDivider.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 216F));
+            this.SP_TableLinkLabelDivider.Size = new System.Drawing.Size(1258, 216);
+            this.SP_TableLinkLabelDivider.TabIndex = 4;
+            // 
+            // SP_LinkLabelServerBrowser
+            // 
+            this.SP_LinkLabelServerBrowser.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.SP_LinkLabelServerBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SP_LinkLabelServerBrowser.AutoSize = true;
+            this.SP_LinkLabelServerBrowser.Font = new System.Drawing.Font("envypn7x15", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SP_LinkLabelServerBrowser.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(215)))));
+            this.SP_LinkLabelServerBrowser.Location = new System.Drawing.Point(3, 197);
+            this.SP_LinkLabelServerBrowser.Name = "SP_LinkLabelServerBrowser";
+            this.SP_LinkLabelServerBrowser.Size = new System.Drawing.Size(270, 19);
+            this.SP_LinkLabelServerBrowser.TabIndex = 4;
+            this.SP_LinkLabelServerBrowser.TabStop = true;
+            this.SP_LinkLabelServerBrowser.Text = "SRB2 Kart Server Browser🡕 ";
+            this.SP_LinkLabelServerBrowser.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.SP_LinkLabelServerBrowser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.SP_LinkLabelServerBrowser_LinkClicked);
+            // 
             // SP_LinkLabelCredits
             // 
             this.SP_LinkLabelCredits.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.SP_LinkLabelCredits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SP_LinkLabelCredits.AutoSize = true;
             this.SP_LinkLabelCredits.Font = new System.Drawing.Font("envypn7x15", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SP_LinkLabelCredits.LinkColor = System.Drawing.Color.White;
-            this.SP_LinkLabelCredits.Location = new System.Drawing.Point(902, 662);
+            this.SP_LinkLabelCredits.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(215)))));
+            this.SP_LinkLabelCredits.Location = new System.Drawing.Point(968, 197);
+            this.SP_LinkLabelCredits.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.SP_LinkLabelCredits.Name = "SP_LinkLabelCredits";
-            this.SP_LinkLabelCredits.Size = new System.Drawing.Size(359, 19);
+            this.SP_LinkLabelCredits.Size = new System.Drawing.Size(290, 19);
             this.SP_LinkLabelCredits.TabIndex = 3;
             this.SP_LinkLabelCredits.TabStop = true;
-            this.SP_LinkLabelCredits.Text = "Made By: TDRChan ~ github@TDCRanila";
+            this.SP_LinkLabelCredits.Text = "Repository: github@TDRChan🡕 ";
             this.SP_LinkLabelCredits.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.SP_LinkLabelCredits.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.SP_LinkLabelCredits_LinkClicked);
             // 
@@ -251,11 +287,12 @@ namespace SRB2KModConfigurator
             this.Text = "SRB2Kart ModConfigurator";
             this.SP_MainPanel.ResumeLayout(false);
             this.SP_TableOrganisation.ResumeLayout(false);
-            this.SP_TableOrganisation.PerformLayout();
             this.SP_TableLaunchOptions.ResumeLayout(false);
             this.SP_TableConfigurationSelect.ResumeLayout(false);
             this.SP_TableConfigurationSelect.PerformLayout();
             this.SP_TableMainOptions.ResumeLayout(false);
+            this.SP_TableLinkLabelDivider.ResumeLayout(false);
+            this.SP_TableLinkLabelDivider.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -274,6 +311,8 @@ namespace SRB2KModConfigurator
         private System.Windows.Forms.TableLayoutPanel SP_TableMainOptions;
         private System.Windows.Forms.Button SP_ButtonEditConfig;
         private System.Windows.Forms.Button SP_ButtonNewConfig;
+        private System.Windows.Forms.TableLayoutPanel SP_TableLinkLabelDivider;
+        private System.Windows.Forms.LinkLabel SP_LinkLabelServerBrowser;
         private System.Windows.Forms.LinkLabel SP_LinkLabelCredits;
     }
 }

@@ -323,7 +323,17 @@ namespace SRB2KModConfigurator
         {
             ProcessStartInfo processStartInfo = new ProcessStartInfo
             {
-                FileName = "https://github.com/TDCRanila",
+                FileName = "https://github.com/TDCRanila/SRB2Kart-ModConfigurator",
+                UseShellExecute = true
+            };
+
+            Process.Start(processStartInfo);
+        }
+        private void SP_LinkLabelServerBrowser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ProcessStartInfo processStartInfo = new ProcessStartInfo
+            {
+                FileName = "https://ms.kartkrew.org/",
                 UseShellExecute = true
             };
 
