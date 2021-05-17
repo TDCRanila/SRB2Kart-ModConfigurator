@@ -582,8 +582,12 @@ namespace SRB2KModConfigurator
 
             exportBatchFileDialog.AlwaysAppendDefaultExtension   = true;
             exportBatchFileDialog.DefaultExtension               = ".bat";
-            exportBatchFileDialog.DefaultFileName                = CP_TextboxConfigurationName.Text;  
 
+            if (CP_TextboxConfigurationName.Text == "")
+                exportBatchFileDialog.DefaultFileName = "srb2k-config" + exportBatchFileDialog.DefaultExtension;
+            else
+                exportBatchFileDialog.DefaultFileName = Path.ChangeExtension(CP_TextboxConfigurationName.Text, exportBatchFileDialog.DefaultExtension);
+            
             if (exportBatchFileDialog.ShowDialog() != CommonFileDialogResult.Ok)
             {
                 return;
