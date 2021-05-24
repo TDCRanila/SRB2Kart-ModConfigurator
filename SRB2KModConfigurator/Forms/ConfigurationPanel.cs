@@ -122,7 +122,7 @@ namespace SRB2KModConfigurator
             SetTargetExecutableValidationStatus(false);
     }
 
-        private void ClearModFolder()
+        private void ClearModFolderData()
         {
             currentModFolderInfo = null;
             currentSelectedModItems.Clear();
@@ -638,6 +638,9 @@ namespace SRB2KModConfigurator
         {
             if (parentFormRef != null)
             {
+                ClearModFolderData();
+                ClearTargetExecutableInfo();
+
                 StarterPage starterPageRef = (StarterPage)this.ParentForm;
                 starterPageRef.ShowStarterPageElements();
                 starterPageRef.RefreshStarterPage();
@@ -703,7 +706,7 @@ namespace SRB2KModConfigurator
            { 
                 if (CP_TextBoxModFolderLocation.Text.Any())
                 {
-                    ClearModFolder();
+                    ClearModFolderData();
                     LoadModFolder(CP_TextBoxModFolderLocation.Text);
                 }
            }
@@ -727,7 +730,7 @@ namespace SRB2KModConfigurator
 
             if (canRefreshModFolder)
             {
-                ClearModFolder();
+                ClearModFolderData();
                 LoadModFolder(CP_TextBoxModFolderLocation.Text);
             }
         }
@@ -748,8 +751,9 @@ namespace SRB2KModConfigurator
             }
             else 
             {
-                string[] directory = modFolderFileDialog.FileNames.ToArray();
+                ClearModFolderData();
 
+                string[] directory = modFolderFileDialog.FileNames.ToArray();
                 LoadModFolder(directory[0]);
 
                 return;
