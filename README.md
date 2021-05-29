@@ -10,7 +10,7 @@ The main goal was to make this project for SRB2Kart, however, this can probably 
 
 #### Disclaimer
 
-I don't write much a whole lot of C#/Visual Forms code, so excuse any mistakes here and there.
+I don't write much a whole lot of C#/Visual Forms code, so excuse any mistakes here and there. Let me know if there are any issues with the program.
 
 ### Features
 
