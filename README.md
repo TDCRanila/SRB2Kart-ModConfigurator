@@ -8,6 +8,10 @@ The launcher has mainly been made to better manage your mods or modpacks, but it
 
 The main goal was to make this project for SRB2Kart, however, this can probably also be used for the base SRB2 game, but I haven't tested that. 
 
+#### Disclaimer
+
+I don't write much a whole lot of C#/Visual Forms code, so excuse any mistakes here and there. Let me know if there are any issues with the program.
+
 ### Features
 
 - Saving, Exporting & Loading of configuration.
